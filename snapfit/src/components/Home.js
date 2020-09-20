@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Button, Container, Navbar } from "react-bootstrap";
 import StateContext from "../StateContext";
 import DispatchContext from "../DispatchContext";
+import "../styles/home.css";
 
 function Home() {
   const appState = useContext(StateContext);
@@ -11,7 +12,7 @@ function Home() {
   }
   return (
     <div id="page-top">
-      <nav className="navbar navbar-expand-lg bg-light sticky-top" id="mainNav">
+      <nav className="navbar navbar-expand-lg bg-white sticky-top" id="mainNav">
         <div className="container">
           <a className="navbar-brand js-scroll-trigger text-black" href="#page-top">
             SNAPFIT
@@ -42,7 +43,7 @@ function Home() {
       </nav>
       <header className="masthead bg-primary text-white text-center">
         <div className="container d-flex align-items-center flex-column">
-          <img className="masthead-avatar mb-2 mt-2" src={appState.user.imageUrl} alt="" />
+          <img id="user-image" className="masthead-avatar mb-2 mt-2" src={appState.user.imageUrl} alt="" />
           <h2 className="masthead-heading mb-2">{appState.user.name}</h2>
         </div>
       </header>
@@ -54,27 +55,29 @@ function Home() {
                 <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                   <div className="portfolio-item-caption-content text-center text-white"></div>
                 </div>
-                <h1>My Schedule</h1>
+                <h3>My Schedule</h3>
               </div>
             </div>
             <div className="col-md-6 col-lg-4 mb-5">
               <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
                 <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"></div>
-                <h1>My Friends</h1>
+                <h3>My Friends</h3>
               </div>
             </div>
             <div className="col-md-6 col-lg-4 mb-5">
               <div className="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
                 <div className="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100"></div>
-                <h1>Fint Partner</h1>
+                <h3>Fint Partner</h3>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <Button onClick={handleLogout} variant="danger">
-        Log out
-      </Button>
+      <div className="sticky-bottom d-flex justify-content-center">
+        <Button onClick={handleLogout} variant="danger">
+          Log out
+        </Button>
+      </div>
     </div>
   );
 }
