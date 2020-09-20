@@ -1,0 +1,21 @@
+.body {
+  box-sizing: border-box;
+}
+
+.user-image {
+  border-radius: 50%;
+}
+
+ul a {
+  background-color: black;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding-right: 2rem;
+  border-radius: 25px;
+}
+
+.main-body {
+  background-color: aqua;
+  height: 80%;
+}
