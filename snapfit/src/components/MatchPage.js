@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 function MatchPage() {
-  return <></>;
+  return <>Match Page</>;
 }
 
 export default MatchPage;

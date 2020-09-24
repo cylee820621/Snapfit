@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 function FriendPage() {
-  return <></>;
+  return <>Friend page</>;
 }
 
 export default FriendPage;

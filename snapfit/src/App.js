@@ -4,6 +4,8 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./styles/App.css";
 import LandingPage from "./components/LandingPage";
 import Home from "./components/Home";
+import FriendPage from "../src/components/FriendPage";
+import MatchPage from "../src/components/MatchPage";
 
 import StateContext from "./StateContext";
 import DispatchContext from "./DispatchContext";
@@ -71,6 +73,12 @@ function App() {
           <Switch>
             <Route path="/" exact>
               {state.loggedIn ? <Home /> : <LandingPage />}
+            </Route>
+            <Route path="/friend" exact>
+              <FriendPage />
+            </Route>
+            <Route path="/match" exact>
+              <MatchPage />
             </Route>
           </Switch>
         </BrowserRouter>
