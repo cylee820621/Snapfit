@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import "../styles/weekschedule.css";
 
 function WeekSchedule(prop) {
@@ -12,11 +12,21 @@ function WeekSchedule(prop) {
         <Row xs={1} sm={1} md={2} lg={4} className="list-schedule">
           <Col>
             <div className="day">Monday</div>
+
             <div className="exercise-box">
               <ul>
-                <li>10 push up</li>
-                <li>20 squats</li>
-                <li>1 minute plank</li>
+                <li className="d-flex">
+                  <Form.Check type="checkbox" />
+                  <p>10 push up</p>
+                </li>
+                <li className="d-flex">
+                  <Form.Check type="checkbox" />
+                  <p>20 squats</p>
+                </li>
+                <li className="d-flex">
+                  <Form.Check type="checkbox" />
+                  <p>1 minute plank</p>
+                </li>
               </ul>
             </div>
           </Col>

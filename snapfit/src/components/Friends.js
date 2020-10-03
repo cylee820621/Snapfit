@@ -19,6 +19,10 @@ function Friends() {
     { name: "user3", userID: 3 }
   ];
 
+  function handleCheckStatus(params) {
+    alert("clicked");
+  }
+
   return (
     <Container className="mb-2" id="box">
       <Row className="ml-2 mb-5">
@@ -31,7 +35,7 @@ function Friends() {
           {friendsList.map((friend) => {
             return (
               <li className="mb-2 d-inline p-2">
-                <Button variant="outline-success">
+                <Button variant="outline-success" onClick={handleCheckStatus}>
                   <Row className="justify-content-between mx-1">
                     <Image id="f-photo" className="friend" src={appState.user.imageUrl} alt="user photo" />
                     <div>Name: {friend.name} </div>

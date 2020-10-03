@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Button, Col, Carousel } from "react-bootstrap";
+import { Container, Row, Button, Carousel } from "react-bootstrap";
 import WeekSchedule from "./WeekSchedule";
 import "../styles/schedule.css";
 
@@ -19,12 +19,12 @@ function Schedule() {
     }
   ];
   return (
-    <Container className="mb-2" id="box">
-      <Row className="ml-2">
+    <Container className="mb-2" id="box" fluid>
+      <Row className="schedule-title">
         <h3>My Sechdule</h3>
         <Button className="ml-2">Set</Button>
       </Row>
-      <Carousel>
+      <Carousel className="carousel-box">
         {passInScheduleData.map((data) => {
           return (
             <Carousel.Item>
