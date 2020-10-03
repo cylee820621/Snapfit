@@ -4,6 +4,10 @@
   background-color: #383045;
   color: white;
 }
+.day-schedule {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
 .week-title {
   font-style: italic;
   font-weight: bold;
@@ -13,7 +17,9 @@
   color: #a0deed;
   font-size: 1.5em;
 }
-
+.list-schedule {
+  padding-left: 1rem;
+}
 .exercise-box {
   margin-bottom: 20px;
   padding: 10px;

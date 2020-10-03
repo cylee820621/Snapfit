@@ -8,8 +8,8 @@ function WeekSchedule(prop) {
   return (
     <Container className="week-schedule">
       <div className="week-title">{data.week}</div>
-      <Container>
-        <Row xs={1} sm={2} md={3} lg={4} className="">
+      <Container className="day-schedule">
+        <Row xs={1} sm={1} md={2} lg={4} className="list-schedule">
           <Col>
             <div className="day">Monday</div>
             <div className="exercise-box">
