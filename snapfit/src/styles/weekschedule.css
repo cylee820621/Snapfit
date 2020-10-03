@@ -1,0 +1,27 @@
+.week-schedule {
+  margin-top: 1rem;
+  padding: 2rem;
+  background-color: #383045;
+  color: white;
+}
+.week-title {
+  font-style: italic;
+  font-weight: bold;
+  font-size: 2.2em;
+}
+.day {
+  color: #a0deed;
+  font-size: 1.5em;
+}
+
+.exercise-box {
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 180px;
+  height: 180px;
+  border-radius: 10%;
+  background-color: white;
+  color: black;
+  border-style: solid;
+  border-width: 1px;
+}

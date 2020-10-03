@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 
 function HeaderLoggedIn() {
   return (
-    <nav className="navbar navbar-expand-lg bg-white sticky-top" id="mainNav">
+    <nav className="navbar navbar-expand-md bg-white sticky-top" id="mainNav">
       <Container>
         <a className="navbar-brand text-black">SNAPFIT</a>
         <button className="navbar-toggler navbar-toggler-right font-weight-bold bg-white text-black rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
