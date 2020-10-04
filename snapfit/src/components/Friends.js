@@ -24,7 +24,7 @@ function Friends() {
   }
 
   return (
-    <Container className="mb-2" id="box">
+    <Container className="mb-2" id="box" fluid>
       <Row className="ml-2 mb-5">
         <h3>My Friends</h3>
         <Button className="ml-2">+Add</Button>
