@@ -1,0 +1,22 @@
+#mainNav {
+  background-color: rgb(254, 159, 254);
+}
+#logo {
+  color: rgb(255, 255, 255);
+  font-size: xx-large;
+  font-weight: bold;
+}
+#user-box {
+  display: flex;
+}
+
+.avatar {
+  width: 17%;
+  height: auto;
+  padding-right: 5px;
+}
+.username {
+  color: black;
+  font-style: italic;
+  font-size: 1.5rem;
+}

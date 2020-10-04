@@ -16,9 +16,8 @@ function Home() {
     appDispatch({ type: "logout" });
   }
   return (
-    <div>
+    <div className="home-container">
       <HeaderLoggedIn />
-      <Profile />
       <Schedule />
       <Friends />
       <Match />
