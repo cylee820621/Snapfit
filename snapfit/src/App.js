@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./styles/App.css";
 import LandingPage from "./components/LandingPage";
 import Home from "./components/Home";
+import axios from "axios";
 
 import StateContext from "./StateContext";
 import DispatchContext from "./DispatchContext";
