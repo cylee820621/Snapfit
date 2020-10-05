@@ -20,10 +20,6 @@ function Schedule() {
   ];
   return (
     <Container className="mb-2" id="box" fluid>
-      <Row className="schedule-title">
-        <h3>My Sechdule</h3>
-        <Button className="ml-2">Set</Button>
-      </Row>
       <Carousel className="carousel-box ">
         {passInScheduleData.map((data) => {
           return (

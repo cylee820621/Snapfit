@@ -5,13 +5,15 @@ function FriendCard(props) {
   const data = props.data;
   const userImage = props.userImage;
   return (
-    <Card style={{ width: "10rem" }}>
+    <Card style={{ width: "11rem" }}>
       <Card.Img variant="top" src={userImage} alt="user-image" />
       <Card.Body>
         <Card.Title>{data.name}</Card.Title>
         <Card.Text>Schedule</Card.Text>
-        <Button variant="success">Button</Button>
-        <Button variant="primary">Button</Button>
+        <div className="d-flex justify-content-center">
+          <Button variant="success">Button</Button>
+          <Button variant="primary">Button</Button>
+        </div>
       </Card.Body>
     </Card>
   );
