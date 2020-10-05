@@ -1,7 +1,9 @@
 .week-box {
   margin-top: 1rem;
-  padding: 2rem;
+  margin-bottom: 1rem;
   padding-top: 1rem;
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
   background-color: #ac84ed;
   color: white;
 }
@@ -29,14 +31,16 @@
 .schedule-box {
   margin-left: auto;
   margin-right: auto;
-  border-radius: 10%;
+  padding-left: 0;
+  padding-right: 0;
+
   width: 13rem;
-  height: 15rem;
+  height: auto;
   background-color: white;
   color: black;
 }
 .list-box {
-  padding: 0;
+  padding: 1rem;
   margin-top: 0.7rem;
   margin-bottom: 1rem;
   height: 9rem;
@@ -44,5 +48,5 @@
 }
 .btn-add-schedule {
   position: relative;
-  bottom: 0;
+  bottom: -1px;
 }
