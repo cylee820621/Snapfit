@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Container, Row, Button, Image } from "react-bootstrap";
 import StateContext from "../StateContext";
+import FriendCard from "./FriendCard";
 import "../styles/friends.css";
 
 function Friends() {
@@ -37,8 +38,7 @@ function Friends() {
               <li className="mb-2 d-inline p-2">
                 <Button variant="outline-success" onClick={handleCheckStatus}>
                   <Row className="justify-content-between mx-1">
-                    <Image id="f-photo" className="friend" src={appState.user.imageUrl} alt="user photo" />
-                    <div>Name: {friend.name} </div>
+                    <FriendCard userImage={appState.user.imageUrl} data={friend} />
                   </Row>
                 </Button>
               </li>
