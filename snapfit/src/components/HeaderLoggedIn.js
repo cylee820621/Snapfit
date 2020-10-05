@@ -6,7 +6,7 @@ import "../styles/header.css";
 function HeaderLoggedIn() {
   const appState = useContext(StateContext);
   return (
-    <nav className="navbar navbar-expand-lg" id="mainNav">
+    <nav className="navbar navbar-expand-lg shadow mb-3" id="mainNav">
       <Container fluid>
         <a id="logo" className="navbar-brand">
           SNAPFIT

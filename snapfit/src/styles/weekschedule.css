@@ -1,6 +1,6 @@
 .week-box {
-  margin-bottom: 1rem;
-  padding-top: 1rem;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
   padding-left: 3.5rem;
   padding-right: 3.5rem;
   background-color: #a58af5;
@@ -22,18 +22,15 @@
   display: flex;
   justify-content: center;
   color: #9fe0ee;
-  font-size: 1.5em;
+  font-size: 1.7em;
   font-weight: bold;
-  margin-bottom: 0.5rem;
 }
 
 .schedule-box {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 0;
-  padding-right: 0;
+  padding-left: auto;
+  padding-right: auto;
 
-  width: 13rem;
+  width: 12rem;
   height: auto;
   background-color: white;
   color: black;

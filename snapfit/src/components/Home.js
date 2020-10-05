@@ -6,6 +6,7 @@ import HeaderLoggedIn from "./HeaderLoggedIn";
 import Schedule from "./Schedule";
 import Friends from "./Friends";
 import Match from "./Match";
+import Footer from "./Footer";
 
 function Home() {
   const appState = useContext(StateContext);
@@ -19,11 +20,7 @@ function Home() {
       <Schedule />
       <Friends />
       <Match />
-      <div className="sticky-bottom d-flex justify-content-center mb-3">
-        <Button onClick={handleLogout} variant="danger">
-          Log out
-        </Button>
-      </div>
+      <Footer />
     </div>
   );
 }

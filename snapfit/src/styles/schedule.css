@@ -1,5 +1,6 @@
-#box {
+#schedule-box {
   padding: 1rem;
+  padding-bottom: 5rem;
   background-color: white;
 }
 .schedule-title {

@@ -26,7 +26,7 @@ function Friends() {
 
   return (
     <Container className="mb-2" id="f-box" fluid>
-      <div className="d-flex justify-content-center ml-2 mb-4">
+      <div className="d-flex justify-content-center ml-2 mb-1">
         <h3>My Friends</h3>
         <Button className="ml-2">+Add</Button>
       </div>
