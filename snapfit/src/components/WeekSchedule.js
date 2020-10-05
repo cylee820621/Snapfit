@@ -13,7 +13,7 @@ function WeekSchedule(prop) {
         <Row xs={1} sm={1} md={2} lg={3} xl={4} className="day-list">
           <Col>
             <div className="day">Monday</div>
-            <div className="schedule-box shadow-lg mb-3">
+            <div className="schedule-box shadow-lg mb-3 rounded">
               <div className="list-box overflow-auto">
                 <ul>
                   <li>10 push up</li>
@@ -33,7 +33,7 @@ function WeekSchedule(prop) {
           </Col>
           <Col>
             <div className="day">Tuseday</div>
-            <div className="schedule-box shadow-lg mb-3">
+            <div className="schedule-box shadow-lg mb-3 rounded">
               <div className="list-box overflow-auto">
                 <ul>
                   <li>10 push up</li>
@@ -49,15 +49,11 @@ function WeekSchedule(prop) {
           </Col>
           <Col>
             <div className="day">Wednesday</div>
-            <div className="schedule-box shadow-lg mb-3">
+            <div className="schedule-box shadow-lg mb-3 rounded">
               <div className="list-box overflow-auto">
                 <ul>
                   <li>10 push up</li>
                   <li>10 push up</li>
-                  <li>10 push up</li>
-                  <li>10 push up</li>
-                  <li>20 squats</li>
-                  <li>1 minute plank</li>
                 </ul>
               </div>
               <AddScheduleBtn className="btn-add-schedule" />
@@ -65,7 +61,7 @@ function WeekSchedule(prop) {
           </Col>
           <Col>
             <div className="day">Thursday</div>
-            <div className="schedule-box shadow-lg mb-3">
+            <div className="schedule-box shadow-lg mb-3 rounded">
               <div className="list-box overflow-auto">
                 <ul>
                   <li>10 push up</li>
@@ -81,7 +77,7 @@ function WeekSchedule(prop) {
           </Col>
           <Col>
             <div className="day">Friday</div>
-            <div className="schedule-box shadow-lg mb-3">
+            <div className="schedule-box shadow-lg mb-3 rounded">
               <div className="list-box overflow-auto">
                 <ul>
                   <li>10 push up</li>
@@ -97,7 +93,7 @@ function WeekSchedule(prop) {
           </Col>
           <Col>
             <div className="day">Saturday</div>
-            <div className="schedule-box shadow-lg mb-3">
+            <div className="schedule-box shadow-lg mb-3 rounded">
               <div className="list-box overflow-auto">
                 <ul>
                   <li>10 push up</li>
@@ -113,7 +109,7 @@ function WeekSchedule(prop) {
           </Col>
           <Col>
             <div className="day">Sunday</div>
-            <div className="schedule-box shadow-lg mb-3">
+            <div className="schedule-box shadow-lg mb-3 rounded">
               <div className="list-box overflow-auto">
                 <ul>
                   <li>10 push up</li>

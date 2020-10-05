@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Container, Row, Button, Image } from "react-bootstrap";
+import { Container, Row, Button, Image, Col } from "react-bootstrap";
 import StateContext from "../StateContext";
 import FriendCard from "./FriendCard";
 import "../styles/friends.css";
@@ -25,25 +25,22 @@ function Friends() {
   }
 
   return (
-    <Container className="mb-2" id="box" fluid>
-      <Row className="ml-2 mb-5">
+    <Container className="mb-2" id="f-box" fluid>
+      <div className="d-flex justify-content-center ml-2 mb-4">
         <h3>My Friends</h3>
         <Button className="ml-2">+Add</Button>
-      </Row>
-
-      <Row className="justify-content-md-left mx-2 my-3">
-        <ul className="d-flex">
+      </div>
+      <div className="p-5">
+        <Row xs={1} sm={1} md={3} lg={3} xl={4} className="justify-content-around">
           {friendsList.map((friend) => {
             return (
-              <li className="mb-2 mr-4 d-inline shadow p-3 mb-5 bg-white rounded">
-                <Row className="justify-content-between mx-1">
-                  <FriendCard userImage={appState.user.imageUrl} data={friend} />
-                </Row>
-              </li>
+              <Col className="mb-5 mr-2 shadow-lg p-3">
+                <FriendCard userImage={appState.user.imageUrl} data={friend} />
+              </Col>
             );
           })}
-        </ul>
-      </Row>
+        </Row>
+      </div>
     </Container>
   );
 }

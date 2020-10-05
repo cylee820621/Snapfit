@@ -6,10 +6,10 @@ function AddScheduleBtn() {
   return (
     <div className="btn-add-schedule">
       <Button block onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>
-        add schedule
+        Add
       </Button>
       <Collapse in={open}>
-        <div id="example-collapse-text">add schedule </div>
+        <div id="example-collapse-text">schedule </div>
       </Collapse>
     </div>
   );

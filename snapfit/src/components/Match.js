@@ -4,7 +4,7 @@ import "../styles/match.css";
 
 function Match() {
   return (
-    <Container className="mb-2" id="box">
+    <Container className="mb-2" id="match-box">
       <h3>Match</h3>
       <Row className="justify-content-md-center mb-3 mx-1">
         <Form>

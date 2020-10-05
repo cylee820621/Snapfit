@@ -19,7 +19,7 @@ function Schedule() {
     }
   ];
   return (
-    <Container className="mb-2" id="box" fluid>
+    <Container id="box" fluid>
       <Carousel className="carousel-box ">
         {passInScheduleData.map((data) => {
           return (
