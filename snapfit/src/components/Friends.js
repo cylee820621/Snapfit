@@ -25,17 +25,19 @@ function Friends() {
   }
 
   return (
-    <Container className="mb-2" id="f-box" fluid>
-      <div className="d-flex justify-content-center ml-2 mb-1">
+    <Container className="mb-3 mt-3" id="f-box" fluid>
+      <div className="d-flex justify-content-center">
         <h3>My Friends</h3>
-        <Button className="ml-2">+Add</Button>
+        <Button className="ml-3">+Add</Button>
       </div>
-      <div className="p-5">
+      <div className="p-4">
         <Row xs={1} sm={1} md={3} lg={3} xl={4} className="justify-content-around">
           {friendsList.map((friend) => {
             return (
-              <Col className="mb-5 mr-2 shadow-lg p-3">
-                <FriendCard userImage={appState.user.imageUrl} data={friend} />
+              <Col>
+                <div className="d-flex justify-content-center shadow-lg p-3">
+                  <FriendCard userImage={appState.user.imageUrl} data={friend} />
+                </div>
               </Col>
             );
           })}

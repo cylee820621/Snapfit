@@ -7,15 +7,39 @@ function Schedule() {
   const passInScheduleData = [
     {
       week: "Last Week",
-      Day: [{ Monday: ["10 push up", "20 squats", "1 minute plank"] }, { Tuesday: ["10 push up", "20 squats", "1 minute plank"] }, { Wednesday: ["10 push up", "20 squats", "1 minute plank"] }, { Thursday: ["10 push up", "20 squats", "1 minute plank"] }, { Friday: ["10 push up", "20 squats", "1 minute plank"] }, { Saturday: ["10 push up", "20 squats", "1 minute plank"] }, { Sunday: ["10 push up", "20 squats", "1 minute plank"] }]
+      days: [
+        { day: "Monday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
+        { day: "Tuesday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
+        { day: "Wednesday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
+        { day: "Thursday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
+        { day: "Friday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
+        { day: "Saturday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
+        { day: "Sunday", exercises: ["10 push up", "20 squats", "1 minute plank"] }
+      ]
     },
     {
       week: "This Week",
-      Day: [{ Monday: ["10 push up", "20 squats", "1 minute plank"] }, { Tuesday: ["10 push up", "20 squats", "1 minute plank"] }, { Wednesday: ["10 push up", "20 squats", "1 minute plank"] }, { Thursday: ["10 push up", "20 squats", "1 minute plank"] }, { Friday: ["10 push up", "20 squats", "1 minute plank"] }, { Saturday: ["10 push up", "20 squats", "1 minute plank"] }, { Sunday: ["10 push up", "20 squats", "1 minute plank"] }]
+      days: [
+        { day: "Monday", exercises: ["9 push up", "20 squats", "1 minute plank"] },
+        { day: "Tuesday", exercises: ["9 push up", "20 squats", "1 minute plank"] },
+        { day: "Wednesday", exercises: ["9 push up", "20 squats", "1 minute plank"] },
+        { day: "Thursday", exercises: ["9 push up", "20 squats", "1 minute plank"] },
+        { day: "Friday", exercises: ["9 push up", "20 squats", "1 minute plank"] },
+        { day: "Saturday", exercises: ["9 push up", "20 squats", "1 minute plank"] },
+        { day: "Sunday", exercises: ["9 push up", "20 squats", "1 minute plank"] }
+      ]
     },
     {
       week: "Next Week",
-      Day: [{ Monday: ["10 push up", "20 squats", "1 minute plank"] }, { Tuesday: ["10 push up", "20 squats", "1 minute plank"] }, { Wednesday: ["10 push up", "20 squats", "1 minute plank"] }, { Thursday: ["10 push up", "20 squats", "1 minute plank"] }, { Friday: ["10 push up", "20 squats", "1 minute plank"] }, { Saturday: ["10 push up", "20 squats", "1 minute plank"] }, { Sunday: ["10 push up", "20 squats", "1 minute plank"] }]
+      days: [
+        { day: "Monday", exercises: ["8 push up", "20 squats", "1 minute plank"] },
+        { day: "Tuesday", exercises: ["8 push up", "20 squats", "1 minute plank"] },
+        { day: "Wednesday", exercises: ["8 push up", "20 squats", "1 minute plank"] },
+        { day: "Thursday", exercises: ["8 push up", "20 squats", "1 minute plank"] },
+        { day: "Friday", exercises: ["8 push up", "20 squats", "1 minute plank"] },
+        { day: "Saturday", exercises: ["8 push up", "20 squats", "1 minute plank"] },
+        { day: "Sunday", exercises: ["8 push up", "20 squats", "1 minute plank"] }
+      ]
     }
   ];
   return (
@@ -23,7 +47,7 @@ function Schedule() {
       <Carousel className="carousel-box ">
         {passInScheduleData.map((data) => {
           return (
-            <Carousel.Item>
+            <Carousel.Item key={data.week}>
               <WeekSchedule data={data} />
             </Carousel.Item>
           );
