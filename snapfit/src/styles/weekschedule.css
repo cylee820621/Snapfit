@@ -2,7 +2,7 @@
   margin-top: 1rem;
 
   padding: 2rem;
-  background-color: #383045;
+  background-color: #ac84ed;
   color: white;
 }
 .day-schedule {
@@ -24,7 +24,7 @@
 .exercise-box {
   margin-bottom: 20px;
   padding: 10px;
-  width: 180px;
+  width: 200px;
   height: 180px;
   border-radius: 10%;
   background-color: white;

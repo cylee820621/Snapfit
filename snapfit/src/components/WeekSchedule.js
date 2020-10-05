@@ -13,7 +13,7 @@ function WeekSchedule(prop) {
           <Col>
             <div className="day">Monday</div>
 
-            <div className="exercise-box">
+            <div className="exercise-box shadow-lg p-3 mb-3">
               <ul>
                 <li className="d-flex">
                   <Form.Check type="checkbox" />
@@ -32,7 +32,7 @@ function WeekSchedule(prop) {
           </Col>
           <Col>
             <div className="day">Tuesday</div>
-            <div className="exercise-box">
+            <div className="exercise-box shadow-lg p-3 mb-3">
               <ul>
                 <li>10 push up</li>
                 <li>20 squats</li>
@@ -52,7 +52,7 @@ function WeekSchedule(prop) {
           </Col>
           <Col>
             <div className="day">Thursday</div>
-            <div className="exercise-box">
+            <div className="exercise-box shadow-lg p-3 mb-3">
               <ul>
                 <li>10 push up</li>
                 <li>20 squats</li>
@@ -62,7 +62,7 @@ function WeekSchedule(prop) {
           </Col>
           <Col>
             <div className="day">Friday</div>
-            <div className="exercise-box">
+            <div className="exercise-box shadow-lg p-3 mb-3">
               <ul>
                 <li>10 push up</li>
                 <li>20 squats</li>
@@ -72,7 +72,7 @@ function WeekSchedule(prop) {
           </Col>
           <Col>
             <div className="day">Saturday</div>
-            <div className="exercise-box">
+            <div className="exercise-box shadow-lg p-3 mb-3">
               <ul>
                 <li>10 push up</li>
                 <li>20 squats</li>
@@ -82,7 +82,7 @@ function WeekSchedule(prop) {
           </Col>
           <Col>
             <div className="day">Sunday</div>
-            <div className="exercise-box">
+            <div className="exercise-box shadow-lg p-3 mb-3">
               <ul>
                 <li>10 push up</li>
                 <li>20 squats</li>

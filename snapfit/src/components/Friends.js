@@ -32,15 +32,13 @@ function Friends() {
       </Row>
 
       <Row className="justify-content-md-left mx-2 my-3">
-        <ul>
+        <ul className="d-flex">
           {friendsList.map((friend) => {
             return (
-              <li className="mb-2 d-inline p-2">
-                <Button variant="outline-success" onClick={handleCheckStatus}>
-                  <Row className="justify-content-between mx-1">
-                    <FriendCard userImage={appState.user.imageUrl} data={friend} />
-                  </Row>
-                </Button>
+              <li className="mb-2 mr-4 d-inline shadow p-3 mb-5 bg-white rounded">
+                <Row className="justify-content-between mx-1">
+                  <FriendCard userImage={appState.user.imageUrl} data={friend} />
+                </Row>
               </li>
             );
           })}

@@ -24,7 +24,7 @@ function Schedule() {
         <h3>My Sechdule</h3>
         <Button className="ml-2">Set</Button>
       </Row>
-      <Carousel className="carousel-box">
+      <Carousel className="carousel-box ">
         {passInScheduleData.map((data) => {
           return (
             <Carousel.Item>

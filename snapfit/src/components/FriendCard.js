@@ -9,7 +9,8 @@ function FriendCard(props) {
       <Card.Img variant="top" src={userImage} alt="user-image" />
       <Card.Body>
         <Card.Title>{data.name}</Card.Title>
-        <Card.Text>Some text</Card.Text>
+        <Card.Text>Schedule</Card.Text>
+        <Button variant="success">Button</Button>
         <Button variant="primary">Button</Button>
       </Card.Body>
     </Card>
