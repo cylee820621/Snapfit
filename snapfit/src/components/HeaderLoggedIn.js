@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Container, Image, Nav } from "react-bootstrap";
+import { Container, Image } from "react-bootstrap";
 import StateContext from "../StateContext";
 import "../styles/header.css";
 

@@ -20,10 +20,6 @@ function Friends() {
     { name: "user3", userID: 3 }
   ];
 
-  function handleCheckStatus(params) {
-    alert("clicked");
-  }
-
   return (
     <Container className="mb-3 mt-3" id="f-box" fluid>
       <div className="d-flex justify-content-center">
@@ -35,7 +31,7 @@ function Friends() {
           {friendsList.map((friend) => {
             return (
               <Col>
-                <div className="d-flex justify-content-center shadow-lg p-3">
+                <div className="d-flex justify-content-center shadow-lg p-3 m-3">
                   <FriendCard userImage={appState.user.imageUrl} data={friend} />
                 </div>
               </Col>
