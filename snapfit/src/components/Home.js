@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { Button, Container, Col, Row } from "react-bootstrap";
 import StateContext from "../StateContext";
 import DispatchContext from "../DispatchContext";
 import HeaderLoggedIn from "./HeaderLoggedIn";

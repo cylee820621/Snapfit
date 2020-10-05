@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Button, Carousel } from "react-bootstrap";
+import { Container, Carousel } from "react-bootstrap";
 import WeekSchedule from "./WeekSchedule";
 import "../styles/schedule.css";
 
