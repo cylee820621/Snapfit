@@ -9,10 +9,19 @@ function AddScheduleBtn(props) {
   }, [open]);
 
   return (
-    <div className="btn-add-schedule">
-      <Button block onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>
-        Add
-      </Button>
+    <div>
+      <div>
+        <Button size="sm" block onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>
+          Add
+        </Button>
+        <Collapse in={open}>
+          <div id="example-collapse-text">
+            <Button className="my-0" size="sm" variant="danger" block onClick={() => setOpen(!open)}>
+              Cancel
+            </Button>
+          </div>
+        </Collapse>
+      </div>
     </div>
   );
 }

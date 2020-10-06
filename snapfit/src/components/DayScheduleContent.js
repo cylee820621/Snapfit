@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import AddScheduleBtn from "./AddScheduleBtn";
 import AddScheduleForm from "./AddScheduleForm";
 import "../styles/dayschedulecontent.css";
+import { Button } from "react-bootstrap";
 
 function DayScheduleContent(props) {
   const exercises = props.exercises;
@@ -26,7 +27,6 @@ function DayScheduleContent(props) {
           </ul>
         </div>
       )}
-
       <AddScheduleBtn setState={setAddState} className="btn-add-schedule" />
     </div>
   );
