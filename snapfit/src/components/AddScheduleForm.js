@@ -4,6 +4,10 @@ import "../styles/addscheduleform.css";
 
 function AddScheduleForm(props) {
   const setOpen = props.setState;
+
+  function handleSubmit() {
+    alert("Form has been submitted!");
+  }
   return (
     <div>
       <form className="schedule-form overflow-auto">
@@ -14,21 +18,24 @@ function AddScheduleForm(props) {
             <option>Lower body</option>
           </select>
           <select className="form-control" id="exampleFormControlSelect1">
-            <option>Upper body</option>
-            <option>Lower body</option>
+            <option>Shoulder</option>
+            <option>Chest</option>
+            <option>Arms</option>
+            <option>Back</option>
+            <option>Abs</option>
           </select>
           <select className="form-control" id="exampleFormControlSelect1">
-            <option>Upper body</option>
-            <option>Lower body</option>
+            <option>exercise</option>
+            <option>exercise</option>
           </select>
           <select className="form-control" id="exampleFormControlSelect1">
-            <option>Upper body</option>
-            <option>Lower body</option>
+            <option>exercise</option>
+            <option>exercise</option>
           </select>
         </div>
       </form>
-      <div className="schedule-form-btn">
-        <Button variant="success" size="sm" block>
+      <div className="d-flex schedule-form-btn">
+        <Button onClick={handleSubmit} variant="success" size="sm" block>
           Submit
         </Button>
         <Button className="my-0" size="sm" variant="danger" block onClick={() => setOpen(false)}>

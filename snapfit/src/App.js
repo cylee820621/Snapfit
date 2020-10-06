@@ -33,12 +33,6 @@ function App() {
       case "flashMessage":
         draft.flashMassage.push(action.value);
         return;
-      case "openSearch":
-        draft.isSeachOpen = true;
-        return;
-      case "closeSearch":
-        draft.isSeachOpen = false;
-        return;
     }
   }
 
