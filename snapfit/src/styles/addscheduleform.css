@@ -1,1 +1,11 @@
-
+.schedule-form {
+  height: 10rem;
+  padding: 0.7rem;
+}
+.option-font-size {
+  font-size: 0.3rem;
+}
+.schedule-form-btn {
+  position: relative;
+  bottom: -1rem;
+}

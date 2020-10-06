@@ -11,9 +11,16 @@ function AddScheduleBtn(props) {
   return (
     <div>
       <div>
-        <Button size="sm" block onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>
-          Add
-        </Button>
+        {open ? (
+          <Button variant="success" size="sm" block onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>
+            Submit
+          </Button>
+        ) : (
+          <Button size="sm" block onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>
+            Add
+          </Button>
+        )}
+
         <Collapse in={open}>
           <div id="example-collapse-text">
             <Button className="my-0" size="sm" variant="danger" block onClick={() => setOpen(!open)}>

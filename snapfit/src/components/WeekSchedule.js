@@ -10,7 +10,7 @@ function WeekSchedule(prop) {
 
   return (
     <Container className="week-box">
-      <div className="week-title">{week} Schedule</div>
+      <div className="week-title">{week} schedule</div>
       <Container className="days-box">
         <Row xs={1} sm={1} md={2} lg={3} xl={4} className="day-list">
           {days.map((day) => {

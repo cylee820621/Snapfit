@@ -16,18 +16,20 @@ function DayScheduleContent(props) {
     <div>
       {addState ? (
         <div className="schedule-form-box overflow-auto">
-          <AddScheduleForm />
+          <AddScheduleForm setState={setAddState} />
         </div>
       ) : (
-        <div className="list-box overflow-auto">
-          <ul>
-            {exercises.map((exercise) => {
-              return <li key={exercise}>{exercise}</li>;
-            })}
-          </ul>
+        <div>
+          <div className="list-box overflow-auto">
+            <ul>
+              {exercises.map((exercise) => {
+                return <li key={exercise}>{exercise}</li>;
+              })}
+            </ul>
+          </div>
+          <AddScheduleBtn setState={setAddState} className="btn-add-schedule" />
         </div>
       )}
-      <AddScheduleBtn setState={setAddState} className="btn-add-schedule" />
     </div>
   );
 }

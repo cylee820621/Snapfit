@@ -1,6 +1,6 @@
 .week-box {
   padding-bottom: 2rem;
-  padding-top: 2rem;
+  padding-top: 1rem;
   padding-left: 3.5rem;
   padding-right: 3.5rem;
   background-color: #a58af5;
@@ -12,7 +12,7 @@
 .week-title {
   font-style: italic;
   font-weight: bold;
-  font-size: 2.2em;
+  font-size: 2rem;
 }
 .day-list {
   display: flex;
@@ -29,7 +29,6 @@
 .schedule-box {
   padding-left: auto;
   padding-right: auto;
-
   width: 12rem;
   height: auto;
   background-color: white;
