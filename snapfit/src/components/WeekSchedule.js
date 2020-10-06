@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import AddScheduleBtn from "./AddScheduleBtn";
+import DayScheduleContent from "./DayScheduleContent";
 import "../styles/weekschedule.css";
 
 function WeekSchedule(prop) {
@@ -19,14 +19,7 @@ function WeekSchedule(prop) {
                 <div className="day">{day.day}</div>
                 <div className="d-flex justify-content-center mt-1">
                   <div className="schedule-box shadow-lg mb-3 rounded">
-                    <div className="list-box overflow-auto">
-                      <ul>
-                        {day.exercises.map((exercise) => {
-                          return <li key={exercise}>{exercise}</li>;
-                        })}
-                      </ul>
-                    </div>
-                    <AddScheduleBtn className="btn-add-schedule" />
+                    <DayScheduleContent exercises={day.exercises} />
                   </div>
                 </div>
               </Col>

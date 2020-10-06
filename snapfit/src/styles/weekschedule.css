@@ -35,13 +35,3 @@
   background-color: white;
   color: black;
 }
-.list-box {
-  padding: 1rem;
-  margin-top: 0.7rem;
-  margin-bottom: 1rem;
-  height: 11rem;
-}
-.btn-add-schedule {
-  position: relative;
-  bottom: -1px;
-}

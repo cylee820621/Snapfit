@@ -1,4 +1,7 @@
-#f-box {
-  padding: 1rem;
-  background-color: rgb(255, 255, 255);
+.friend-box {
+  transition: box-shadow 0.3s;
+  float: left;
+}
+.friend-box:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
 }

@@ -6,9 +6,6 @@
   font-size: xx-large;
   font-weight: bold;
 }
-#user-box {
-  display: flex;
-}
 
 .avatar {
   width: 17%;

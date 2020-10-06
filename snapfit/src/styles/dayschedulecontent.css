@@ -1,0 +1,13 @@
+.list-box {
+  padding: 1rem;
+  height: 13rem;
+}
+.schedule-form-box {
+  background-color: #a58af5;
+  padding: 1rem;
+  height: 13rem;
+}
+.btn-add-schedule {
+  position: relative;
+  bottom: 0px;
+}

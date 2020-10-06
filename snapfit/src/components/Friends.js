@@ -31,7 +31,7 @@ function Friends() {
           {friendsList.map((friend) => {
             return (
               <Col>
-                <div className="d-flex justify-content-center shadow-lg p-3 m-3">
+                <div className="d-flex justify-content-center shadow-lg p-3 m-3 ">
                   <FriendCard userImage={appState.user.imageUrl} data={friend} />
                 </div>
               </Col>
