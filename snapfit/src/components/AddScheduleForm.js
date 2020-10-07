@@ -8,16 +8,12 @@ function AddScheduleForm(props) {
   const secletion = [
     {
       target: "Select",
-      bodypart: [
-        { part: "Chest", exercise: ["Bench Press", "Low-incline Press", "Incline Press", "Dips", "Cable Fly"] },
-        { part: "Arms", exercise: ["Barbell Curl", "Hammer Curl", "Chin-Up", "Triceps Pushdown", "Lying Triceps Press", "Overhead Triceps Press"] },
-        { part: "Back", exercise: ["Barbell Deadlift", "Bent-over Row", "Pull-Up", "T-Bar Row", "Dumbell Row", "Cable Row"] },
-        { part: "Abdominal", exercise: ["Reverse Crunch", "Sitting Twists", "Dumbbell Side Bend", "Plank", "Side Plank"] }
-      ]
+      bodypart: []
     },
     {
       target: "Upper",
       bodypart: [
+        { part: "Select", exercise: [] },
         { part: "Chest", exercise: ["Bench Press", "Low-incline Press", "Incline Press", "Dips", "Cable Fly"] },
         { part: "Arms", exercise: ["Barbell Curl", "Hammer Curl", "Chin-Up", "Triceps Pushdown", "Lying Triceps Press", "Overhead Triceps Press"] },
         { part: "Back", exercise: ["Barbell Deadlift", "Bent-over Row", "Pull-Up", "T-Bar Row", "Dumbell Row", "Cable Row"] },
@@ -27,6 +23,7 @@ function AddScheduleForm(props) {
     {
       target: "Lower",
       bodypart: [
+        { part: "Select", exercise: [] },
         { part: "Quads", exercise: ["Front Squat", "Bulgarian split squat", "Leg press", "Leg extension", "Squat"] },
         { part: "Hamstrings", exercise: ["Glute Bridge", "Bench Hip Thrust", "Cable Pull-through", "Kettlebell Deadlift", "Romanian Deadlift", "Overhead Triceps Press"] },
         { part: "Glutes", exercise: ["Walking Lunges", "Banded Lateral Squat", "Glute Bridge", "Weighted Goodmorning", "Banded Leg Lift", "Isometric Lunge"] },
@@ -35,7 +32,7 @@ function AddScheduleForm(props) {
     },
     {
       target: "Cardio",
-      exercises: ["Elliptical", "Running", "Cycling", "Swimming", "Sprinting", "Stair Climber", "Jumping Rope", "Kettlebells"]
+      exercises: ["Select", "Elliptical", "Running", "Cycling", "Swimming", "Sprinting", "Stair Climber", "Jumping Rope", "Kettlebells"]
     }
   ];
 
@@ -48,6 +45,12 @@ function AddScheduleForm(props) {
     console.log("bodyPart=" + bodyPart.value);
     console.log("targetPart=" + targetPart.value);
     console.log("exercise=" + exercise.value);
+    if (bodyPart.value && targetPart.value && targetPart.value != "Select") {
+      console.log("Sumbitted");
+      setOpen(false);
+    } else {
+      alert("please choose a exercise");
+    }
   }
 
   return (
@@ -60,41 +63,45 @@ function AddScheduleForm(props) {
             })}
           </select>
 
-          {bodyPart.value == "Upper" ? (
+          {bodyPart.value === "Upper" ? (
             <select value={targetPart.value} onChange={(e) => setTargetBodyPart({ value: e.target.value })} className="form-control form-control-sm">
-              {secletion[1].bodypart.map((upperPart) => {
-                return <option value={upperPart.part}>{upperPart.part}</option>;
+              {secletion[1].bodypart.map((part) => {
+                return <option value={part.part}>{part.part}</option>;
               })}
             </select>
           ) : (
             false
           )}
-          {bodyPart.value == "Lower" ? (
+          {bodyPart.value === "Lower" ? (
             <select value={targetPart.value} onChange={(e) => setTargetBodyPart({ value: e.target.value })} className="form-control form-control-sm">
-              {secletion[2].bodypart.map((lowerPart) => {
-                return <option value={lowerPart.part}>{lowerPart.part}</option>;
+              {secletion[2].bodypart.map((part) => {
+                return <option value={part.part}>{part.part}</option>;
               })}
             </select>
           ) : (
             false
           )}
-          {bodyPart.value == "Cardio" ? (
+          {bodyPart.value === "Cardio" ? (
             <select value={targetPart.value} onChange={(e) => setTargetBodyPart({ value: e.target.value })} className="form-control form-control-sm">
-              {secletion[3].exercises.map((exercise) => {
-                return <option value={exercise}>{exercise}</option>;
+              {secletion[3].exercises.map((part) => {
+                return <option value={part}>{part}</option>;
               })}
             </select>
           ) : (
             false
           )}
+          {targetPart.value === "Chest"}
+          {targetPart.value === "Chest"}
+          {targetPart.value === "Chest"}
+          {targetPart.value === "Chest"}
         </div>
 
         <div className="d-flex btn-form">
           <Button type="submit" onClick={handleSubmit} variant="success" size="sm" block>
-            Submit
+            <i class="fas fa-check"></i>
           </Button>
           <Button className="my-0" size="sm" variant="danger" block onClick={() => setOpen(false)}>
-            Cancel
+            <i class="fas fa-times"></i>
           </Button>
         </div>
       </form>

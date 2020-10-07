@@ -8,7 +8,7 @@ function DayScheduleContent(props) {
   const [addState, setAddState] = useState(false);
 
   useEffect(() => {
-    console.log(addState);
+    console.log("AddButton " + addState);
   }, [addState]);
 
   return (
