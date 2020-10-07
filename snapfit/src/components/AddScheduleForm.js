@@ -14,7 +14,7 @@ function AddScheduleForm(props) {
   function handleSubmit(e) {
     alert("Form has been submitted!");
     e.preventDefault();
-    console.log(bodyPart);
+    console.log(bodyPart.value);
   }
   return (
     <div>
@@ -25,11 +25,13 @@ function AddScheduleForm(props) {
             <option value="lower">Lower body</option>
           </select>
           <select className="form-control form-control-sm">
-            <option>Shoulder</option>
-            <option>Chest</option>
-            <option>Arms</option>
-            <option>Back</option>
-            <option>Abs</option>
+            {bodyPart.value == "upper"
+              ? upperBody.map((part) => {
+                  return <option>{part}</option>;
+                })
+              : lowerBody.map((part) => {
+                  return <option>{part}</option>;
+                })}
           </select>
           <select className="form-control form-control-sm">
             <option>exercise</option>
