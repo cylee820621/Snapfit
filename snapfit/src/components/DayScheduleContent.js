@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import AddScheduleBtn from "./AddScheduleBtn";
 import AddScheduleForm from "./AddScheduleForm";
 import "../styles/dayschedulecontent.css";
-import { Button } from "react-bootstrap";
 
 function DayScheduleContent(props) {
   const exercises = props.exercises;
@@ -15,7 +14,7 @@ function DayScheduleContent(props) {
   return (
     <div>
       {addState ? (
-        <div className="schedule-form-box overflow-auto">
+        <div className="schedule-form-box">
           <AddScheduleForm setState={setAddState} />
         </div>
       ) : (

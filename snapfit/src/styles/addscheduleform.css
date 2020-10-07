@@ -1,11 +1,19 @@
 .schedule-form {
-  height: 12rem;
-  padding: 0.7rem;
+  height: 15rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0rem;
 }
-.option-font-size {
-  font-size: 0.3rem;
+.label-select {
+  margin: 0rem;
 }
-.schedule-form-btn {
-  position: relative;
-  bottom: -1rem;
+.form-group {
+  margin: 0rem;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+}
+.form-control {
+  margin-bottom: 0.4rem;
+}
+.btn-form {
+  padding-top: 3.2rem;
 }

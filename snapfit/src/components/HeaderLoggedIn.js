@@ -20,16 +20,15 @@ function HeaderLoggedIn() {
         </button>
         <div className="collapse navbar-collapse justify-content-end" id="navbarResponsive">
           <ul id="navbar-section" className="navbar-nav ">
-            <li className="nav-item mx-0 mx-lg-1">
+            <li className="nav-item mx-0 mx-lg-2">
               <Button size="sm" variant="outline-success">
-                <a className="nav-link py-3 px-0 px-lg-3 rounded ">MESSAGE</a>
+                <a className="nav-link p-2 px-lg-3 rounded ">MESSAGE</a>
               </Button>
             </li>
-            <li className="nav-item mx-0 mx-lg-1">
-              <a className="nav-link py-3 px-0 px-lg-3 rounded ">ABOUT</a>
-            </li>
-            <li className="nav-item mx-0 mx-lg-1">
-              <a className="nav-link py-3 px-0 px-lg-3 rounded ">CONTACT</a>
+            <li className="nav-item mx-0 mx-lg-2">
+              <Button size="sm" variant="outline-success">
+                <a className="nav-link p-2 px-lg-3 rounded ">NEW FRIEND</a>
+              </Button>
             </li>
           </ul>
         </div>
