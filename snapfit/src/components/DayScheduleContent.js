@@ -21,7 +21,7 @@ function DayScheduleContent(props) {
         <div>
           <div className="list-box overflow-auto">
             <ul>
-              {exercises.length != 0 ? (
+              {exercises.length !== 0 ? (
                 exercises.map((exercise) => {
                   return <li key={exercise}>{exercise}</li>;
                 })

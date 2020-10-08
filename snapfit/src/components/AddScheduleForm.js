@@ -1,9 +1,11 @@
 import React, { useState, useContext } from "react";
 import { Button } from "react-bootstrap";
+import DispatchContext from "../DispatchContext";
 
 import "../styles/addscheduleform.css";
 
 function AddScheduleForm(props) {
+  const appDispatch = useContext(DispatchContext);
   const setOpen = props.setState;
 
   const secletion = [
@@ -47,12 +49,13 @@ function AddScheduleForm(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (bodyPart.value != "Select" && targetPart.value != "Select" && targetPart.value != "Select" && sets.value != "Select") {
+    if (bodyPart.value !== "Select" && targetPart.value !== "Select" && targetPart.value !== "Select" && sets.value !== "Select") {
       console.log("bodyPart=" + bodyPart.value);
       console.log("targetPart=" + targetPart.value);
       console.log("exercise=" + exercise.value);
       console.log("sets=" + sets.value);
       console.log("Sumbitted");
+      console.log(`${sets.value}sets ${exercise.value} ${targetPart.value} ${bodyPart.value}`);
       setOpen(false);
     } else {
       alert("please choose a exercise");
@@ -83,7 +86,7 @@ function AddScheduleForm(props) {
             })}
           </select>
 
-          {bodyPart.value != "Select" && (
+          {bodyPart.value !== "Select" && (
             <select
               value={targetPart.value}
               onChange={(e) => {
@@ -98,7 +101,7 @@ function AddScheduleForm(props) {
               })}
             </select>
           )}
-          {targetPart.value != "Select" && (
+          {targetPart.value !== "Select" && (
             <select
               value={exercise.value}
               onChange={(e) => {
@@ -114,7 +117,7 @@ function AddScheduleForm(props) {
                 })}
             </select>
           )}
-          {exercise.value != "Select" && (
+          {exercise.value !== "Select" && (
             <select value={sets.value} onChange={(e) => setSets({ value: e.target.value })} className="form-control form-control-sm">
               <option value="Select">Select</option>
               <option value="1">1</option>
@@ -145,3 +148,16 @@ function AddScheduleForm(props) {
 }
 
 export default AddScheduleForm;
+
+/*
+for later used
+
+appDispatch({
+  type: "addSchedule",
+  value: {
+    week: "Which Week",
+    day: "which day",
+    addItem: `${sets.value} + ${exercise.value} + ${targetPart.value} + ${bodyPart.value}`
+  }
+});
+*/
