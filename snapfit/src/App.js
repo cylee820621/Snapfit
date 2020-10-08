@@ -18,6 +18,44 @@ function App() {
       email: localStorage.getItem("snapfitEmail"),
       familyName: localStorage.getItem("snapfitFamilyName"),
       givenName: localStorage.getItem("snapfitGivenName")
+    },
+    schedule: {
+      lastWeek: {
+        week: "Last",
+        days: [
+          { day: "Monday", exercises: [] },
+          { day: "Tuesday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
+          { day: "Wednesday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
+          { day: "Thursday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
+          { day: "Friday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
+          { day: "Saturday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
+          { day: "Sunday", exercises: ["10 push up", "20 squats", "1 minute plank"] }
+        ]
+      },
+      thisWeek: {
+        week: "This",
+        days: [
+          { day: "Monday", exercises: [] },
+          { day: "Tuesday", exercises: ["9 push up", "20 squats", "1 minute plank"] },
+          { day: "Wednesday", exercises: ["9 push up", "20 squats", "1 minute plank"] },
+          { day: "Thursday", exercises: ["9 push up", "20 squats", "1 minute plank"] },
+          { day: "Friday", exercises: ["9 push up", "20 squats", "1 minute plank"] },
+          { day: "Saturday", exercises: ["9 push up", "20 squats", "1 minute plank"] },
+          { day: "Sunday", exercises: ["9 push up", "20 squats", "1 minute plank"] }
+        ]
+      },
+      nextWeek: {
+        week: "Next",
+        days: [
+          { day: "Monday", exercises: [] },
+          { day: "Tuesday", exercises: ["8 push up", "20 squats", "1 minute plank"] },
+          { day: "Wednesday", exercises: ["8 push up", "20 squats", "1 minute plank"] },
+          { day: "Thursday", exercises: ["8 push up", "20 squats", "1 minute plank"] },
+          { day: "Friday", exercises: ["8 push up", "20 squats", "1 minute plank"] },
+          { day: "Saturday", exercises: ["8 push up", "20 squats", "1 minute plank"] },
+          { day: "Sunday", exercises: ["8 push up", "20 squats", "1 minute plank"] }
+        ]
+      }
     }
   };
 
@@ -29,6 +67,12 @@ function App() {
         return;
       case "logout":
         draft.loggedIn = false;
+        return;
+      case "addSchedule":
+        draft.flashMassage.push(action.value);
+        return;
+      case "deletSchedule":
+        draft.flashMassage.push(action.value);
         return;
       case "flashMessage":
         draft.flashMassage.push(action.value);

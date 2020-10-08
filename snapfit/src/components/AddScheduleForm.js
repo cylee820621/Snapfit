@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { Button, Alert } from "react-bootstrap";
+import React, { useState, useContext } from "react";
+import { Button } from "react-bootstrap";
+
 import "../styles/addscheduleform.css";
 
 function AddScheduleForm(props) {
@@ -14,40 +15,43 @@ function AddScheduleForm(props) {
       target: "Upper",
       bodypart: [
         { part: "Select", exercises: [] },
-        { part: "Chest", exercises: ["Bench Press", "Low-incline Press", "Incline Press", "Dips", "Cable Fly"] },
-        { part: "Arms", exercises: ["Barbell Curl", "Hammer Curl", "Chin-Up", "Triceps Pushdown", "Lying Triceps Press", "Overhead Triceps Press"] },
-        { part: "Back", exercises: ["Barbell Deadlift", "Bent-over Row", "Pull-Up", "T-Bar Row", "Dumbell Row", "Cable Row"] },
-        { part: "Abdominal", exercises: ["Reverse Crunch", "Sitting Twists", "Dumbbell Side Bend", "Plank", "Side Plank"] }
+        { part: "Chest", exercises: ["Select", "Bench Press", "Low-incline Press", "Incline Press", "Dips", "Cable Fly"] },
+        { part: "Arms", exercises: ["Select", "Barbell Curl", "Hammer Curl", "Chin-Up", "Triceps Pushdown", "Lying Triceps Press", "Overhead Triceps Press"] },
+        { part: "Back", exercises: ["Select", "Barbell Deadlift", "Bent-over Row", "Pull-Up", "T-Bar Row", "Dumbell Row", "Cable Row"] },
+        { part: "Abdominal", exercises: ["Select", "Reverse Crunch", "Sitting Twists", "Dumbbell Side Bend", "Plank", "Side Plank"] }
       ]
     },
     {
       target: "Lower",
       bodypart: [
         { part: "Select", exercises: [] },
-        { part: "Quads", exercises: ["Front Squat", "Bulgarian split squat", "Leg press", "Leg extension", "Squat"] },
-        { part: "Hamstrings", exercises: ["Glute Bridge", "Bench Hip Thrust", "Cable Pull-through", "Kettlebell Deadlift", "Romanian Deadlift", "Overhead Triceps Press"] },
-        { part: "Glutes", exercises: ["Walking Lunges", "Banded Lateral Squat", "Glute Bridge", "Weighted Goodmorning", "Banded Leg Lift", "Isometric Lunge"] },
-        { part: "Calves", exercises: ["Standing Calf Raise", "Seated calf raise", "Farmer’s walk on toes", "Jump rope"] }
+        { part: "Quads", exercises: ["Select", "Front Squat", "Bulgarian split squat", "Leg press", "Leg extension", "Squat"] },
+        { part: "Hamstrings", exercises: ["Select", "Glute Bridge", "Bench Hip Thrust", "Cable Pull-through", "Kettlebell Deadlift", "Romanian Deadlift", "Overhead Triceps Press"] },
+        { part: "Glutes", exercises: ["Select", "Walking Lunges", "Banded Lateral Squat", "Glute Bridge", "Weighted Goodmorning", "Banded Leg Lift", "Isometric Lunge"] },
+        { part: "Calves", exercises: ["Select", "Standing Calf Raise", "Seated calf raise", "Farmer’s walk on toes", "Jump rope"] }
       ]
     },
     {
       target: "Cardio",
-      bodypart: [{ part: "Full Body", exercises: ["Select", "Elliptical", "Running", "Cycling", "Swimming", "Sprinting", "Stair Climber", "Jumping Rope", "Kettlebells"] }]
+      bodypart: [
+        { part: "Select", exercises: [] },
+        { part: "Full Body", exercises: ["Select", "Elliptical", "Running", "Cycling", "Swimming", "Sprinting", "Stair Climber", "Jumping Rope", "Kettlebells"] }
+      ]
     }
   ];
 
-  const [bodyPart, setBodyPart] = useState({ value: "" });
-  const [targetPart, setTargetBodyPart] = useState({ value: "" });
-  const [exercise, setExercise] = useState({ value: "" });
-  const [sets, setSets] = useState({ value: "" });
+  const [bodyPart, setBodyPart] = useState({ value: "Select" });
+  const [targetPart, setTargetBodyPart] = useState({ value: "Select" });
+  const [exercise, setExercise] = useState({ value: "Select" });
+  const [sets, setSets] = useState({ value: "Select" });
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("bodyPart=" + bodyPart.value);
-    console.log("targetPart=" + targetPart.value);
-    console.log("exercise=" + exercise.value);
-    console.log("sets=" + sets.value);
-    if (bodyPart.value && targetPart.value && targetPart.value != "Select") {
+    if (bodyPart.value != "Select" && targetPart.value != "Select" && targetPart.value != "Select" && sets.value != "Select") {
+      console.log("bodyPart=" + bodyPart.value);
+      console.log("targetPart=" + targetPart.value);
+      console.log("exercise=" + exercise.value);
+      console.log("sets=" + sets.value);
       console.log("Sumbitted");
       setOpen(false);
     } else {
@@ -64,21 +68,45 @@ function AddScheduleForm(props) {
     <div>
       <form className="schedule-form">
         <div className="form-group">
-          <select value={bodyPart.value} onChange={(e) => setBodyPart({ value: e.target.value })} className="form-control form-control-sm">
+          <select
+            value={bodyPart.value}
+            onChange={(e) => {
+              setBodyPart({ value: e.target.value });
+              setTargetBodyPart({ value: "Select" });
+              setExercise({ value: "Select" });
+              setSets({ value: "Select" });
+            }}
+            className="form-control form-control-sm"
+          >
             {secletion.map((part) => {
               return <option value={part.target}>{part.target}</option>;
             })}
           </select>
 
-          {bodyPart.value && bodyPart.value != "Select" && (
-            <select value={targetPart.value} onChange={(e) => setTargetBodyPart({ value: e.target.value })} className="form-control form-control-sm">
+          {bodyPart.value != "Select" && (
+            <select
+              value={targetPart.value}
+              onChange={(e) => {
+                setTargetBodyPart({ value: e.target.value });
+                setExercise({ value: "Select" });
+                setSets({ value: "Select" });
+              }}
+              className="form-control form-control-sm"
+            >
               {selectTargetObject(bodyPart.value)[0].bodypart.map((part) => {
                 return <option value={part.part}>{part.part}</option>;
               })}
             </select>
           )}
           {targetPart.value && targetPart.value != "Select" && (
-            <select value={exercise.value} onChange={(e) => setExercise({ value: e.target.value })} className="form-control form-control-sm">
+            <select
+              value={exercise.value}
+              onChange={(e) => {
+                setExercise({ value: e.target.value });
+                setSets({ value: "Select" });
+              }}
+              className="form-control form-control-sm"
+            >
               {selectTargetObject(bodyPart.value)[0]
                 .bodypart.filter((part) => part.part == targetPart.value)[0]
                 .exercises.map((exerciseName) => {
@@ -86,8 +114,9 @@ function AddScheduleForm(props) {
                 })}
             </select>
           )}
-          {exercise.value && (
+          {exercise.value != "Select" && (
             <select value={sets.value} onChange={(e) => setSets({ value: e.target.value })} className="form-control form-control-sm">
+              <option value="Select">Select</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>

@@ -6,6 +6,14 @@
   background-color: #c6b4fc;
   height: 14.9rem;
 }
+.no-schedule-info {
+  display: flex;
+  justify-content: center;
+  padding-top: 4rem;
+  color: rgb(190, 189, 189);
+  font-size: larger;
+  font-weight: bold;
+}
 .btn-add-schedule {
   position: relative;
   bottom: 0px;

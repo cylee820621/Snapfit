@@ -4,7 +4,7 @@ import AddScheduleForm from "./AddScheduleForm";
 import "../styles/dayschedulecontent.css";
 
 function DayScheduleContent(props) {
-  const exercises = props.exercises;
+  const exercises = props.data.exercises;
   const [addState, setAddState] = useState(false);
 
   useEffect(() => {
@@ -21,9 +21,13 @@ function DayScheduleContent(props) {
         <div>
           <div className="list-box overflow-auto">
             <ul>
-              {exercises.map((exercise) => {
-                return <li key={exercise}>{exercise}</li>;
-              })}
+              {exercises.length != 0 ? (
+                exercises.map((exercise) => {
+                  return <li key={exercise}>{exercise}</li>;
+                })
+              ) : (
+                <div className="no-schedule-info">None</div>
+              )}
             </ul>
           </div>
           <AddScheduleBtn setState={setAddState} className="btn-add-schedule" />
