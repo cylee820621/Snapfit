@@ -49,7 +49,6 @@ function AddScheduleForm(props) {
     console.log("sets=" + sets.value);
     if (bodyPart.value && targetPart.value && targetPart.value != "Select") {
       console.log("Sumbitted");
-
       setOpen(false);
     } else {
       alert("please choose a exercise");
@@ -58,7 +57,6 @@ function AddScheduleForm(props) {
 
   function selectTargetObject(object) {
     const rightObject = secletion.filter((i) => i.target === object);
-    console.log(rightObject[0]);
     return rightObject;
   }
 
