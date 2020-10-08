@@ -23,11 +23,11 @@ function App() {
       lastWeek: {
         week: "Last",
         monday: { day: "Monday", exercises: [] },
-        tuesday: { day: "Tuesday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
+        tuesday: { day: "Tuesday", exercises: ["20 squats", "1 minute plank"] },
         wednesday: { day: "Wednesday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
         thursday: { day: "Thursday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
         friday: { day: "Friday", exercises: [] },
-        saturday: { day: "Saturday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
+        saturday: { day: "Saturday", exercises: ["10 push up", "1 minute plank"] },
         sunday: { day: "Sunday", exercises: ["10 push up", "20 squats", "1 minute plank"] }
       },
       thisWeek: {
@@ -37,8 +37,8 @@ function App() {
         wednesday: { day: "Wednesday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
         thursday: { day: "Thursday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
         friday: { day: "Friday", exercises: [] },
-        saturday: { day: "Saturday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
-        sunday: { day: "Sunday", exercises: ["10 push up", "20 squats", "1 minute plank"] }
+        saturday: { day: "Saturday", exercises: ["10 push up", "1 minute plank"] },
+        sunday: { day: "Sunday", exercises: ["10 push up", "20 squats"] }
       },
       nextWeek: {
         week: "Next",
@@ -50,7 +50,8 @@ function App() {
         saturday: { day: "Saturday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
         sunday: { day: "Sunday", exercises: ["10 push up", "20 squats", "1 minute plank"] }
       }
-    }
+    },
+    friend: {}
   };
 
   function ourReducer(draft, action) {
