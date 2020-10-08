@@ -27,7 +27,7 @@ function App() {
           { day: "Tuesday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
           { day: "Wednesday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
           { day: "Thursday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
-          { day: "Friday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
+          { day: "Friday", exercises: [] },
           { day: "Saturday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
           { day: "Sunday", exercises: ["10 push up", "20 squats", "1 minute plank"] }
         ]
@@ -40,7 +40,7 @@ function App() {
           { day: "Wednesday", exercises: ["9 push up", "20 squats", "1 minute plank"] },
           { day: "Thursday", exercises: ["9 push up", "20 squats", "1 minute plank"] },
           { day: "Friday", exercises: ["9 push up", "20 squats", "1 minute plank"] },
-          { day: "Saturday", exercises: ["9 push up", "20 squats", "1 minute plank"] },
+          { day: "Saturday", exercises: [] },
           { day: "Sunday", exercises: ["9 push up", "20 squats", "1 minute plank"] }
         ]
       },
@@ -53,7 +53,7 @@ function App() {
           { day: "Thursday", exercises: ["8 push up", "20 squats", "1 minute plank"] },
           { day: "Friday", exercises: ["8 push up", "20 squats", "1 minute plank"] },
           { day: "Saturday", exercises: ["8 push up", "20 squats", "1 minute plank"] },
-          { day: "Sunday", exercises: ["8 push up", "20 squats", "1 minute plank"] }
+          { day: "Sunday", exercises: [] }
         ]
       }
     }

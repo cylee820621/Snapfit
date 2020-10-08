@@ -157,7 +157,7 @@ appDispatch({
   value: {
     week: "Which Week",
     day: "which day",
-    addItem: `${sets.value} + ${exercise.value} + ${targetPart.value} + ${bodyPart.value}`
+    addItem: `${sets.value}sets ${exercise.value} ${targetPart.value} ${bodyPart.value}`
   }
 });
 */
