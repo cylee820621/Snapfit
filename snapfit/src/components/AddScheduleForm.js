@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Button } from "react-bootstrap";
 import DispatchContext from "../DispatchContext";
-
 import "../styles/addscheduleform.css";
 
 function AddScheduleForm(props) {
@@ -138,7 +137,7 @@ function AddScheduleForm(props) {
           <Button type="submit" onClick={handleSubmit} variant="success" size="sm" block>
             <i class="fas fa-check"></i>
           </Button>
-          <Button className="my-0" size="sm" variant="danger" block onClick={() => setOpen(false)}>
+          <Button className="my-0" size="sm" variant="danger" onClick={() => setOpen(false)} block>
             <i class="fas fa-times"></i>
           </Button>
         </div>

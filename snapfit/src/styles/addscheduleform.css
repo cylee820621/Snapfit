@@ -15,7 +15,6 @@
   margin-bottom: 0.4rem;
 }
 .btn-form {
-  position: absolute;
-  bottom: 1rem;
-  width: 68.3%;
+  padding-top: 10rem;
+  width: 100%;
 }

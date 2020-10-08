@@ -22,39 +22,33 @@ function App() {
     schedule: {
       lastWeek: {
         week: "Last",
-        days: [
-          { day: "Monday", exercises: [] },
-          { day: "Tuesday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
-          { day: "Wednesday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
-          { day: "Thursday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
-          { day: "Friday", exercises: [] },
-          { day: "Saturday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
-          { day: "Sunday", exercises: ["10 push up", "20 squats", "1 minute plank"] }
-        ]
+        monday: { day: "Monday", exercises: [] },
+        tuesday: { day: "Tuesday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
+        wednesday: { day: "Wednesday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
+        thursday: { day: "Thursday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
+        friday: { day: "Friday", exercises: [] },
+        saturday: { day: "Saturday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
+        sunday: { day: "Sunday", exercises: ["10 push up", "20 squats", "1 minute plank"] }
       },
       thisWeek: {
         week: "This",
-        days: [
-          { day: "Monday", exercises: [] },
-          { day: "Tuesday", exercises: ["9 push up", "20 squats", "1 minute plank"] },
-          { day: "Wednesday", exercises: ["9 push up", "20 squats", "1 minute plank"] },
-          { day: "Thursday", exercises: ["9 push up", "20 squats", "1 minute plank"] },
-          { day: "Friday", exercises: ["9 push up", "20 squats", "1 minute plank"] },
-          { day: "Saturday", exercises: [] },
-          { day: "Sunday", exercises: ["9 push up", "20 squats", "1 minute plank"] }
-        ]
+        monday: { day: "Monday", exercises: [] },
+        tuesday: { day: "Tuesday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
+        wednesday: { day: "Wednesday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
+        thursday: { day: "Thursday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
+        friday: { day: "Friday", exercises: [] },
+        saturday: { day: "Saturday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
+        sunday: { day: "Sunday", exercises: ["10 push up", "20 squats", "1 minute plank"] }
       },
       nextWeek: {
         week: "Next",
-        days: [
-          { day: "Monday", exercises: [] },
-          { day: "Tuesday", exercises: ["8 push up", "20 squats", "1 minute plank"] },
-          { day: "Wednesday", exercises: ["8 push up", "20 squats", "1 minute plank"] },
-          { day: "Thursday", exercises: ["8 push up", "20 squats", "1 minute plank"] },
-          { day: "Friday", exercises: ["8 push up", "20 squats", "1 minute plank"] },
-          { day: "Saturday", exercises: ["8 push up", "20 squats", "1 minute plank"] },
-          { day: "Sunday", exercises: [] }
-        ]
+        monday: { day: "Monday", exercises: [] },
+        tuesday: { day: "Tuesday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
+        wednesday: { day: "Wednesday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
+        thursday: { day: "Thursday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
+        friday: { day: "Friday", exercises: [] },
+        saturday: { day: "Saturday", exercises: ["10 push up", "20 squats", "1 minute plank"] },
+        sunday: { day: "Sunday", exercises: ["10 push up", "20 squats", "1 minute plank"] }
       }
     }
   };
