@@ -98,7 +98,7 @@ function AddScheduleForm(props) {
               })}
             </select>
           )}
-          {targetPart.value && targetPart.value != "Select" && (
+          {targetPart.value != "Select" && (
             <select
               value={exercise.value}
               onChange={(e) => {
