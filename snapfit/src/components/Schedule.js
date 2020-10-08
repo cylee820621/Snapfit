@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { Container, Carousel } from "react-bootstrap";
-import { useImmerReducer } from "use-immer";
 import StateContext from "../StateContext";
 import WeekSchedule from "./WeekSchedule";
 import "../styles/schedule.css";
