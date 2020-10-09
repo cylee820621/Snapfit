@@ -15,7 +15,7 @@ function DayScheduleContent(props) {
     <div>
       {addState ? (
         <div className="schedule-form-box">
-          <AddScheduleForm setState={setAddState} />
+          <AddScheduleForm week={props.week} day={props.day} setState={setAddState} />
         </div>
       ) : (
         <div>

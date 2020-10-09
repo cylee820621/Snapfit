@@ -10,13 +10,13 @@ function Schedule() {
     <Container id="schedule-box" fluid>
       <Carousel className="carousel-box ">
         <Carousel.Item>
-          <WeekSchedule data={appState.schedule.lastWeek} />
+          <WeekSchedule week="lastWeek" data={appState.schedule.lastWeek} />
         </Carousel.Item>
         <Carousel.Item>
-          <WeekSchedule data={appState.schedule.thisWeek} />
+          <WeekSchedule week="thisWeek" data={appState.schedule.thisWeek} />
         </Carousel.Item>
         <Carousel.Item>
-          <WeekSchedule data={appState.schedule.nextWeek} />
+          <WeekSchedule week="nextWeek" data={appState.schedule.nextWeek} />
         </Carousel.Item>
       </Carousel>
     </Container>

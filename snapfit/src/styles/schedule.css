@@ -10,3 +10,9 @@
 .carousel-box {
   width: 100%;
 }
+.carousel-control-next {
+  width: 3rem;
+}
+.carousel-control-prev {
+  width: 3rem;
+}

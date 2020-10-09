@@ -55,6 +55,14 @@ function AddScheduleForm(props) {
       console.log("sets=" + sets.value);
       console.log("Sumbitted");
       console.log(`${sets.value}sets ${exercise.value} ${targetPart.value} ${bodyPart.value}`);
+      appDispatch({
+        type: "addSchedule",
+        value: {
+          week: props.week,
+          day: props.day,
+          addItem: `${sets.value}sets ${exercise.value} ${targetPart.value} ${bodyPart.value}`
+        }
+      });
       setOpen(false);
     } else {
       alert("please choose a exercise");
@@ -147,16 +155,3 @@ function AddScheduleForm(props) {
 }
 
 export default AddScheduleForm;
-
-/*
-for later used
-
-appDispatch({
-  type: "addSchedule",
-  value: {
-    week: "Which Week",
-    day: "which day",
-    addItem: `${sets.value}sets ${exercise.value} ${targetPart.value} ${bodyPart.value}`
-  }
-});
-*/
