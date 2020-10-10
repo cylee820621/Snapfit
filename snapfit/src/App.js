@@ -68,7 +68,6 @@ function App() {
         return;
       case "deletSchedule":
         draft.schedule[action.value.week][action.value.day].exercises.splice(action.value.index, 1);
-        console.log(draft.schedule[action.value.week][action.value.day].exercises.length);
         return;
       case "flashMessage":
         draft.flashMassage.push(action.value);
