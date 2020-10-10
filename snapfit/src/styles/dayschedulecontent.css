@@ -10,9 +10,9 @@
 .no-schedule-info {
   display: flex;
   justify-content: center;
-  padding-top: 4rem;
-  color: rgb(155, 153, 153);
-  font-size: larger;
+  padding-top: 4.4rem;
+  color: rgb(218, 218, 218);
+  font-size: x-large;
   font-weight: bold;
 }
 .btn-add-schedule {
