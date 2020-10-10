@@ -60,7 +60,7 @@ function AddScheduleForm(props) {
         value: {
           week: props.week,
           day: props.day,
-          addItem: `${sets.value}sets ${exercise.value} ${targetPart.value} ${bodyPart.value}`
+          addItem: `${sets.value} sets ${exercise.value} ${targetPart.value} ${bodyPart.value}`
         }
       });
       setOpen(false);

@@ -22,7 +22,7 @@ function App() {
     schedule: {
       lastWeek: {
         week: "Last",
-        monday: { day: "Monday", exercises: [] },
+        monday: { day: "Monday", exercises: ["11"] },
         tuesday: { day: "Tuesday", exercises: [] },
         wednesday: { day: "Wednesday", exercises: [] },
         thursday: { day: "Thursday", exercises: [] },
@@ -67,7 +67,8 @@ function App() {
         draft.schedule[action.value.week][action.value.day].exercises.push(action.value.addItem);
         return;
       case "deletSchedule":
-        draft.flashMassage.push(action.value);
+        draft.schedule[action.value.week][action.value.day].exercises.splice(action.value.index, 1);
+        console.log(draft.schedule[action.value.week][action.value.day].exercises.length);
         return;
       case "flashMessage":
         draft.flashMassage.push(action.value);
