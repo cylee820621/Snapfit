@@ -32,7 +32,7 @@ function DayScheduleContent(props) {
                 exercises.map((exercise, index) => {
                   return (
                     <li key={index}>
-                      <Button index={index} onClick={handleClicked} variant="light">
+                      <Button className="shadow" index={index} onClick={handleClicked} variant="light">
                         {exercise}
                       </Button>
                     </li>

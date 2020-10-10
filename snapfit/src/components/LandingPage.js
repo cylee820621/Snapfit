@@ -11,7 +11,6 @@ function LandingPage() {
     console.log(response.profileObj);
     if (response.profileObj) {
       appDispatch({ type: "login", data: response.profileObj });
-      //console.log(response.profileObj);
     }
   };
 
