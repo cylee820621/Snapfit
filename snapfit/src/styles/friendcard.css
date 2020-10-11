@@ -10,6 +10,9 @@
 .image-size {
   width: 8rem;
 }
+.addfriend-input-box {
+  width: 20%;
+}
 .friend-card-btn-box {
   position: relative;
   bottom: 0rem;
