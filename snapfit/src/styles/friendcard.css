@@ -1,6 +1,10 @@
-.card-box {
+.friendcard-box {
   padding: 1rem;
   width: 100%;
+}
+.friendcard-username {
+  font-size: x-large;
+  padding: 0.6rem;
 }
 
 .image-size {

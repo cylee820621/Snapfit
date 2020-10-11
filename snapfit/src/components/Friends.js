@@ -9,15 +9,16 @@ function Friends() {
 
   const friendsList = [
     {
-      name: "user0",
+      name: "BarkALot",
       userID: 0
     },
     {
-      name: "user1",
+      name: "Ogadinma",
       userID: 1
     },
-    { name: "user2", userID: 2 },
-    { name: "user3", userID: 3 }
+    { name: "Adithya", userID: 2 },
+    { name: "ChihYu", userID: 3 },
+    { name: "someone", userID: 4 }
   ];
 
   return (
