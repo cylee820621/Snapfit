@@ -19,6 +19,7 @@ function FriendCard(props) {
         <Image className="image-size p-2" roundedCircle src={userImage} alt="user-image" />
       </div>
       <div className="friendcard-username d-flex justify-content-center">{data.name}</div>
+      <div className="friendcard-username d-flex justify-content-center">{data.userID}</div>
       {openSchedule && <FriendCardSchedule />}
       <div className="friend-card-btn-box d-stakc justify-content-around">
         {!openSchedule ? (
