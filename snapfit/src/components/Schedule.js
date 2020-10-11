@@ -9,15 +9,13 @@ function Schedule() {
   return (
     <Container id="schedule-box" fluid>
       <Carousel className="carousel-box ">
-        <Carousel.Item>
-          <WeekSchedule week="lastWeek" data={appState.schedule.lastWeek} />
-        </Carousel.Item>
-        <Carousel.Item>
-          <WeekSchedule week="thisWeek" data={appState.schedule.thisWeek} />
-        </Carousel.Item>
-        <Carousel.Item>
-          <WeekSchedule week="nextWeek" data={appState.schedule.nextWeek} />
-        </Carousel.Item>
+        {Object.keys(appState.schedule).map((eachWeek) => {
+          return (
+            <Carousel.Item>
+              <WeekSchedule week={eachWeek} data={appState.schedule[eachWeek]} />
+            </Carousel.Item>
+          );
+        })}
       </Carousel>
     </Container>
   );
