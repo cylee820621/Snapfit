@@ -51,7 +51,14 @@ function App() {
         sunday: { day: "Sunday", exercises: [] }
       }
     },
-    friend: {}
+    friend: {
+      0: { name: "BarkALot", userID: 0 },
+      1: { name: "Ogadinma", userID: 1 },
+      2: { name: "Adithya", userID: 2 },
+      3: { name: "ChihYu", userID: 3 },
+      4: { name: "someone", userID: 4 },
+      5: { name: "CC", userID: 5 }
+    }
   };
 
   function ourReducer(draft, action) {

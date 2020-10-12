@@ -1,6 +1,7 @@
 .friendcard-box {
   padding: 1rem;
   width: 100%;
+  border-width: 0rem;
 }
 .friendcard-username {
   font-size: x-large;
