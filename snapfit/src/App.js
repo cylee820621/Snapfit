@@ -7,6 +7,7 @@ import Home from "./components/Home";
 
 import StateContext from "./StateContext";
 import DispatchContext from "./DispatchContext";
+import Axios from "axios";
 
 function App() {
   const initialState = {
@@ -22,7 +23,7 @@ function App() {
     schedule: {
       lastWeek: {
         week: "Last",
-        monday: { day: "Monday", exercises: ["11"] },
+        monday: { day: "Monday", exercises: ["4 sets Triceps PushDown Arms Upper"] },
         tuesday: { day: "Tuesday", exercises: [] },
         wednesday: { day: "Wednesday", exercises: [] },
         thursday: { day: "Thursday", exercises: [] },
@@ -103,7 +104,71 @@ function App() {
       localStorage.removeItem("snapfitGivenName");
     }
   }, [state.loggedIn]);
+  /*
+  ------>Creat USER <------
+  useEffect(()=>{
+    conost response = Axios.get('/user',{
+      params:{
+        ID: userID
+      }
+    })
+    .then(function(response){
+    console.log(response)
+    })
+    .catch(function(error){
+    console.log(error)
+    })
 
+    if(response){
+      dispatch({type:""})
+    }else{
+      Axios.post('/user',{
+      params:{
+        ID: userID
+      }
+    })
+    .then(function (response) {
+    console.log(response);
+    })
+    .catch(function (error) {
+    console.log(error);
+    })
+    }
+  },[state.loggedIn])
+
+
+
+  ------>GET USER SCHEDULE<------
+  useEffect(()=>{
+    Axios.get('/schedule',{
+      params:{
+        ID: userID
+      }
+    })
+    .then(function(response){
+    console.log(response)
+    })
+    .catch(function(error){
+    console.log(error)
+    })
+  },[])
+
+
+  ------>UPDATE USER SCHEDULE<------
+  useEffect(()=>{
+    Axios.post('/schedule',{
+      params:{
+        ID: userID
+      }
+    })
+    .then(function (response) {
+    console.log(response);
+    })
+    .catch(function (error) {
+    console.log(error);
+    })
+  },[state.schedule])
+  */
   return (
     <StateContext.Provider value={state}>
       <DispatchContext.Provider value={dispatch}>
