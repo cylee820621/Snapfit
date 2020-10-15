@@ -18,10 +18,7 @@ function App() {
     user: {
       googleId: localStorage.getItem("snapfitGoogleId"),
       name: localStorage.getItem("snapfitName"),
-      imageUrl: localStorage.getItem("snapfitImageUrl"),
-      email: localStorage.getItem("snapfitEmail"),
-      familyName: localStorage.getItem("snapfitFamilyName"),
-      givenName: localStorage.getItem("snapfitGivenName")
+      imageUrl: localStorage.getItem("snapfitImageUrl")
     },
     schedule: {
       lastWeek: {
@@ -94,94 +91,38 @@ function App() {
       localStorage.setItem("snapfitGoogleId", state.user.googleId);
       localStorage.setItem("snapfitName", state.user.name);
       localStorage.setItem("snapfitImageUrl", state.user.imageUrl);
-      localStorage.setItem("snapfitEmail", state.user.email);
-      localStorage.setItem("snapfitFamilyName", state.user.familyName);
-      localStorage.setItem("snapfitGivenName", state.user.givenName);
     } else {
       console.log("loging state " + state.loggedIn);
       localStorage.removeItem("snapfitGoogleId");
       localStorage.removeItem("snapfitName");
       localStorage.removeItem("snapfitImageUrl");
-      localStorage.removeItem("snapfitEmail");
-      localStorage.removeItem("snapfitFamilyName");
-      localStorage.removeItem("snapfitGivenName");
     }
   }, [state.loggedIn]);
 
   async function testresponse() {
     try {
       const response = await Axios.get("/api/friends");
-      console.log(response);
+      console.log(response.data);
     } catch (e) {
       console.log("There is a problem connect to backend server");
     }
   }
   testresponse();
-  /*
-  ------>Creat USER <------
-  useEffect(()=>{
-    conost response = Axios.get('/user',{
-      params:{
-        ID: userID
-      }
-    })
-    .then(function(response){
-    console.log(response)
-    })
-    .catch(function(error){
-    console.log(error)
-    })
 
-    if(response){
-      dispatch({type:""})
-    }else{
-      Axios.post('/user',{
-      params:{
-        ID: userID
+  async function getUserData(id) {
+    try {
+      const response = await Axios.get(`/api/friendlist/${id}`);
+      if (response) {
+        console.log(response.data);
+      } else {
+        console.log("no data");
       }
-    })
-    .then(function (response) {
-    console.log(response);
-    })
-    .catch(function (error) {
-    console.log(error);
-    })
+    } catch (e) {
+      console.log("There is a problem connect on getting userdata");
     }
-  },[state.loggedIn])
+  }
+  getUserData(state.user.googleId);
 
-
-
-  ------>GET USER SCHEDULE<------
-  useEffect(()=>{
-    Axios.get('/schedule',{
-      params:{
-        ID: userID
-      }
-    })
-    .then(function(response){
-    console.log(response)
-    })
-    .catch(function(error){
-    console.log(error)
-    })
-  },[])
-
-
-  ------>UPDATE USER SCHEDULE<------
-  useEffect(()=>{
-    Axios.post('/schedule',{
-      params:{
-        ID: userID
-      }
-    })
-    .then(function (response) {
-    console.log(response);
-    })
-    .catch(function (error) {
-    console.log(error);
-    })
-  },[state.schedule])
-  */
   return (
     <StateContext.Provider value={state}>
       <DispatchContext.Provider value={dispatch}>
