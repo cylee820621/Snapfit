@@ -98,17 +98,16 @@ function App() {
       localStorage.removeItem("snapfitImageUrl");
     }
   }, [state.loggedIn]);
-  /*
-  async function testresponse() {
+
+  async function testingresponse() {
     try {
       const response = await Axios.get("/api/friends");
-      console.log(response.data);
+      console.log(response);
     } catch (e) {
       console.log("There is a problem connect to backend server");
     }
   }
-  testresponse();
-  */
+  testingresponse();
 
   async function postUserData(userData) {
     try {
