@@ -24,56 +24,42 @@ Sample Request Body
 {
     "friend_id" : 1
     "friend_name": "Han"
-    "user_name": "HantheGreat"
+    "ImageUrl: "HantheGreat"
 }
 """
 class FriendList(db.Document):
     friend_id = db.IntField()
     friend_name = db.StringField()
-    user_name = db.StringField()
+    ImageUrl = db.StringField()
 
     def to_json(self):
         """ Converts the document to JSON"""
         return{
             "friend_id" : self.friend_id,
             "friend_name" : self.friend_name,
-            "user_name" : self.user_name
+            "ImageUrl" : self.ImageUrl
 
         }
     
 class Schedule(db.Document):
     day = db.StringField()
-    workout_type =db.StringField() #beginner, intermediate, killer
-    body_part = db.StringField() #upper, lower
-    exercise1 = db.StringField() 
-    exercise2 = db.StringField()
-    exercise3 = db.StringField()
-    sets = db.IntField()
-    reps = db.IntField()
+    exercise = db.ListField() #make it a list
+  
         
 
     def to_jsonnn(self):
         """ Converts the document to JSON"""
         return{
             "day" : self.day,
-            "workout_type" : self.workout_type, #beginner, intermediate, killer
-            "body_part" : self.body_part, #upper, lower
-            "exercise1" : self.exercise1, 
-            "exercise2" : self.exercise2,
-            "exercise3" : self.exercise3,
-            "sets" : self.set,
-            "reps" : self.reps
+            "exercise" : self.exercise
 
         }
 
     @app.route('/api/db_populate', methods=['POST'])
     def db_populate():
-        friend1 = FriendList(friend_id=1, friend_name="Han", user_name="HantheGreat")
-        friend2 = FriendList(friend_id=2, friend_name="Ban", user_name="BantheGreat")
-        friend3 = FriendList(friend_id=3, friend_name="Jan", user_name="JantheGreat")
+        friend1 = FriendList(friend_id=1, friend_name="Han", ImageUrl="HantheGreat")
         friend1.save()
-        friend2.save()
-        friend3.save()
+       
         return make_response("",201)
 
     @app.route('/api/friends', methods=['GET', 'POST'])
@@ -87,9 +73,12 @@ class Schedule(db.Document):
             content = request.json
             friend = FriendList(friend_id=content['friend_id'],
              friend_name=content['friend_name'],
-             user_name=content['user_name'])
+             ImageUrl=content['ImageUrl'])
             friend.save()
-            return make_response("", 201)
+            if friend:
+                return make_response("Successfully post a user", 201)
+            else:
+                return make_response("False", 400)
 
     @app.route('/api/friendlist/<friend_id>', methods=['GET', 'PUT', 'DELETE'])
     def api_each_friend(friend_id):
@@ -98,29 +87,23 @@ class Schedule(db.Document):
             if friend_obj:
                 return make_response(jsonify(friend_obj.to_json()), 200)
             else:
-                make_response("",400)
+                make_response("Unable to find friend",400)
         elif request.method == 'PUT':
             content = request.json
             friend_obj = FriendList.objects(friend_id=friend_id).first()
-            friend_obj.update(friend_name=content['friend_name'], user_name=content['user_name'])
+            friend_obj.update(friend_name=content['friend_name'], ImageUrl=content['user_name'])
             return make_response("",204)
         elif request.method == 'DELETE':
             friend_obj = FriendList.objects(friend_id=friend_id).first()
             friend_obj.delete()
-            return make_response("",204)
+            return make_response("Deleted",204)
             
     @app.route('/api/dbPopulate', methods=['POST'])
     def dbPopulate():
-        schedule1 = Schedule(day ='Monday', workout_type = 'Beginner', body_part = 'Upper', exercise1 = 'Push up', exercise2 = 'Bench Press', exercise3 = 'bicep and tricep dumbbell curls', sets = 3, reps = 20)
-        schedule2 = Schedule(day ='Tuesday', workout_type = 'Beginner', body_part = 'lower', exercise1 = 'Squats', exercise2 = 'Sumo Squats', exercise3 = 'lunges', sets = 3, reps = 20)
-        schedule3 = Schedule(day ='Wednesday', workout_type = 'Beginner', body_part = 'Upper', exercise1 = 'Push up', exercise2 = 'Bench Press', exercise3 = 'bicep and tricep dumbbell curls', sets = 3, reps = 20)
-        schedule4 = Schedule(day ='Thursday', workout_type = 'Beginner', body_part = 'lower', exercise1 = 'Squats', exercise2 = 'Sumo Squats', exercise3 = 'lunges', sets = 3, reps = 20)
-        schedule5 = Schedule(day ='Friday', workout_type = 'Beginner', body_part = 'Upper', exercise1 = 'Push up', exercise2 = 'Bench Press', exercise3 = 'bicep and tricep dumbbell curls', sets = 3, reps = 20)
+        schedule1 = Schedule(day ='Monday', exercise = ['4 sets Triceps PushDown Arms Upper'])
+        schedule2 = Schedule(day ='Tuesday', exercise = ['4 sets squats lunges lower'])
         schedule1.save()
         schedule2.save()
-        schedule3.save()
-        schedule4.save()
-        schedule5.save()
         return make_response("",201)
 
     @app.route('/api/schedule', methods=['GET', 'POST'])
