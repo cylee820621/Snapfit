@@ -18,10 +18,7 @@ function App() {
     user: {
       googleId: localStorage.getItem("snapfitGoogleId"),
       name: localStorage.getItem("snapfitName"),
-      imageUrl: localStorage.getItem("snapfitImageUrl"),
-      email: localStorage.getItem("snapfitEmail"),
-      familyName: localStorage.getItem("snapfitFamilyName"),
-      givenName: localStorage.getItem("snapfitGivenName")
+      imageUrl: localStorage.getItem("snapfitImageUrl")
     },
     schedule: {
       lastWeek: {
@@ -94,17 +91,11 @@ function App() {
       localStorage.setItem("snapfitGoogleId", state.user.googleId);
       localStorage.setItem("snapfitName", state.user.name);
       localStorage.setItem("snapfitImageUrl", state.user.imageUrl);
-      localStorage.setItem("snapfitEmail", state.user.email);
-      localStorage.setItem("snapfitFamilyName", state.user.familyName);
-      localStorage.setItem("snapfitGivenName", state.user.givenName);
     } else {
       console.log("loging state " + state.loggedIn);
       localStorage.removeItem("snapfitGoogleId");
       localStorage.removeItem("snapfitName");
       localStorage.removeItem("snapfitImageUrl");
-      localStorage.removeItem("snapfitEmail");
-      localStorage.removeItem("snapfitFamilyName");
-      localStorage.removeItem("snapfitGivenName");
     }
   }, [state.loggedIn]);
 
