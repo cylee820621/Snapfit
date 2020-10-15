@@ -10,7 +10,6 @@ import DispatchContext from "./DispatchContext";
 import Axios from "axios";
 
 const preventCORS = "https://cors-anywhere.herokuapp.com/";
-
 Axios.defaults.baseURL = `${preventCORS}https://snapfit-lutein.herokuapp.com/`;
 
 function App() {
