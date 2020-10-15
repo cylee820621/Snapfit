@@ -110,8 +110,9 @@ function App() {
   testingresponse();
 
   async function postUserData(userData) {
+    console.log(userData);
     try {
-      const response = await Axios.post(`/api/friends`, {
+      const response = await Axios.post("/api/friends", {
         friend_id: userData.googleId,
         friend_name: userData.name,
         ImageUrl: userData.imageUrl
