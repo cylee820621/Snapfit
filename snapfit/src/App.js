@@ -98,7 +98,7 @@ function App() {
       localStorage.removeItem("snapfitImageUrl");
     }
   }, [state.loggedIn]);
-
+  /*
   async function testresponse() {
     try {
       const response = await Axios.get("/api/friends");
@@ -108,20 +108,23 @@ function App() {
     }
   }
   testresponse();
+  */
 
-  async function getUserData(id) {
+  async function postUserData(userData) {
     try {
-      const response = await Axios.get(`/api/friendlist/${id}`);
+      const response = await Axios.post(`/api/friends`, {
+        friend_id: userData.googleId,
+        friend_name: userData.name,
+        ImageUrl: userData.imageUrl
+      });
       if (response) {
-        console.log(response.data);
-      } else {
-        console.log("no data");
+        console.log(response);
       }
     } catch (e) {
-      console.log("There is a problem connect on getting userdata");
+      console.log("There is a problem posting userdata");
     }
   }
-  getUserData(state.user.googleId);
+  postUserData(state.user);
 
   return (
     <StateContext.Provider value={state}>

@@ -118,7 +118,7 @@ function AddScheduleForm(props) {
               className="form-control form-control-sm"
             >
               {selectTargetObject(bodyPart.value)[0]
-                .bodypart.filter((part) => part.part == targetPart.value)[0]
+                .bodypart.filter((part) => part.part === targetPart.value)[0]
                 .exercises.map((exerciseName) => {
                   return <option value={exerciseName}>{exerciseName}</option>;
                 })}

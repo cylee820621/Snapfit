@@ -28,7 +28,7 @@ Sample Request Body
 }
 """
 class FriendList(db.Document):
-    friend_id = db.IntField()
+    friend_id = db.StringField()
     friend_name = db.StringField()
     ImageUrl = db.StringField()
 
@@ -78,13 +78,13 @@ class Schedule(db.Document):
             if friend:
                 return make_response("Successfully post a user", 201)
             else:
-                return make_response("False", 400)
+                return make_response(False, 400)
 
     @app.route('/api/friendlist/<friend_id>', methods=['GET', 'PUT', 'DELETE'])
     def api_each_friend(friend_id):
         if request.method == 'GET':
             friend_obj = FriendList.objects(friend_id= friend_id).first()
-            if friend_obj:
+            if friend_obj==friend_id:
                 return make_response(jsonify(friend_obj.to_json()), 200)
             else:
                 make_response("Unable to find friend",400)
