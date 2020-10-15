@@ -9,6 +9,10 @@ import StateContext from "./StateContext";
 import DispatchContext from "./DispatchContext";
 import Axios from "axios";
 
+const preventCORS = "https://cors-anywhere.herokuapp.com/";
+
+Axios.defaults.baseURL = `${preventCORS}https://snapfit-lutein.herokuapp.com/`;
+
 function App() {
   const initialState = {
     loggedIn: Boolean(localStorage.getItem("snapfitGoogleId")),
@@ -104,6 +108,16 @@ function App() {
       localStorage.removeItem("snapfitGivenName");
     }
   }, [state.loggedIn]);
+
+  async function testresponse() {
+    try {
+      const response = await Axios.get("/api/friends");
+      console.log(response);
+    } catch (e) {
+      console.log("There is a problem connect to backend server");
+    }
+  }
+  testresponse();
   /*
   ------>Creat USER <------
   useEffect(()=>{

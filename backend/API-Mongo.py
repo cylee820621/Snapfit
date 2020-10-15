@@ -4,16 +4,11 @@ import urllib
 import ssl
 
 
-
-
 app = Flask(__name__)
-
 
 database_name = "API"
 DB_URI = "mongodb+srv://Adi:sitsit@pythoncluster.hte9p.azure.mongodb.net/API?retryWrites=true&w=majority&ssl_cert_reqs=CERT_NONE"
 app.config["MONGODB_HOST"] = DB_URI
-
-
 
 
 db = MongoEngine()
