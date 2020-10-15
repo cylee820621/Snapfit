@@ -111,77 +111,27 @@ function App() {
   async function testresponse() {
     try {
       const response = await Axios.get("/api/friends");
-      console.log(response);
+      console.log(response.data);
     } catch (e) {
       console.log("There is a problem connect to backend server");
     }
   }
   testresponse();
-  /*
-  ------>Creat USER <------
-  useEffect(()=>{
-    conost response = Axios.get('/user',{
-      params:{
-        ID: userID
-      }
-    })
-    .then(function(response){
-    console.log(response)
-    })
-    .catch(function(error){
-    console.log(error)
-    })
 
-    if(response){
-      dispatch({type:""})
-    }else{
-      Axios.post('/user',{
-      params:{
-        ID: userID
+  async function getUserData(id) {
+    try {
+      const response = await Axios.get(`/api/friendlist/${id}`);
+      if (response) {
+        console.log(response.data);
+      } else {
+        console.log("no data");
       }
-    })
-    .then(function (response) {
-    console.log(response);
-    })
-    .catch(function (error) {
-    console.log(error);
-    })
+    } catch (e) {
+      console.log("There is a problem connect on getting userdata");
     }
-  },[state.loggedIn])
+  }
+  getUserData(state.user.googleId);
 
-
-
-  ------>GET USER SCHEDULE<------
-  useEffect(()=>{
-    Axios.get('/schedule',{
-      params:{
-        ID: userID
-      }
-    })
-    .then(function(response){
-    console.log(response)
-    })
-    .catch(function(error){
-    console.log(error)
-    })
-  },[])
-
-
-  ------>UPDATE USER SCHEDULE<------
-  useEffect(()=>{
-    Axios.post('/schedule',{
-      params:{
-        ID: userID
-      }
-    })
-    .then(function (response) {
-    console.log(response);
-    })
-    .catch(function (error) {
-    console.log(error);
-    })
-  },[state.schedule])
-  */
   return (
     <StateContext.Provider value={state}>
       <DispatchContext.Provider value={dispatch}>
