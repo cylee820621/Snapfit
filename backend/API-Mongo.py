@@ -31,14 +31,15 @@ class FriendList(db.Document):
     friend_id = db.StringField()
     friend_name = db.StringField()
     ImageUrl = db.StringField()
+    LoginStatus = db.BooleanField()
 
     def to_json(self):
         """ Converts the document to JSON"""
         return{
             "friend_id" : self.friend_id,
             "friend_name" : self.friend_name,
-            "ImageUrl" : self.ImageUrl
-
+            "ImageUrl" : self.ImageUrl,
+            "LoginStatus": self.LoginStatus
         }
     
 class Schedule(db.Document):
@@ -79,6 +80,21 @@ class Schedule(db.Document):
                 return make_response("Successfully post a user", 201)
             else:
                 return make_response(False, 400)
+                
+    @app.route('/api/login/<friend_id>', methods=['PUT'])
+        if request.method == 'PUT':
+            content = request.json
+            friend_obj = FriendList.objects(friend_id=friend_id).first()
+            friend_obj.update(LoginStatus=True)
+            return make_response(" User logged in",200)         
+
+    @app.route('/api/logout/<friend_id>', methods=['PUT'])
+    def api_status():
+        if request.method == 'PUT':
+            content = request.json
+            friend_obj = FriendList.objects(friend_id=friend_id).first()
+            friend_obj.update(LoginStatus=False)
+            return make_response(" User logged out",200) 
 
     @app.route('/api/friendlist/<friend_id>', methods=['GET', 'PUT', 'DELETE'])
     def api_each_friend(friend_id):
