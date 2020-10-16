@@ -82,6 +82,7 @@ class Schedule(db.Document):
                 return make_response(False, 400)
                 
     @app.route('/api/login/<friend_id>', methods=['PUT'])
+    def api_lstatus():
         if request.method == 'PUT':
             content = request.json
             friend_obj = FriendList.objects(friend_id=friend_id).first()
