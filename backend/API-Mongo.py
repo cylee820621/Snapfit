@@ -100,11 +100,14 @@ class Schedule(db.Document):
     @app.route('/api/friendlist/<friend_id>', methods=['GET', 'PUT', 'DELETE'])
     def api_each_friend(friend_id):
         if request.method == 'GET':
-            friend_obj = FriendList.objects(friend_id= str(friend_id)).first()
-            if friend_obj:
-                return make_response(jsonify(friend_obj.to_json()), 200)
-            else:
-                make_response("Unable to find friend",400)
+            try:
+                friend_obj = FriendList.objects(friend_id= str(friend_id)).first()
+                if friend_obj:
+                    return make_response(jsonify(friend_obj.to_json()), 200)
+                else:
+                    make_response("Unable to find friend",400)
+            except:
+                return make_response(False,200)
         elif request.method == 'PUT':
             content = request.json
             friend_obj = FriendList.objects(friend_id=friend_id).first()

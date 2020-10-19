@@ -8,15 +8,7 @@ function Schedule() {
   const appState = useContext(StateContext);
   return (
     <Container id="schedule-box" fluid>
-      <Carousel className="carousel-box ">
-        {Object.keys(appState.schedule).map((eachWeek) => {
-          return (
-            <Carousel.Item>
-              <WeekSchedule week={eachWeek} data={appState.schedule[eachWeek]} />
-            </Carousel.Item>
-          );
-        })}
-      </Carousel>
+      <WeekSchedule data={appState.schedule} />;
     </Container>
   );
 }

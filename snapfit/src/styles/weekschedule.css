@@ -6,14 +6,17 @@
   background-color: #a58af5;
   color: white;
 }
-.days-box {
-  padding: 1rem;
-}
 .week-title {
   font-style: italic;
   font-weight: bold;
   font-size: 2.5rem;
 }
+.days-box {
+  padding: 1rem;
+  padding-left: auto;
+  padding-right: auto;
+}
+
 .day-list {
   display: flex;
   justify-content: center;

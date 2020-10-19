@@ -1,20 +1,7 @@
 #schedule-box {
+  position: relative;
   display: flex;
   justify-content: center;
   padding: 1rem;
   padding-bottom: 5rem;
-  background-color: white;
-}
-.schedule-title {
-  padding-left: 1rem;
-  width: 100%;
-}
-.carousel-box {
-  width: 100rem;
-}
-.carousel-control-next {
-  width: 3rem;
-}
-.carousel-control-prev {
-  width: 3rem;
 }

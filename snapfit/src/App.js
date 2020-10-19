@@ -21,36 +21,13 @@ function App() {
       imageUrl: localStorage.getItem("snapfitImageUrl")
     },
     schedule: {
-      lastWeek: {
-        week: "Last",
-        monday: { day: "Monday", exercises: ["4 sets Triceps PushDown Arms Upper"] },
-        tuesday: { day: "Tuesday", exercises: [] },
-        wednesday: { day: "Wednesday", exercises: [] },
-        thursday: { day: "Thursday", exercises: [] },
-        friday: { day: "Friday", exercises: [] },
-        saturday: { day: "Saturday", exercises: [] },
-        sunday: { day: "Sunday", exercises: [] }
-      },
-      thisWeek: {
-        week: "This",
-        monday: { day: "Monday", exercises: [] },
-        tuesday: { day: "Tuesday", exercises: [] },
-        wednesday: { day: "Wednesday", exercises: [] },
-        thursday: { day: "Thursday", exercises: [] },
-        friday: { day: "Friday", exercises: [] },
-        saturday: { day: "Saturday", exercises: [] },
-        sunday: { day: "Sunday", exercises: [] }
-      },
-      nextWeek: {
-        week: "Next",
-        monday: { day: "Monday", exercises: [] },
-        tuesday: { day: "Tuesday", exercises: [] },
-        wednesday: { day: "Wednesday", exercises: [] },
-        thursday: { day: "Thursday", exercises: [] },
-        friday: { day: "Friday", exercises: [] },
-        saturday: { day: "Saturday", exercises: [] },
-        sunday: { day: "Sunday", exercises: [] }
-      }
+      10192020: { day: "Monday", exercises: [] },
+      10202020: { day: "Tuesday", exercises: [] },
+      10212020: { day: "Wednesday", exercises: [] },
+      10222020: { day: "Thursday", exercises: [] },
+      10232020: { day: "Friday", exercises: [] },
+      10242020: { day: "Saturday", exercises: [] },
+      10252020: { day: "Sunday", exercises: [] }
     },
     friend: {
       0: { name: "BarkALot", userID: 0 },
@@ -72,10 +49,10 @@ function App() {
         draft.loggedIn = false;
         return;
       case "addSchedule":
-        draft.schedule[action.value.week][action.value.day].exercises.push(action.value.addItem);
+        draft.schedule[action.value.date].exercises.push(action.value.addItem);
         return;
       case "deletSchedule":
-        draft.schedule[action.value.week][action.value.day].exercises.splice(action.value.index, 1);
+        draft.schedule[action.value.date].exercises.splice(action.value.index, 1);
         return;
       case "flashMessage":
         draft.flashMassage.push(action.value);
@@ -99,32 +76,16 @@ function App() {
     }
   }, [state.loggedIn]);
 
-  async function testingresponse() {
-    try {
-      const response = await Axios.get("/api/friends");
-      console.log(response);
-    } catch (e) {
-      console.log("There is a problem connect to backend server");
-    }
-  }
-  testingresponse();
+  useEffect(() => {
+    console.log("get user schedule");
+  }, [state.loggedIn]);
 
-  async function postUserData(userData) {
-    console.log(userData);
-    try {
-      const response = await Axios.post("/api/friends", {
-        friend_id: userData.googleId,
-        friend_name: userData.name,
-        ImageUrl: userData.imageUrl
-      });
-      if (response) {
-        console.log(response);
-      }
-    } catch (e) {
-      console.log("There is a problem posting userdata");
+  async function getUSerSchedule(userid) {
+    const response = await Axios.put(`/api/schedule/${userid}`);
+    if (response) {
+      console.log(response);
     }
   }
-  postUserData(state.user);
 
   return (
     <StateContext.Provider value={state}>

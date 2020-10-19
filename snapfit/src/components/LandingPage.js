@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import GoogleLogin from "react-google-login";
 import DispatchContext from "../DispatchContext";
 import { Container, Navbar, Button } from "react-bootstrap";
+import Axios from "axios";
 import "../styles/landingpage.css";
 
 function LandingPage() {
@@ -11,8 +12,58 @@ function LandingPage() {
     console.log(response.profileObj);
     if (response.profileObj) {
       appDispatch({ type: "login", data: response.profileObj });
+      const userData = getUserData(response.profileObj);
+      console.log(userData);
+      APIlogin(response.profileObj.googleId);
     }
   };
+
+  async function getUserData(userData) {
+    try {
+      const response = await Axios.get(`/api/friendlist/${userData.googleId}`);
+      if (response) {
+        console.log(response.data);
+        return response.data;
+      }
+    } catch (e) {
+      console.log("The userid is not in the database, creating one now");
+      const response = postUserData(userData);
+      return response.data;
+    }
+  }
+  async function postUserData(userData) {
+    try {
+      const data = {
+        friend_id: userData.googleId,
+        friend_name: userData.name,
+        ImageUrl: userData.imageUrl
+      };
+      const response = await Axios.post("/api/friends", data);
+      if (response) {
+        console.log(response);
+        console.log("Successfully created!");
+        return response;
+      }
+    } catch (e) {
+      console.log("There is a problem posting userdata");
+    }
+  }
+  /* THIS IS FOR TESTING API CONNECTION
+  async function testingresponse() {
+    try {
+      const response = await Axios.get("/api/friends");
+      console.log(response);
+    } catch (e) {
+      console.log("There is a problem connect to backend server");
+    }
+  }
+  */
+  async function APIlogin(userId) {
+    const response = await Axios.put(`/api/login/${userId}`);
+    if (response) {
+      console.log(response);
+    }
+  }
 
   return (
     <Container fluid className="landing">
