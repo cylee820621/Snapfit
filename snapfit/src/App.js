@@ -21,13 +21,13 @@ function App() {
       imageUrl: localStorage.getItem("snapfitImageUrl")
     },
     schedule: {
-      Monday: { exercises: [] },
-      Tuesday: { exercises: [] },
-      Wednesday: { exercises: [] },
-      Thursday: { exercises: [] },
-      Friday: { exercises: [] },
-      Saturday: { exercises: [] },
-      Sunday: { exercises: [] }
+      Monday: [],
+      Tuesday: [],
+      Wednesday: [],
+      Thursday: [],
+      Friday: [],
+      Saturday: [],
+      Sunday: []
     },
     friend: {
       0: { name: "BarkALot", userID: 0 },
@@ -49,10 +49,10 @@ function App() {
         draft.loggedIn = false;
         return;
       case "addSchedule":
-        draft.schedule[action.value.day].exercises.push(action.value.addItem);
+        draft.schedule[action.value.day].push(action.value.addItem);
         return;
       case "deletSchedule":
-        draft.schedule[action.value.day].exercises.splice(action.value.index, 1);
+        draft.schedule[action.value.day].splice(action.value.index, 1);
         return;
       case "flashMessage":
         draft.flashMassage.push(action.value);

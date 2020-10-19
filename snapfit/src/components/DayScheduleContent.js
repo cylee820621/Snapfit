@@ -7,8 +7,7 @@ import "../styles/dayschedulecontent.css";
 
 function DayScheduleContent(props) {
   const appDispatch = useContext(DispatchContext);
-  const day = props.day;
-  const exercises = props.data.exercises;
+  const exercises = props.data;
   const [addState, setAddState] = useState(false);
 
   useEffect(() => {
@@ -23,7 +22,7 @@ function DayScheduleContent(props) {
     <div>
       {addState ? (
         <div className="schedule-form-box">
-          <AddScheduleForm day={day} setState={setAddState} />
+          <AddScheduleForm day={props.day} setState={setAddState} />
         </div>
       ) : (
         <div>
