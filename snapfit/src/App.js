@@ -21,13 +21,13 @@ function App() {
       imageUrl: localStorage.getItem("snapfitImageUrl")
     },
     schedule: {
-      10192020: { day: "Monday", exercises: [] },
-      10202020: { day: "Tuesday", exercises: [] },
-      10212020: { day: "Wednesday", exercises: [] },
-      10222020: { day: "Thursday", exercises: [] },
-      10232020: { day: "Friday", exercises: [] },
-      10242020: { day: "Saturday", exercises: [] },
-      10252020: { day: "Sunday", exercises: [] }
+      Monday: { exercises: [] },
+      Tuesday: { exercises: [] },
+      Wednesday: { exercises: [] },
+      Thursday: { exercises: [] },
+      Friday: { exercises: [] },
+      Saturday: { exercises: [] },
+      Sunday: { exercises: [] }
     },
     friend: {
       0: { name: "BarkALot", userID: 0 },
@@ -49,10 +49,10 @@ function App() {
         draft.loggedIn = false;
         return;
       case "addSchedule":
-        draft.schedule[action.value.date].exercises.push(action.value.addItem);
+        draft.schedule[action.value.day].exercises.push(action.value.addItem);
         return;
       case "deletSchedule":
-        draft.schedule[action.value.date].exercises.splice(action.value.index, 1);
+        draft.schedule[action.value.day].exercises.splice(action.value.index, 1);
         return;
       case "flashMessage":
         draft.flashMassage.push(action.value);
@@ -80,8 +80,14 @@ function App() {
     console.log("get user schedule");
   }, [state.loggedIn]);
 
-  async function getUSerSchedule(userid) {
-    const response = await Axios.put(`/api/schedule/${userid}`);
+  async function getUserSchedule(userid) {
+    const response = await Axios.get(`/api/schedule/${userid}`);
+    if (response) {
+      console.log(response);
+    }
+  }
+  async function putUserSchedule(userid) {
+    const response = await Axios.put(`/api/schedule/${userid}`, {});
     if (response) {
       console.log(response);
     }

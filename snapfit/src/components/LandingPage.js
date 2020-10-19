@@ -11,10 +11,10 @@ function LandingPage() {
   const responseGoogle = (response) => {
     console.log(response.profileObj);
     if (response.profileObj) {
-      appDispatch({ type: "login", data: response.profileObj });
       const userData = getUserData(response.profileObj);
       console.log(userData);
       APIlogin(response.profileObj.googleId);
+      appDispatch({ type: "login", data: response.profileObj });
     }
   };
 

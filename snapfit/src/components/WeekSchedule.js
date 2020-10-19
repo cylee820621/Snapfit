@@ -10,13 +10,13 @@ function WeekSchedule(props) {
       <div className="week-title">Week schedule</div>
       <Container className="days-box" fuild>
         <Row xs={1} sm={1} md={2} lg={3} xl={4} className="day-list">
-          {Object.keys(WeekSchedule).map((eachDate) => {
+          {Object.keys(WeekSchedule).map((eachday) => {
             return (
               <Col>
-                <div className="day">{WeekSchedule[eachDate].day}</div>
+                <div className="day">{eachday}</div>
                 <div className="d-flex justify-content-center mt-1">
                   <div className="schedule-box shadow-lg mb-3 rounded">
-                    <DayScheduleContent date={eachDate} data={WeekSchedule[eachDate]} />
+                    <DayScheduleContent day={eachday} data={WeekSchedule[eachday]} />
                   </div>
                 </div>
               </Col>

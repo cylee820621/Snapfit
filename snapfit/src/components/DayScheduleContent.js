@@ -7,7 +7,7 @@ import "../styles/dayschedulecontent.css";
 
 function DayScheduleContent(props) {
   const appDispatch = useContext(DispatchContext);
-  const date = props.date;
+  const day = props.day;
   const exercises = props.data.exercises;
   const [addState, setAddState] = useState(false);
 
@@ -17,13 +17,13 @@ function DayScheduleContent(props) {
 
   function handleClicked(e) {
     const index = e.target.getAttribute("index");
-    appDispatch({ type: "deletSchedule", value: { date: props.date, index: index } });
+    appDispatch({ type: "deletSchedule", value: { day: props.day, index: index } });
   }
   return (
     <div>
       {addState ? (
         <div className="schedule-form-box">
-          <AddScheduleForm date={date} setState={setAddState} />
+          <AddScheduleForm day={day} setState={setAddState} />
         </div>
       ) : (
         <div>

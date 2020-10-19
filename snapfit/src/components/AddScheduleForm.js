@@ -58,7 +58,7 @@ function AddScheduleForm(props) {
       appDispatch({
         type: "addSchedule",
         value: {
-          date: props.date,
+          day: props.day,
           addItem: `${sets.value} sets ${exercise.value} ${targetPart.value} ${bodyPart.value}`
         }
       });
