@@ -20,13 +20,13 @@ function App() {
       imageUrl: localStorage.getItem("snapfitImageUrl")
     },
     schedule: {
-      Monday: [],
-      Tuesday: [],
-      Wednesday: [],
-      Thursday: [],
-      Friday: [],
-      Saturday: [],
-      Sunday: []
+      Monday: getLocalStorateSchedule(localStorage.getItem("Monday")),
+      Tuesday: getLocalStorateSchedule(localStorage.getItem("Tuesday")),
+      Wednesday: getLocalStorateSchedule(localStorage.getItem("Wednesday")),
+      Thursday: getLocalStorateSchedule(localStorage.getItem("Thursday")),
+      Friday: getLocalStorateSchedule(localStorage.getItem("Friday")),
+      Saturday: getLocalStorateSchedule(localStorage.getItem("Saturday")),
+      Sunday: getLocalStorateSchedule(localStorage.getItem("Sunday"))
     },
     friend: {
       0: { name: "BarkALot", userID: 0 },
@@ -42,7 +42,6 @@ function App() {
   function ourReducer(draft, action) {
     switch (action.type) {
       case "login":
-        draft.loggedIn = true;
         draft.user.userID = action.data.user_id;
         draft.user.name = action.data.user_name;
         draft.user.imageUrl = action.data.ImageUrl;
@@ -53,15 +52,18 @@ function App() {
         draft.schedule.Friday = action.data.Friday;
         draft.schedule.Saturday = action.data.Saturday;
         draft.schedule.Sunday = action.data.Sunday;
+        draft.loggedIn = true;
         return;
       case "logout":
         draft.loggedIn = false;
         return;
       case "addSchedule":
         draft.schedule[action.value.day].push(action.value.addItem);
+        putUserSchedule(draft);
         return;
       case "deletSchedule":
         draft.schedule[action.value.day].splice(action.value.index, 1);
+        putUserSchedule(draft);
         return;
       case "getSchedule":
         draft.schedule = action.data;
@@ -80,19 +82,63 @@ function App() {
       localStorage.setItem("snapfitUserId", state.user.userID);
       localStorage.setItem("snapfitName", state.user.name);
       localStorage.setItem("snapfitImageUrl", state.user.imageUrl);
+      localStorage.setItem("Monday", state.schedule.Monday);
+      localStorage.setItem("Tuesday", state.schedule.Tuesday);
+      localStorage.setItem("Wednesday", state.schedule.Wednesday);
+      localStorage.setItem("Thursday", state.schedule.Thursday);
+      localStorage.setItem("Friday", state.schedule.Friday);
+      localStorage.setItem("Saturday", state.schedule.Saturday);
+      localStorage.setItem("Sunday", state.schedule.Sunday);
     } else {
       console.log("loging state " + state.loggedIn);
-      localStorage.removeItem("snapfitGoogleId");
+      localStorage.removeItem("snapfitUserId");
       localStorage.removeItem("snapfitName");
       localStorage.removeItem("snapfitImageUrl");
+      localStorage.removeItem("Monday");
+      localStorage.removeItem("Tuesday");
+      localStorage.removeItem("Wednesday");
+      localStorage.removeItem("Thursday");
+      localStorage.removeItem("Friday");
+      localStorage.removeItem("Saturday");
+      localStorage.removeItem("Sunday");
     }
   }, [state.loggedIn]);
 
+  useEffect(() => {
+    localStorage.setItem("Monday", state.schedule.Monday);
+    localStorage.setItem("Tuesday", state.schedule.Tuesday);
+    localStorage.setItem("Wednesday", state.schedule.Wednesday);
+    localStorage.setItem("Thursday", state.schedule.Thursday);
+    localStorage.setItem("Friday", state.schedule.Friday);
+    localStorage.setItem("Saturday", state.schedule.Saturday);
+    localStorage.setItem("Sunday", state.schedule.Sunday);
+  }, [state.schedule]);
+
   async function putUserSchedule(appState) {
-    const schedule = appState.schedule;
-    const response = await Axios.put(`/api/schedule/${appState.user.userID}`, { schedule });
+    const scheduleForUpdate = {
+      Monday: appState.schedule.Monday,
+      Tuesday: appState.schedule.Tuesday,
+      Wednesday: appState.schedule.Wednesday,
+      Thursday: appState.schedule.Thursday,
+      Friday: appState.schedule.Friday,
+      Saturday: appState.schedule.Saturday,
+      Sunday: appState.schedule.Sunday
+    };
+    const response = await Axios.put(`/api/schedule/${appState.user.userID}`, scheduleForUpdate);
     if (response) {
       console.log(response);
+    }
+  }
+
+  function getLocalStorateSchedule(data) {
+    if (data) {
+      if (data.length > 1) {
+        return data.split(",");
+      } else if (data.length === 1) {
+        return [data];
+      }
+    } else {
+      return [];
     }
   }
 

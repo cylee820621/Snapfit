@@ -87,8 +87,12 @@ function AddScheduleForm(props) {
             }}
             className="form-control form-control-sm"
           >
-            {secletion.map((part) => {
-              return <option value={part.target}>{part.target}</option>;
+            {secletion.map((part, index) => {
+              return (
+                <option key={index} value={part.target}>
+                  {part.target}
+                </option>
+              );
             })}
           </select>
 
@@ -102,8 +106,12 @@ function AddScheduleForm(props) {
               }}
               className="form-control form-control-sm"
             >
-              {selectTargetObject(bodyPart.value)[0].bodypart.map((part) => {
-                return <option value={part.part}>{part.part}</option>;
+              {selectTargetObject(bodyPart.value)[0].bodypart.map((part, index) => {
+                return (
+                  <option key={index} value={part.part}>
+                    {part.part}
+                  </option>
+                );
               })}
             </select>
           )}
@@ -118,8 +126,12 @@ function AddScheduleForm(props) {
             >
               {selectTargetObject(bodyPart.value)[0]
                 .bodypart.filter((part) => part.part === targetPart.value)[0]
-                .exercises.map((exerciseName) => {
-                  return <option value={exerciseName}>{exerciseName}</option>;
+                .exercises.map((exerciseName, index) => {
+                  return (
+                    <option key={index} value={exerciseName}>
+                      {exerciseName}
+                    </option>
+                  );
                 })}
             </select>
           )}
@@ -142,10 +154,10 @@ function AddScheduleForm(props) {
 
         <div className="d-flex btn-form">
           <Button type="submit" onClick={handleSubmit} variant="success" size="sm" block>
-            <i class="fas fa-check"></i>
+            <i className="fas fa-check"></i>
           </Button>
           <Button className="my-0" size="sm" variant="danger" onClick={() => setOpen(false)} block>
-            <i class="fas fa-times"></i>
+            <i className="fas fa-times"></i>
           </Button>
         </div>
       </form>
