@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Button } from "react-bootstrap";
-import DayScheduleContent from "./DayScheduleContent";
 
 function FriendCardSchedule(props) {
   return (
