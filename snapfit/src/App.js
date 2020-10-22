@@ -79,15 +79,6 @@ function App() {
     }
   }, [state.loggedIn]);
 
-  useEffect(() => {
-    console.log("get user schedule");
-  }, [state.loggedIn]);
-
-  useEffect(() => {
-    console.log("updating schedule to database.");
-    putUserSchedule(state);
-  }, [state.schedule]);
-
   async function putUserSchedule(appState) {
     const schedule = appState.schedule;
     const response = await Axios.put(`/api/schedule/${appState.user.userID}`, { schedule });
