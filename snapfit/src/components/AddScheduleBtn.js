@@ -10,7 +10,7 @@ function AddScheduleBtn(props) {
 
   return (
     <Button size="sm" block onClick={() => setOpen(!open)} aria-controls="example-collapse-text" aria-expanded={open}>
-      <i class="fas fa-plus"></i>
+      <i className="fas fa-plus"></i>
     </Button>
   );
 }

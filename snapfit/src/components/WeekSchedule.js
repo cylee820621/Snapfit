@@ -8,11 +8,11 @@ function WeekSchedule(props) {
   return (
     <Container className="week-box" fluid>
       <div className="week-title">Week schedule</div>
-      <Container className="days-box" fuild>
+      <Container className="days-box" fluid>
         <Row xs={1} sm={1} md={2} lg={3} xl={4} className="day-list">
-          {Object.keys(WeekSchedule).map((eachday) => {
+          {Object.keys(WeekSchedule).map((eachday, index) => {
             return (
-              <Col>
+              <Col key={index}>
                 <div className="day">{eachday}</div>
                 <div className="d-flex justify-content-center mt-1">
                   <div className="schedule-box shadow-lg mb-3 rounded">

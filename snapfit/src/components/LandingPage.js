@@ -11,11 +11,7 @@ function LandingPage() {
   const responseGoogle = (response) => {
     console.log(response.profileObj);
     if (response.profileObj) {
-      const userData = getUserData(response.profileObj);
-      console.log(userData);
-      APIlogin(response.profileObj.googleId);
-      console.log(response.profileObj);
-      appDispatch({ type: "login", data: response.profileObj });
+      getUserData(response.profileObj);
     }
   };
 
@@ -23,7 +19,10 @@ function LandingPage() {
     try {
       const response = await Axios.get(`/api/friendlist/${userData.googleId}`);
       if (response) {
+        console.log("getuserdata");
         console.log(response.data);
+        APIlogin(response.data.user_id);
+        appDispatch({ type: "login", data: response.data });
         return response.data;
       }
     } catch (e) {
@@ -43,22 +42,14 @@ function LandingPage() {
       if (response) {
         console.log(response);
         console.log("Successfully created!");
+        APIlogin(response.data.user_id);
         return response;
       }
     } catch (e) {
       console.log("There is a problem posting userdata");
     }
   }
-  /* THIS IS FOR TESTING API CONNECTION
-  async function testingresponse() {
-    try {
-      const response = await Axios.get("/api/friends");
-      console.log(response);
-    } catch (e) {
-      console.log("There is a problem connect to backend server");
-    }
-  }
-  */
+
   async function APIlogin(userId) {
     const response = await Axios.put(`/api/login/${userId}`);
     if (response) {

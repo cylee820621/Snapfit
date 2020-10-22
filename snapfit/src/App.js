@@ -13,9 +13,9 @@ Axios.defaults.baseURL = `${preventCORS}https://snapfit-lutein.herokuapp.com/`;
 
 function App() {
   const initialState = {
-    loggedIn: Boolean(localStorage.getItem("snapfitGoogleId")),
+    loggedIn: Boolean(localStorage.getItem("snapfitUserId")),
     user: {
-      userID: localStorage.getItem("snapfitGoogleId"),
+      userID: localStorage.getItem("snapfitUserId"),
       name: localStorage.getItem("snapfitName"),
       imageUrl: localStorage.getItem("snapfitImageUrl")
     },
@@ -43,7 +43,16 @@ function App() {
     switch (action.type) {
       case "login":
         draft.loggedIn = true;
-        draft.user = action.data;
+        draft.user.userID = action.data.user_id;
+        draft.user.name = action.data.user_name;
+        draft.user.imageUrl = action.data.ImageUrl;
+        draft.schedule.Monday = action.data.Monday;
+        draft.schedule.Tuesday = action.data.Tuesday;
+        draft.schedule.Wednesday = action.data.Wednesday;
+        draft.schedule.Thursday = action.data.Thursday;
+        draft.schedule.Friday = action.data.Friday;
+        draft.schedule.Saturday = action.data.Saturday;
+        draft.schedule.Sunday = action.data.Sunday;
         return;
       case "logout":
         draft.loggedIn = false;
@@ -68,7 +77,7 @@ function App() {
   useEffect(() => {
     if (state.loggedIn) {
       console.log("loging state " + state.loggedIn);
-      localStorage.setItem("snapfitGoogleId", state.user.userID);
+      localStorage.setItem("snapfitUserId", state.user.userID);
       localStorage.setItem("snapfitName", state.user.name);
       localStorage.setItem("snapfitImageUrl", state.user.imageUrl);
     } else {

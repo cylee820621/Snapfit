@@ -8,7 +8,7 @@ function HeaderLoggedIn() {
   return (
     <nav className="navbar navbar-expand-md shadow mb-3" id="mainNav">
       <Container fluid>
-        <a id="logo" className="navbar-brand">
+        <a id="logo" className="navbar-brand" href="#">
           SNAPFIT
         </a>
         <div className="d-flex justify-content-center">
@@ -22,12 +22,16 @@ function HeaderLoggedIn() {
           <ul id="navbar-section" className="navbar-nav ">
             <li className="nav-item mx-0 mx-lg-2">
               <Button size="sm" variant="outline-success">
-                <a className="nav-link p-2 px-lg-3 rounded ">MESSAGE</a>
+                <a href="#" className="nav-link p-2 px-lg-3 rounded ">
+                  MESSAGE
+                </a>
               </Button>
             </li>
             <li className="nav-item mx-0 mx-lg-2">
               <Button size="sm" variant="outline-success">
-                <a className="nav-link p-2 px-lg-3 rounded ">NEW FRIEND</a>
+                <a href="#" className="nav-link p-2 px-lg-3 rounded ">
+                  NEW FRIEND
+                </a>
               </Button>
             </li>
           </ul>

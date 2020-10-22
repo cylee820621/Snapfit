@@ -15,11 +15,11 @@ function Friends() {
       <AddFriend addFriend={addFriend} setAddFriend={setAddFriend} />
       <div className="p-4">
         <Row xs={1} sm={1} md={3} lg={3} xl={4} className="justify-content-around">
-          {Object.values(friends).map((friend) => {
+          {Object.values(friends).map((friendID) => {
             return (
-              <Col>
+              <Col key={friendID}>
                 <div className="d-flex justify-content-center shadow-lg m-3 mb-5 ">
-                  <FriendCard userImage={appState.user.imageUrl} data={friend} />
+                  <FriendCard userImage={appState.user.imageUrl} data={friendID} />
                 </div>
               </Col>
             );

@@ -9,7 +9,7 @@ function Footer() {
   const appState = useContext(StateContext);
   const appDispatch = useContext(DispatchContext);
   function handleLogout() {
-    APIlogout(appState.user.googleId);
+    APIlogout(appState.user.userID);
     appDispatch({ type: "logout" });
   }
   async function APIlogout(userId) {
