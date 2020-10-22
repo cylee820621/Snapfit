@@ -14,6 +14,7 @@ function LandingPage() {
       const userData = getUserData(response.profileObj);
       console.log(userData);
       APIlogin(response.profileObj.googleId);
+      console.log(response.profileObj);
       appDispatch({ type: "login", data: response.profileObj });
     }
   };

@@ -4,7 +4,6 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./styles/App.css";
 import LandingPage from "./components/LandingPage";
 import Home from "./components/Home";
-
 import StateContext from "./StateContext";
 import DispatchContext from "./DispatchContext";
 import Axios from "axios";
@@ -16,7 +15,7 @@ function App() {
   const initialState = {
     loggedIn: Boolean(localStorage.getItem("snapfitGoogleId")),
     user: {
-      googleId: localStorage.getItem("snapfitGoogleId"),
+      userID: localStorage.getItem("snapfitGoogleId"),
       name: localStorage.getItem("snapfitName"),
       imageUrl: localStorage.getItem("snapfitImageUrl")
     },
@@ -55,6 +54,9 @@ function App() {
       case "deletSchedule":
         draft.schedule[action.value.day].splice(action.value.index, 1);
         return;
+      case "getSchedule":
+        draft.schedule = action.data;
+        return;
       case "flashMessage":
         draft.flashMassage.push(action.value);
         return;
@@ -66,7 +68,7 @@ function App() {
   useEffect(() => {
     if (state.loggedIn) {
       console.log("loging state " + state.loggedIn);
-      localStorage.setItem("snapfitGoogleId", state.user.googleId);
+      localStorage.setItem("snapfitGoogleId", state.user.userID);
       localStorage.setItem("snapfitName", state.user.name);
       localStorage.setItem("snapfitImageUrl", state.user.imageUrl);
     } else {
@@ -81,14 +83,14 @@ function App() {
     console.log("get user schedule");
   }, [state.loggedIn]);
 
-  async function getUserSchedule(userid) {
-    const response = await Axios.get(`/api/schedule/${userid}`);
-    if (response) {
-      console.log(response);
-    }
-  }
-  async function putUserSchedule(userid) {
-    const response = await Axios.put(`/api/schedule/${userid}`, {});
+  useEffect(() => {
+    console.log("updating schedule to database.");
+    putUserSchedule(state);
+  }, [state.schedule]);
+
+  async function putUserSchedule(appState) {
+    const schedule = appState.schedule;
+    const response = await Axios.put(`/api/schedule/${appState.user.userID}`, { schedule });
     if (response) {
       console.log(response);
     }
