@@ -19,7 +19,7 @@ function LandingPage() {
     try {
       const response = await Axios.get(`/api/friendlist/${userData.googleId}`);
       if (response) {
-        console.log("getuserdata");
+        console.log("API:getuserdata");
         console.log(response.data);
         APIlogin(response.data.user_id);
         appDispatch({ type: "login", data: response.data });
@@ -41,8 +41,8 @@ function LandingPage() {
       const response = await Axios.post("/api/friends", data);
       if (response) {
         console.log(response);
-        console.log("Successfully created!");
-        APIlogin(response.data.user_id);
+        console.log("Successfully created an new user!");
+        getUserData(userData);
         return response;
       }
     } catch (e) {
