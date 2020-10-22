@@ -34,8 +34,8 @@ function LandingPage() {
   async function postUserData(userData) {
     try {
       const data = {
-        friend_id: userData.googleId,
-        friend_name: userData.name,
+        user_id: userData.googleId,
+        user_name: userData.name,
         ImageUrl: userData.imageUrl
       };
       const response = await Axios.post("/api/friends", data);
