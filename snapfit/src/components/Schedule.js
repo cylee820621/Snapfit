@@ -8,7 +8,7 @@ function Schedule() {
   const appState = useContext(StateContext);
   return (
     <Container id="schedule-box" fluid>
-      <WeekSchedule data={appState.schedule} />;
+      <WeekSchedule data={appState.schedule} />
     </Container>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Button, Container, Image } from "react-bootstrap";
 import StateContext from "../StateContext";
+import HeaderNewFriend from "./HeaaderNewFriend";
 import "../styles/header.css";
 
 function HeaderLoggedIn() {
@@ -16,26 +17,9 @@ function HeaderLoggedIn() {
           <div className="username">{appState.user.name}</div>
         </div>
         <button className="navbar-toggler navbar-toggler-right rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu <i className="fas fa-bars"></i>
+          <i className="fas fa-bars"></i>
         </button>
-        <div className="collapse navbar-collapse justify-content-end" id="navbarResponsive">
-          <ul id="navbar-section" className="navbar-nav ">
-            <li className="nav-item mx-0 mx-lg-2">
-              <Button size="sm" variant="outline-success">
-                <a href="#" className="nav-link p-2 px-lg-3 rounded ">
-                  MESSAGE
-                </a>
-              </Button>
-            </li>
-            <li className="nav-item mx-0 mx-lg-2">
-              <Button size="sm" variant="outline-success">
-                <a href="#" className="nav-link p-2 px-lg-3 rounded ">
-                  NEW FRIEND
-                </a>
-              </Button>
-            </li>
-          </ul>
-        </div>
+        <HeaderNewFriend />
       </Container>
     </nav>
   );

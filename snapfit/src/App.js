@@ -36,7 +36,7 @@ function App() {
       4: { name: "someone", userID: 4 },
       5: { name: "CC", userID: 5 }
     },
-    friendRequest: []
+    friendRequest: ["userid01", "userid02", "userid03"]
   };
 
   function ourReducer(draft, action) {

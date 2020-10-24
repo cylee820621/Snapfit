@@ -1,0 +1,11 @@
+.friend-request {
+  background-color: rgb(245, 89, 89);
+  font-size: large;
+  color: white;
+  margin-right: 0.3rem;
+  padding-right: 0.3rem;
+  padding-left: 0.3rem;
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
+  border-radius: 15%;
+}

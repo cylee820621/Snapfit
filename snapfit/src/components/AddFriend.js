@@ -17,6 +17,7 @@ function AddFriend(props) {
           onClick={() => {
             setAddFriend(!addFriend);
           }}
+          data-toggle="collapse"
         >
           +Add
         </Button>
