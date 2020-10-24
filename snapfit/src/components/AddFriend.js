@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 function AddFriend(props) {
   const addFriend = props.addFriend;
   const setAddFriend = props.setAddFriend;
-  const [friendID, setFriendID] = useState();
+  const [friendID, setFriendID] = useState("");
 
   function changeHandler(e) {
     setFriendID(e.target.value);
@@ -12,7 +12,7 @@ function AddFriend(props) {
   function handleSubmit() {
     console.log(friendID);
     alert("submit");
-    setFriendID();
+    setFriendID("");
     setAddFriend(false);
   }
   return (
