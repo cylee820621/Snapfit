@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
 function AddFriend(props) {
   const addFriend = props.addFriend;
   const setAddFriend = props.setAddFriend;
+  const [friendID, setFriendID] = useState();
+
+  function changeHandler(e) {
+    setFriendID(e.target.value);
+  }
   function handleSubmit() {
+    console.log(friendID);
     alert("submit");
+    setFriendID();
     setAddFriend(false);
   }
   return (
@@ -28,7 +35,7 @@ function AddFriend(props) {
             <label className="my-0 pr-2" htmlFor="userId">
               User id:{" "}
             </label>
-            <input className="addfriend-input-box form-control m-0" id="userId" placeholder="Enter user id" />
+            <input className="addfriend-input-box form-control m-0" id="userId" value={friendID} onChange={changeHandler} placeholder="Enter user id" />
             <Button onClick={handleSubmit} className="ml-2" variant="success" size="md">
               Sumbit
             </Button>
