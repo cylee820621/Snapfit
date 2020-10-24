@@ -12,6 +12,9 @@ const preventCORS = "https://cors-anywhere.herokuapp.com/";
 Axios.defaults.baseURL = `${preventCORS}https://snapfit-lutein.herokuapp.com/`;
 
 function App() {
+  if (window.performance) {
+    alert("window.performance works fine on this browser");
+  }
   const initialState = {
     loggedIn: Boolean(localStorage.getItem("snapfitUserId")),
     user: {
