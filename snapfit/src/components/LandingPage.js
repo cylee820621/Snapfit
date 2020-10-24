@@ -1,16 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import GoogleLogin from "react-google-login";
 import DispatchContext from "../DispatchContext";
-import { Container, Navbar, Button } from "react-bootstrap";
+import { Container, Navbar, Button, Spinner } from "react-bootstrap";
 import Axios from "axios";
 import "../styles/landingpage.css";
 
 function LandingPage() {
   const appDispatch = useContext(DispatchContext);
+  const [Loading, setLoading] = useState(false);
 
   const responseGoogle = (response) => {
     console.log(response.profileObj);
     if (response.profileObj) {
+      setLoading(true);
       getUserData(response.profileObj);
     }
   };
@@ -23,6 +25,7 @@ function LandingPage() {
         console.log(response.data);
         APIlogin(response.data.user_id);
         appDispatch({ type: "login", data: response.data });
+        setLoading(false);
         return response.data;
       }
     } catch (e) {
@@ -65,13 +68,19 @@ function LandingPage() {
           <GoogleLogin clientId="250791291053-bk8gbafnq1n9jf03p7hrk753rolh2kjs.apps.googleusercontent.com" buttonText="Login" onSuccess={responseGoogle} onFailure={responseGoogle} cookiePolicy={"single_host_origin"} />
         </div>
       </Navbar>
-      <Container fluid>
-        <div className="body">
-          <div className="body-content"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit alias iste impedit eligendi sunt quas voluptate, possimus explicabo numquam aliquam beatae dicta labore, id amet qui natus earum similique blanditiis. </div>
-        </div>
-        <div className="learn-more-btn">
-          <Button variant="info">Learn More</Button>
-        </div>
+      <Container fluid className="d-flex justify-content-center">
+        {Loading ? (
+          <Spinner animation="border" variant="light" />
+        ) : (
+          <div>
+            <div className="body">
+              <div className="body-content"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit alias iste impedit eligendi sunt quas voluptate, possimus explicabo numquam aliquam beatae dicta labore, id amet qui natus earum similique blanditiis. </div>
+            </div>
+            <div className="learn-more-btn">
+              <Button variant="info">Learn More</Button>
+            </div>
+          </div>
+        )}
       </Container>
     </Container>
   );
