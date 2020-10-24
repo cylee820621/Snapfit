@@ -21,12 +21,12 @@ function AddFriend(props) {
 
   //Send friend request by other user's id
   async function sendFriendRequest() {
-    data = {
-      userid = appState.user.userID
-    }
+    const data = {
+      userid: appState.user.userID
+    };
     const response = Axios.put("", data);
-    if(response){
-      console.log(response)
+    if (response) {
+      console.log(response);
     }
   }
 
