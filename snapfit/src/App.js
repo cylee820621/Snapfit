@@ -12,9 +12,7 @@ const preventCORS = "https://cors-anywhere.herokuapp.com/";
 Axios.defaults.baseURL = `${preventCORS}https://snapfit-lutein.herokuapp.com/`;
 
 function App() {
-  if (window.performance) {
-    alert("window.performance works fine on this browser");
-  }
+  //Inital State when getting in the Web
   const initialState = {
     loggedIn: Boolean(localStorage.getItem("snapfitUserId")),
     user: {
@@ -42,6 +40,7 @@ function App() {
     friendRequest: ["userid01", "userid02", "userid03"]
   };
 
+  //Method for updating AppState
   function ourReducer(draft, action) {
     switch (action.type) {
       case "login":
@@ -68,17 +67,14 @@ function App() {
         draft.schedule[action.value.day].splice(action.value.index, 1);
         putUserSchedule(draft);
         return;
-      case "getSchedule":
-        draft.schedule = action.data;
-        return;
-      case "flashMessage":
-        draft.flashMassage.push(action.value);
-        return;
     }
   }
 
+  //State management setting
   const [state, dispatch] = useImmerReducer(ourReducer, initialState);
 
+  //When AppState loggedin state changes to true, store user info in localStorage
+  //When AppState loggedin state changes to false, clean up user info in localStorage
   useEffect(() => {
     if (state.loggedIn) {
       console.log("loging state " + state.loggedIn);
@@ -107,6 +103,7 @@ function App() {
     }
   }, [state.loggedIn]);
 
+  //when AppState schedule changes, update user schedule in localStorage
   useEffect(() => {
     localStorage.setItem("Monday", state.schedule.Monday);
     localStorage.setItem("Tuesday", state.schedule.Tuesday);
@@ -117,6 +114,7 @@ function App() {
     localStorage.setItem("Sunday", state.schedule.Sunday);
   }, [state.schedule]);
 
+  //Update user schedule in database
   async function putUserSchedule(appState) {
     const scheduleForUpdate = {
       Monday: appState.schedule.Monday,
@@ -133,6 +131,7 @@ function App() {
     }
   }
 
+  //Get data from localStorage, and do data processing
   function getLocalStorateSchedule(data) {
     if (data) {
       if (data.length > 1) {
@@ -161,3 +160,9 @@ function App() {
 }
 
 export default App;
+
+/*
+  if (window.performance) {
+    alert("window.performance works fine on this browser");
+  }
+*/

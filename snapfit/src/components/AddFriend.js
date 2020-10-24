@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Button } from "react-bootstrap";
+import Axios from "axios";
+import stateContext from "../StateContext";
 
 function AddFriend(props) {
+  const appState = useContext(stateContext);
   const addFriend = props.addFriend;
   const setAddFriend = props.setAddFriend;
   const [friendID, setFriendID] = useState("");
@@ -15,6 +18,18 @@ function AddFriend(props) {
     setFriendID("");
     setAddFriend(false);
   }
+
+  //Send friend request by other user's id
+  async function sendFriendRequest() {
+    data = {
+      userid = appState.user.userID
+    }
+    const response = Axios.put("", data);
+    if(response){
+      console.log(response)
+    }
+  }
+
   return (
     <div>
       <div className="d-flex justify-content-center align-items-center">
