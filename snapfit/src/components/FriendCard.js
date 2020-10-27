@@ -23,15 +23,15 @@ function FriendCard(props) {
       {openSchedule && <FriendCardSchedule />}
       <div className="friend-card-btn-box d-flex justify-content-between">
         {!openSchedule ? (
-          <Button size="md" onClick={handleSchedule} variant="success" className="friendcard-btn">
+          <Button onClick={handleSchedule} variant="success" className="friendcard-btn">
             <i className="far fa-calendar-alt"></i>
           </Button>
         ) : (
-          <Button size="md" onClick={handleSchedule} variant="danger" className="friendcard-btn">
+          <Button onClick={handleSchedule} variant="danger" className="friendcard-btn">
             <i className="far fa-calendar-alt"></i>
           </Button>
         )}
-        <Button size="md" variant="primary" className="friendcard-btn">
+        <Button variant="primary" className="friendcard-btn">
           <i className="far fa-envelope"></i>
         </Button>
       </div>

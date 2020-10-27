@@ -1,8 +1,18 @@
-import React from "react";
+import Axios from "axios";
+import React, { useState } from "react";
 import { Container, Row, Button, Form } from "react-bootstrap";
 import "../styles/match.css";
 
 function Match() {
+  const [match, setMatch] = useState(false);
+
+  async function getMatch(userid) {
+    const data = {};
+    const response = await Axios.get(`api/match/${userid}`, data);
+    if (response) {
+      console.log(response);
+    }
+  }
   return (
     <Container fluid id="match-box">
       <div className="match-form-box rounded shadow-lg">
