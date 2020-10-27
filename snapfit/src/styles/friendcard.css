@@ -16,5 +16,9 @@
 }
 .friend-card-btn-box {
   position: relative;
-  bottom: 0rem;
+}
+.friendcard-btn {
+  display: flex;
+  justify-content: center;
+  width: 10rem;
 }

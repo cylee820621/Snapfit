@@ -21,18 +21,18 @@ function FriendCard(props) {
       <div className="friendcard-username d-flex justify-content-center">{data.name}</div>
       <div className="friendcard-username d-flex justify-content-center">{data.userID}</div>
       {openSchedule && <FriendCardSchedule />}
-      <div className="friend-card-btn-box d-stakc justify-content-around">
+      <div className="friend-card-btn-box d-flex justify-content-between">
         {!openSchedule ? (
-          <Button block size="sm" onClick={handleSchedule} variant="success">
-            Check Schedule
+          <Button size="md" onClick={handleSchedule} variant="success" className="friendcard-btn">
+            <i className="far fa-calendar-alt"></i>
           </Button>
         ) : (
-          <Button block size="sm" onClick={handleSchedule} variant="danger">
-            Close Schedule
+          <Button size="md" onClick={handleSchedule} variant="danger" className="friendcard-btn">
+            <i className="far fa-calendar-alt"></i>
           </Button>
         )}
-        <Button block size="sm" variant="primary">
-          Send Message
+        <Button size="md" variant="primary" className="friendcard-btn">
+          <i className="far fa-envelope"></i>
         </Button>
       </div>
     </Card>
