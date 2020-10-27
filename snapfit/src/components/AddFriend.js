@@ -14,17 +14,14 @@ function AddFriend(props) {
   }
   function handleSubmit() {
     console.log(friendID);
-    alert("submit");
+    sendFriendRequest(friendID);
     setFriendID("");
     setAddFriend(false);
   }
 
   //Send friend request by other user's id
-  async function sendFriendRequest() {
-    const data = {
-      userid: appState.user.userID
-    };
-    const response = Axios.put("", data);
+  async function sendFriendRequest(sendID) {
+    const response = await Axios.put(`/api/sendrequest/${sendID},${appState.user.userID}`);
     if (response) {
       console.log(response);
     }
