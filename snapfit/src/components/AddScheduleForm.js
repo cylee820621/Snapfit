@@ -62,6 +62,7 @@ function AddScheduleForm(props) {
           addItem: `${sets.value} sets ${exercise.value} ${targetPart.value} ${bodyPart.value}`
         }
       });
+      appDispatch({ type: "flashMessage", value: "Schedule updated!" });
       setOpen(false);
     } else {
       alert("please choose a exercise");

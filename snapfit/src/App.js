@@ -6,6 +6,7 @@ import LandingPage from "./components/LandingPage";
 import Home from "./components/Home";
 import StateContext from "./StateContext";
 import DispatchContext from "./DispatchContext";
+import FlashMessage from "./components/FlashMessage";
 import Axios from "axios";
 
 const preventCORS = "https://cors-anywhere.herokuapp.com/";
@@ -15,6 +16,7 @@ function App() {
   //Inital State when getting in the Web
   const initialState = {
     loggedIn: Boolean(localStorage.getItem("snapfitUserId")),
+    flashMassage: [],
     user: {
       userID: localStorage.getItem("snapfitUserId"),
       name: localStorage.getItem("snapfitName"),
@@ -66,6 +68,9 @@ function App() {
       case "deletSchedule":
         draft.schedule[action.value.day].splice(action.value.index, 1);
         putUserSchedule(draft);
+        return;
+      case "flashMessage":
+        draft.flashMassage.push(action.value);
         return;
     }
   }
@@ -147,6 +152,7 @@ function App() {
   return (
     <StateContext.Provider value={state}>
       <DispatchContext.Provider value={dispatch}>
+        <FlashMessage msg={state.flashMassage} />
         <BrowserRouter>
           <Switch>
             <Route path="/" exact>

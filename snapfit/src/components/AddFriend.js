@@ -2,9 +2,11 @@ import React, { useState, useContext } from "react";
 import { Button } from "react-bootstrap";
 import Axios from "axios";
 import stateContext from "../StateContext";
+import DispatchContext from "../DispatchContext";
 
 function AddFriend(props) {
   const appState = useContext(stateContext);
+  const appDispatch = useContext(DispatchContext);
   const addFriend = props.addFriend;
   const setAddFriend = props.setAddFriend;
   const [friendID, setFriendID] = useState("");
@@ -14,7 +16,8 @@ function AddFriend(props) {
   }
   function handleSubmit() {
     console.log(friendID);
-    sendFriendRequest(friendID);
+    //sendFriendRequest(friendID);
+    appDispatch({ type: "flashMessage", value: "friend id submit" });
     setFriendID("");
     setAddFriend(false);
   }
