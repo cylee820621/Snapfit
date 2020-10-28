@@ -31,9 +31,7 @@ function App() {
       Saturday: getLocalStorateSchedule(localStorage.getItem("Saturday")),
       Sunday: getLocalStorateSchedule(localStorage.getItem("Sunday"))
     },
-    friend: {
-      0: { name: "BarkALot", userID: 0 }
-    },
+    friend: getLocalStorateSchedule(localStorage.getItem("friend")),
     friendRequest: getLocalStorateSchedule(localStorage.getItem("friendRequest"))
   };
 
@@ -66,7 +64,11 @@ function App() {
         draft.schedule[action.value.day].splice(action.value.index, 1);
         putUserSchedule(draft);
         return;
-      case "updateFriendRequest":
+      case "confirmFriendRequest":
+        draft.friendRequest.splice(action.value.index, 1);
+        draft.friend.push(action.value.friendid);
+        return;
+      case "cancelFriendRequest":
         draft.friendRequest.splice(action.value.index, 1);
         return;
       case "flashMessage":

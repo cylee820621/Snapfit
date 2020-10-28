@@ -21,11 +21,10 @@ function LandingPage() {
     try {
       const response = await Axios.get(`/api/friendlist/${userData.googleId}`);
       if (response) {
-        console.log("API:getuserdata");
         console.log(response.data);
-        APIlogin(response.data.user_id);
-        appDispatch({ type: "login", data: response.data });
-        setLoading(false);
+        await APIlogin(response.data.user_id);
+        await appDispatch({ type: "login", data: response.data });
+        await setLoading(false);
         return response.data;
       }
     } catch (e) {

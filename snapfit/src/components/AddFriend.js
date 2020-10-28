@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Button, Spinner } from "react-bootstrap";
+import { Button, Spinner, Container } from "react-bootstrap";
 import Axios from "axios";
 import stateContext from "../StateContext";
 import DispatchContext from "../DispatchContext";
@@ -26,12 +26,12 @@ function AddFriend(props) {
     if (response) {
       console.log(response);
       if (response.data == "User Already Sent Request or Is already a friend") {
-        appDispatch({ type: "flashMessage", value: "User Already Sent Request or Is already a friend" });
+        await appDispatch({ type: "flashMessage", value: "User Already Sent Request or Is already a friend" });
         setLoading(false);
         setFriendID("");
         setAddFriend(false);
       } else {
-        appDispatch({ type: "flashMessage", value: "friend id submit" });
+        await appDispatch({ type: "flashMessage", value: "friend id submit" });
         setLoading(false);
         setFriendID("");
         setAddFriend(false);
@@ -42,7 +42,9 @@ function AddFriend(props) {
   return (
     <div>
       {Loading ? (
-        <Spinner animation="border" variant="light" />
+        <Container className="d-flex justify-content-center align-items-center" fluid>
+          <Spinner animation="border" variant="dark" />
+        </Container>
       ) : (
         <>
           <div className="d-flex justify-content-center align-items-center">

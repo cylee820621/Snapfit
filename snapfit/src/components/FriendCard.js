@@ -5,7 +5,7 @@ import Modal from "react-modal";
 import "../styles/friendcard.css";
 
 function FriendCard(props) {
-  const data = props.data;
+  const friendID = props.friendID;
   const userImage = props.userImage;
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [openSchedule, setOpenSchedule] = useState(false);
@@ -40,7 +40,7 @@ function FriendCard(props) {
       <div className="d-flex justify-content-center">
         <Image className="image-size p-1" roundedCircle src={userImage} alt="user-image" />
       </div>
-      <div className="friendcard-username d-flex justify-content-center">{data.name}</div>
+      <div className="friendcard-username d-flex justify-content-center">name</div>
       {openSchedule && <FriendCardSchedule />}
       <div className="friend-card-btn-box d-flex justify-content-between">
         {!openSchedule ? (

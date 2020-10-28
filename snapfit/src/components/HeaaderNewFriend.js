@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Button, Image } from "react-bootstrap";
+import { Button, Image, Spinner } from "react-bootstrap";
 import { Dropdown } from "react-bootstrap";
 import stateContext from "../StateContext";
 import DispatchContext from "../DispatchContext";
@@ -10,31 +10,38 @@ function HeaderNewFriend() {
   const appState = useContext(stateContext);
   const appDispatch = useContext(DispatchContext);
   const requestList = appState.friendRequest;
+  const [Loading, setLoading] = useState(false);
 
   async function handleConfirm(e) {
-    if (typeof e.target.value === "string") {
-      const friendID = e.target.value;
+    if (typeof e.target.getAttribute("value") === "string") {
+      setLoading(true);
+      const friendID = e.target.getAttribute("value");
+      const index = e.target.getAttribute("index");
       const response = await Axios.put(`/api/confirmrequest/${appState.user.userID},${friendID}`);
       if (response) {
         appDispatch({ type: "flashMessage", value: "Successfully Confirm!" });
+        setLoading(false);
         console.log(response);
         appDispatch({
-          type: "updateFriendRequest",
-          value: { index: e.target.index }
+          type: "confirmFriendRequest",
+          value: { friendid: friendID, index: index }
         });
       }
     }
   }
   async function handleCancel(e) {
     if (typeof e.target.value === "string") {
-      const friendID = e.target.value;
+      setLoading(true);
+      const friendID = e.target.getAttribute("value");
+      const index = e.target.getAttribute("index");
       const response = await Axios.put(`/api/cancelrequest/${appState.user.userID},${friendID}`);
       if (response) {
         appDispatch({ type: "flashMessage", value: "Successfully Cancel!" });
+        setLoading(false);
         console.log(response);
         appDispatch({
-          type: "updateFriendRequest",
-          value: { index: e.target.index }
+          type: "cancelFriendRequest",
+          value: { index: index }
         });
       }
     }
@@ -43,7 +50,7 @@ function HeaderNewFriend() {
     <div>
       <Dropdown>
         <Dropdown.Toggle variant="primary" className="p-2">
-          <span className="friend-request">{requestList.length}</span>
+          {Loading ? <Spinner animation="border" variant="light" /> : <span className="friend-request">{requestList.length}</span>}
           <span>NEW FRIEND</span>
         </Dropdown.Toggle>
         {requestList.length !== 0 && (
