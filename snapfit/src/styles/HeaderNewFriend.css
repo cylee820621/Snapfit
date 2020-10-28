@@ -2,10 +2,25 @@
   background-color: rgb(245, 89, 89);
   font-size: large;
   color: white;
+
   margin-right: 0.3rem;
   padding-right: 0.3rem;
   padding-left: 0.3rem;
   padding-top: 0.15rem;
   padding-bottom: 0.15rem;
   border-radius: 15%;
+}
+.friend-request-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+}
+.friend-request-item:hover {
+  background-color: rgb(232, 255, 79);
+}
+.friend-request-btn {
+  margin-right: 0.3rem;
+  width: 3.5rem;
 }

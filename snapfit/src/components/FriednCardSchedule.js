@@ -1,23 +1,45 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import { Button, Carousel } from "react-bootstrap";
+import "../styles/friendcardschedule.css";
 
 function FriendCardSchedule(props) {
-  function handlePrev() {
-    alert("Prev clicked");
-  }
-  function handleNext() {
-    alert("Next clicked");
-  }
+  const schedule = {
+    Monday: ["aaaa", "bbbbbb"],
+    Tuesday: ["ccccccc"],
+    Wednesday: [],
+    Thursday: ["ccc", "idkidkidk"],
+    Friday: ["FFFFF"],
+    Saturday: ["SSSSSS"],
+    Sunday: ["SSUNDAY"]
+  };
+
   return (
     <div className="p-2">
-      <div className="d-flex justify-content-center">ScheduleContent</div>
-      <div className="d-flex justify-content-around p-2">
-        <Button onClick={handlePrev} size="sm">
-          prev
-        </Button>
-        <Button onClick={handleNext} size="sm">
-          next
-        </Button>
+      <div className="d-flex justify-content-center">
+        <Carousel>
+          {Object.keys(schedule).map((day) => {
+            return (
+              <Carousel.Item className="carousel-box">
+                <div className="friend-day-title">{day}</div>
+                <div className="friend-day-schedule-box overflow-auto">
+                  {schedule[day].length !== 0 ? (
+                    <ul>
+                      {schedule[day].map((exercise) => {
+                        return (
+                          <li>
+                            <div>{exercise}</div>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  ) : (
+                    <div className="friend-no-schedule-info">None</div>
+                  )}
+                </div>
+              </Carousel.Item>
+            );
+          })}
+        </Carousel>
       </div>
     </div>
   );
