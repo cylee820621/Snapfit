@@ -34,7 +34,7 @@ function App() {
     friend: {
       0: { name: "BarkALot", userID: 0 }
     },
-    friendRequest: ["userid01", "userid02", "userid03"]
+    friendRequest: getLocalStorateSchedule(localStorage.getItem("friendRequest"))
   };
 
   //Method for updating AppState
@@ -51,6 +51,8 @@ function App() {
         draft.schedule.Friday = action.data.Friday;
         draft.schedule.Saturday = action.data.Saturday;
         draft.schedule.Sunday = action.data.Sunday;
+        draft.friendRequest = action.data.FriendRequests;
+        draft.friend = action.data.Friendslist;
         draft.loggedIn = true;
         return;
       case "logout":
@@ -88,6 +90,8 @@ function App() {
       localStorage.setItem("Friday", state.schedule.Friday);
       localStorage.setItem("Saturday", state.schedule.Saturday);
       localStorage.setItem("Sunday", state.schedule.Sunday);
+      localStorage.setItem("friend", state.friend);
+      localStorage.setItem("friendRequest", state.friendRequest);
     } else {
       console.log("loging state " + state.loggedIn);
       localStorage.removeItem("snapfitUserId");
@@ -100,6 +104,8 @@ function App() {
       localStorage.removeItem("Friday");
       localStorage.removeItem("Saturday");
       localStorage.removeItem("Sunday");
+      localStorage.removeItem("friend");
+      localStorage.removeItem("friendRequest");
     }
   }, [state.loggedIn]);
 
@@ -113,6 +119,14 @@ function App() {
     localStorage.setItem("Saturday", state.schedule.Saturday);
     localStorage.setItem("Sunday", state.schedule.Sunday);
   }, [state.schedule]);
+
+  useEffect(() => {
+    localStorage.setItem("friend", state.friend);
+  }, [state.friend]);
+
+  useEffect(() => {
+    localStorage.setItem("friendRequest", state.friendRequest);
+  }, [state.friendRequest]);
 
   //Update user schedule in database
   async function putUserSchedule(appState) {

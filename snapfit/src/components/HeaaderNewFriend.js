@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Button } from "react-bootstrap";
 import { Dropdown } from "react-bootstrap";
 import stateContext from "../StateContext";
+
 import Axios from "axios";
 import "../styles/HeaderNewFriend.css";
 
@@ -36,14 +37,10 @@ function HeaderNewFriend() {
           <span>NEW FRIEND</span>
         </Dropdown.Toggle>
         <Dropdown.Menu>
-          {friendRequest.map((request) => (
-            <div className="d-flex flex-row mb-1">
-              <Dropdown.Item className="friend-request-item">{request}</Dropdown.Item>
-              <Button onClick={handleConfirm} size="sm" className="friend-request-btn" variant="success">
-                <i className="fas fa-check"></i>
-              </Button>
-              <Button onClick={handleCancel} size="sm" className="friend-request-btn" variant="danger">
-                <i className="fas fa-times"></i>
+          {friendRequest.map((requestid, index) => (
+            <div key={index} className="d-flex flex-row mb-1">
+              <Button value={requestid} variant="light" onClick={handleConfirm}>
+                {requestid}
               </Button>
             </div>
           ))}
@@ -54,3 +51,12 @@ function HeaderNewFriend() {
 }
 
 export default HeaderNewFriend;
+
+/*
+<Button value={requestid} onClick={handleConfirm} size="sm" className="friend-request-btn" variant="success">
+                <i className="fas fa-check"></i>
+              </Button>
+              <Button value={requestid} onClick={handleCancel} size="sm" className="friend-request-btn" variant="danger">
+                <i className="fas fa-times"></i>
+              </Button>
+*/

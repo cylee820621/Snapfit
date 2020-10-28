@@ -16,10 +16,8 @@ function AddFriend(props) {
   }
   function handleSubmit() {
     console.log(friendID);
-    //sendFriendRequest(friendID);
-    appDispatch({ type: "flashMessage", value: "friend id submit" });
-    setFriendID("");
-    setAddFriend(false);
+    console.log(appState.user.userID);
+    sendFriendRequest(friendID);
   }
 
   //Send friend request by other user's id
@@ -27,6 +25,9 @@ function AddFriend(props) {
     const response = await Axios.put(`/api/sendrequest/${sendID},${appState.user.userID}`);
     if (response) {
       console.log(response);
+      appDispatch({ type: "flashMessage", value: "friend id submit" });
+      setFriendID("");
+      setAddFriend(false);
     }
   }
 

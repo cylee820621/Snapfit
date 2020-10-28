@@ -55,7 +55,7 @@ function FriendCard(props) {
         <Button variant="primary" className="friendcard-btn" onClick={openModal}>
           <i className="far fa-envelope"></i>
         </Button>
-        <Modal isOpen={modalIsOpen} style={customStyles} onRequestClose={closeModal}>
+        <Modal isOpen={modalIsOpen} style={customStyles} onRequestClose={closeModal} ariaHideApp={false}>
           <Button variant="black" size="sm" onClick={closeModal}>
             <i className="fas fa-times"></i>
           </Button>
