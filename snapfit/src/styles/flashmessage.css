@@ -5,10 +5,10 @@
   top: 38px;
   left: 50%;
   transform: translateX(-50%);
-  -moz-animation: floatingAlert ease-in 2s forwards;
-  -webkit-animation: floatingAlert ease-in 2s forwards;
-  -o-animation: floatingAlert ease-in 2s forwards;
-  animation: floatingAlert ease-in 2s forwards;
+  -moz-animation: floatingAlert ease-in 3s forwards;
+  -webkit-animation: floatingAlert ease-in 3s forwards;
+  -o-animation: floatingAlert ease-in 3s forwards;
+  animation: floatingAlert ease-in 3s forwards;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }

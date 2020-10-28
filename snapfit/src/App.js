@@ -66,6 +66,9 @@ function App() {
         draft.schedule[action.value.day].splice(action.value.index, 1);
         putUserSchedule(draft);
         return;
+      case "updateFriendRequest":
+        draft.friendRequest.splice(action.value.index, 1);
+        return;
       case "flashMessage":
         draft.flashMassage.push(action.value);
         return;
