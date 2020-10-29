@@ -69,19 +69,25 @@ function App() {
         return;
       case "confirmFriendRequest":
         draft.friendRequest.splice(action.value.index, 1);
+        draft.friendRequestData.splice(action.value.index, 1);
         draft.friend.push(action.value.friendid);
+        draft.friendData.push(action.value.friendid);
         return;
       case "cancelFriendRequest":
         draft.friendRequest.splice(action.value.index, 1);
+        draft.friendRequestData.splice(action.value.index, 1);
         return;
       case "updatefriendData":
+        draft.friendData = [];
         draft.friendData.push(action.value);
         return;
       case "updatefriendRequestData":
+        draft.friendRequestData = [];
         draft.friendRequestData.push(action.value);
         return;
       case "removeFriend":
         draft.friend.splice(action.value.index, 1);
+        draft.friendData.splice(action.value.index, 1);
         return;
       case "flashMessage":
         draft.flashMassage.push(action.value);
@@ -141,10 +147,12 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("friend", state.friend);
+    getFriendsData(state.friend);
   }, [state.friend]);
 
   useEffect(() => {
     localStorage.setItem("friendRequest", state.friendRequest);
+    getRequestData(state.friendRequest);
   }, [state.friendRequest]);
 
   useEffect(() => {

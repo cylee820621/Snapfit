@@ -58,6 +58,7 @@ function FriendCard(props) {
     if (response) {
       console.log(response);
       await appDispatch({ type: "removeFriend", value: index });
+      appDispatch({ type: "flashMessage", value: "Removed" });
     }
     console.log(appState.friend);
   }

@@ -21,10 +21,9 @@
 }
 .friend-no-schedule-info {
   position: relative;
-  padding-bottom: 1rem;
+  top: 6.3rem;
   display: flex;
   justify-content: center;
-  align-items: center;
   color: rgb(255, 255, 255);
   font-size: x-large;
   font-weight: bold;
