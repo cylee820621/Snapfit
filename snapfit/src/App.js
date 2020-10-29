@@ -80,6 +80,9 @@ function App() {
       case "updatefriendRequestData":
         draft.friendRequestData.push(action.value);
         return;
+      case "removeFriend":
+        draft.friend.splice(action.value.index, 1);
+        return;
       case "flashMessage":
         draft.flashMassage.push(action.value);
         return;

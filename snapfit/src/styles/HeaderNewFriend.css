@@ -24,3 +24,14 @@
   margin-right: 0.3rem;
   width: 3.5rem;
 }
+
+.requestimage {
+  width: 2rem;
+  height: 2rem;
+}
+.requestname {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 7rem;
+}

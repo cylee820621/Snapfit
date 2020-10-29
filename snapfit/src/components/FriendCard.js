@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Card, Button, Image } from "react-bootstrap";
 import FriendCardSchedule from "./FriednCardSchedule";
+import StateContext from "../StateContext";
+import DispatchContext from "../DispatchContext";
 import Modal from "react-modal";
 import "../styles/friendcard.css";
+import Axios from "axios";
 
 function FriendCard(props) {
+  const appState = useContext(StateContext);
+  const appDispatch = useContext(DispatchContext);
+  const index = props.index;
   const name = props.data.user_name;
   const image = props.data.ImageUrl;
+  const userid = props.data.user_id;
   const schedule = {
     Monday: props.data.Monday,
     Tuesday: props.data.Tuesday,
@@ -44,8 +51,22 @@ function FriendCard(props) {
       transform: "translate(-50%, -50%)"
     }
   };
+
+  async function handleremovefriend() {
+    console.log(index);
+    const response = Axios.put(`/api/removefriend/${userid},${appState.user.userID}`);
+    if (response) {
+      console.log(response);
+      await appDispatch({ type: "removeFriend", value: index });
+    }
+    console.log(appState.friend);
+  }
+
   return (
     <Card className="friendcard-box shadow">
+      <Button onClick={handleremovefriend} className="remove-friend-btn" variant="light">
+        <i className="fas fa-times"></i>
+      </Button>
       <div className="d-flex justify-content-center">
         <Image className="image-size p-1" roundedCircle src={image} alt="user-image" />
       </div>

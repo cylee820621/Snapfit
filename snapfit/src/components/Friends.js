@@ -8,18 +8,17 @@ import "../styles/friends.css";
 function Friends() {
   const appState = useContext(StateContext);
   const [addFriend, setAddFriend] = useState(false);
-  const friends = appState.friendData;
 
   return (
     <Container className="mb-3 mt-5 " id="f-box" fluid>
       <AddFriend addFriend={addFriend} setAddFriend={setAddFriend} />
       <div className="p-4">
         <Row xs={1} sm={1} md={3} lg={3} xl={4} className="justify-content-around">
-          {friends.map((frienddata, index) => {
+          {appState.friendData.map((frienddata, index) => {
             return (
               <Col key={index}>
                 <div className="d-flex justify-content-center  m-3 mb-5 ">
-                  <FriendCard data={frienddata} />
+                  <FriendCard index={index} data={frienddata} />
                 </div>
               </Col>
             );

@@ -9,7 +9,6 @@ import "../styles/HeaderNewFriend.css";
 function HeaderNewFriend() {
   const appState = useContext(stateContext);
   const appDispatch = useContext(DispatchContext);
-  const requestList = appState.friendRequestData;
   const [Loading, setLoading] = useState(false);
 
   async function handleConfirm(e) {
@@ -50,20 +49,22 @@ function HeaderNewFriend() {
     <div className="px-1">
       <Dropdown>
         <Dropdown.Toggle size="lg" variant="primary" className="p-2">
-          {Loading ? <Spinner animation="border" variant="light" /> : <span className="friend-request">{requestList.length}</span>}
+          {Loading ? <Spinner animation="border" variant="light" /> : <span className="friend-request">{appState.friendRequestData.length}</span>}
           <span>NEW FRIEND</span>
         </Dropdown.Toggle>
-        {requestList.length !== 0 && (
+        {appState.friendRequestData.length !== 0 && (
           <Dropdown.Menu>
-            {requestList.map((requestid, index) => {
+            {appState.friendRequestData.map((requestid, index) => {
               return (
-                <div key={index} className="d-flex ">
-                  <Image src={requestid.ImageUrl} roundedCircle />
-                  {requestid.user_name}
-                  <Button index={index} value={requestid} onClick={handleConfirm} className="friend-request-btn" size="sm" variant="success">
+                <div key={index} className="d-flex justify-content-center">
+                  <div className="d-flex pr-2 justify-content-center align-items-center">
+                    <Image className="requestimage ml-1" src={requestid.ImageUrl} roundedCircle />
+                    <div className="requestname">{requestid.user_name}</div>
+                  </div>
+                  <Button index={index} value={requestid.user_id} onClick={handleConfirm} className="friend-request-btn" size="sm" variant="success">
                     <i className="fas fa-check"></i>
                   </Button>
-                  <Button index={index} value={requestid} onClick={handleCancel} className="friend-request-btn" size="sm" variant="danger">
+                  <Button index={index} value={requestid.user_id} onClick={handleCancel} className="friend-request-btn" size="sm" variant="danger">
                     <i className="fas fa-times"></i>
                   </Button>
                 </div>
