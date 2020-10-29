@@ -5,8 +5,17 @@ import Modal from "react-modal";
 import "../styles/friendcard.css";
 
 function FriendCard(props) {
-  const friendID = props.friendID;
-  const userImage = props.userImage;
+  const name = props.data.name;
+  const image = props.data.ImageUrl;
+  const schedule = {
+    Monday: props.data.Monday,
+    Tuesday: props.data.Tuesday,
+    Wednesday: props.data.Wednesday,
+    Tursday: props.data.Thursday,
+    Friday: props.data.Friday,
+    Saturday: props.data.Saturday,
+    Sunday: props.data.Sunday
+  };
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [openSchedule, setOpenSchedule] = useState(false);
 
@@ -38,10 +47,10 @@ function FriendCard(props) {
   return (
     <Card className="friendcard-box">
       <div className="d-flex justify-content-center">
-        <Image className="image-size p-1" roundedCircle src={userImage} alt="user-image" />
+        <Image className="image-size p-1" roundedCircle src={image} alt="user-image" />
       </div>
-      <div className="friendcard-username d-flex justify-content-center">name</div>
-      {openSchedule && <FriendCardSchedule />}
+      <div className="friendcard-username d-flex justify-content-center">{name}</div>
+      {openSchedule && <FriendCardSchedule schedule={schedule} />}
       <div className="friend-card-btn-box d-flex justify-content-between">
         {!openSchedule ? (
           <Button onClick={handleSchedule} variant="success" className="friendcard-btn">
@@ -55,6 +64,7 @@ function FriendCard(props) {
         <Button variant="primary" className="friendcard-btn" onClick={openModal}>
           <i className="far fa-envelope"></i>
         </Button>
+
         <Modal isOpen={modalIsOpen} style={customStyles} onRequestClose={closeModal} ariaHideApp={false}>
           <Button variant="black" size="sm" onClick={closeModal}>
             <i className="fas fa-times"></i>

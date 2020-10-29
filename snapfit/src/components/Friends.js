@@ -10,30 +10,19 @@ function Friends() {
   const appState = useContext(StateContext);
   const [addFriend, setAddFriend] = useState(false);
   const [loading, setLoading] = useState(false);
-  const friends = appState.friend;
-
-  async function getFriendsData(listOfId) {
-    let allFriendsData = [];
-    listOfId.map(async (userid) => {
-      let response = await Axios.get(`/api/friendlist/${userid}`);
-      if (response) {
-        await allFriendsData.push(response.data);
-      }
-    });
-    console.log(allFriendsData);
-    return allFriendsData;
-  }
+  const friends = appState.friendData;
+  console.log(friends);
 
   return (
     <Container className="mb-3 mt-3" id="f-box" fluid>
       <AddFriend addFriend={addFriend} setAddFriend={setAddFriend} />
       <div className="p-4">
         <Row xs={1} sm={1} md={3} lg={3} xl={4} className="justify-content-around">
-          {friends.map((friendID, index) => {
+          {friends.map((frienddata, index) => {
             return (
               <Col key={index}>
                 <div className="d-flex justify-content-center shadow-lg m-3 mb-5 ">
-                  <FriendCard userImage={appState.user.imageUrl} friendID={friendID} />
+                  <FriendCard data={frienddata} />
                 </div>
               </Col>
             );

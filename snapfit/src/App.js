@@ -55,6 +55,7 @@ function App() {
         draft.loggedIn = true;
         return;
       case "logout":
+        draft.friendData = [];
         draft.loggedIn = false;
         return;
       case "addSchedule":

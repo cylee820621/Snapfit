@@ -7,6 +7,8 @@
   justify-content: center;
   align-items: center;
   font-weight: bold;
+  font-size: x-large;
+  padding-top: 1rem;
 }
 .friend-day-schedule-box {
   position: relative;
