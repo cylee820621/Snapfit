@@ -21,9 +21,11 @@
   display: flex;
   justify-content: center;
 }
+
 .day {
   display: flex;
   justify-content: center;
+  padding-bottom: 0.5rem;
   color: #9fe0ee;
   font-size: 1.7em;
   font-weight: bold;
@@ -36,4 +38,9 @@
   height: 15rem;
   background-color: white;
   color: black;
+}
+
+.schedule-box:hover {
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.1);
 }

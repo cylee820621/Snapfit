@@ -8,9 +8,9 @@
 }
 
 .avatar {
-  width: 17%;
-  height: auto;
-  padding-right: 5px;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 5px;
 }
 .username {
   color: black;

@@ -47,9 +47,9 @@ function HeaderNewFriend() {
     }
   }
   return (
-    <div>
+    <div className="px-1">
       <Dropdown>
-        <Dropdown.Toggle variant="primary" className="p-2">
+        <Dropdown.Toggle size="lg" variant="primary" className="p-2">
           {Loading ? <Spinner animation="border" variant="light" /> : <span className="friend-request">{requestList.length}</span>}
           <span>NEW FRIEND</span>
         </Dropdown.Toggle>

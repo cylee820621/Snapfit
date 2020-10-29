@@ -4,14 +4,11 @@ import StateContext from "../StateContext";
 import FriendCard from "./FriendCard";
 import AddFriend from "./AddFriend";
 import "../styles/friends.css";
-import Axios from "axios";
 
 function Friends() {
   const appState = useContext(StateContext);
   const [addFriend, setAddFriend] = useState(false);
-  const [loading, setLoading] = useState(false);
   const friends = appState.friendData;
-  console.log(friends);
 
   return (
     <Container className="mb-3 mt-3" id="f-box" fluid>

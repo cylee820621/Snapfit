@@ -62,9 +62,6 @@ function AddFriend(props) {
           {addFriend && (
             <div className="">
               <form className="d-flex justify-content-center align-items-center p-4">
-                <label className="my-0 pr-2" htmlFor="userId">
-                  User id:{" "}
-                </label>
                 <input className="addfriend-input-box form-control m-0" id="userId" value={friendID} onChange={changeHandler} placeholder="Enter user id" />
                 <Button onClick={handleSubmit} className="ml-2" variant="success" size="md">
                   Sumbit

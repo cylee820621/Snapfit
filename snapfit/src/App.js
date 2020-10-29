@@ -103,6 +103,7 @@ function App() {
       localStorage.setItem("friend", state.friend);
       localStorage.setItem("friendRequest", state.friendRequest);
       getFriendsData(state.friend);
+      getRequestData(state.friendRequest);
     } else {
       console.log("loging state " + state.loggedIn);
       localStorage.removeItem("snapfitUserId");
@@ -174,6 +175,12 @@ function App() {
   }
 
   async function getFriendsData(listOfId) {
+    listOfId.map(async (userid) => {
+      const response = await Axios.get(`/api/friendlist/${userid}`);
+      dispatch({ type: "updatefriendData", value: response.data });
+    });
+  }
+  async function getRequestData(listOfId) {
     listOfId.map(async (userid) => {
       const response = await Axios.get(`/api/friendlist/${userid}`);
       dispatch({ type: "updatefriendData", value: response.data });
