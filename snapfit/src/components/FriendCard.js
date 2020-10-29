@@ -5,8 +5,9 @@ import Modal from "react-modal";
 import "../styles/friendcard.css";
 
 function FriendCard(props) {
-  const name = props.data.name;
+  const name = props.data.user_name;
   const image = props.data.ImageUrl;
+  console.log(name);
   const schedule = {
     Monday: props.data.Monday,
     Tuesday: props.data.Tuesday,
