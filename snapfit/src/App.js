@@ -32,7 +32,8 @@ function App() {
       Sunday: getLocalStorateSchedule(localStorage.getItem("Sunday"))
     },
     friend: getLocalStorateSchedule(localStorage.getItem("friend")),
-    friendRequest: getLocalStorateSchedule(localStorage.getItem("friendRequest"))
+    friendRequest: getLocalStorateSchedule(localStorage.getItem("friendRequest")),
+    friendData: []
   };
 
   //Method for updating AppState
@@ -71,6 +72,9 @@ function App() {
       case "cancelFriendRequest":
         draft.friendRequest.splice(action.value.index, 1);
         return;
+      case "updatefriendData":
+        draft.friendData.push(action.value);
+        return;
       case "flashMessage":
         draft.flashMassage.push(action.value);
         return;
@@ -97,6 +101,7 @@ function App() {
       localStorage.setItem("Sunday", state.schedule.Sunday);
       localStorage.setItem("friend", state.friend);
       localStorage.setItem("friendRequest", state.friendRequest);
+      getFriendsData(state.friend);
     } else {
       console.log("loging state " + state.loggedIn);
       localStorage.removeItem("snapfitUserId");
@@ -133,6 +138,10 @@ function App() {
     localStorage.setItem("friendRequest", state.friendRequest);
   }, [state.friendRequest]);
 
+  useEffect(() => {
+    console.log(state.friendData);
+  }, [state.friendData]);
+
   //Update user schedule in database
   async function putUserSchedule(appState) {
     const scheduleForUpdate = {
@@ -163,6 +172,13 @@ function App() {
     }
   }
 
+  async function getFriendsData(listOfId) {
+    listOfId.map(async (userid) => {
+      const response = await Axios.get(`/api/friendlist/${userid}`);
+      dispatch({ type: "updatefriendData", value: response.data });
+    });
+  }
+
   return (
     <StateContext.Provider value={state}>
       <DispatchContext.Provider value={dispatch}>
@@ -180,9 +196,3 @@ function App() {
 }
 
 export default App;
-
-/*
-  if (window.performance) {
-    alert("window.performance works fine on this browser");
-  }
-*/

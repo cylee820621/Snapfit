@@ -86,3 +86,19 @@ function LandingPage() {
 }
 
 export default LandingPage;
+
+/*
+const allFriendsData = getFriendsData(state.friend);
+
+async function getFriendsData(listOfId) {
+    let allFriendsData = [];
+    listOfId.map(async (userid) => {
+      let response = await Axios.get(`/api/friendlist/${userid}`);
+      if (response) {
+        await allFriendsData.push(response.data);
+      }
+    });
+    console.log(allFriendsData);
+    return allFriendsData;
+  }
+*/

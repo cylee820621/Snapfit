@@ -12,12 +12,17 @@ function Friends() {
   const [loading, setLoading] = useState(false);
   const friends = appState.friend;
 
-  const friedn_data = async () => {
-    const response = await Axios.get(`/api/friendlist/${friends[0]}`);
-    if (response) {
-      console.log(response);
-    }
-  };
+  async function getFriendsData(listOfId) {
+    let allFriendsData = [];
+    listOfId.map(async (userid) => {
+      let response = await Axios.get(`/api/friendlist/${userid}`);
+      if (response) {
+        await allFriendsData.push(response.data);
+      }
+    });
+    console.log(allFriendsData);
+    return allFriendsData;
+  }
 
   return (
     <Container className="mb-3 mt-3" id="f-box" fluid>
