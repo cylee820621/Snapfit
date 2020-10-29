@@ -37,10 +37,6 @@ function FriendCard(props) {
     setOpenSchedule(!openSchedule);
   }
 
-  function handleSendMassage() {
-    alert("Send");
-    closeModal();
-  }
   const customStyles = {
     content: {
       top: "50%",
@@ -63,9 +59,13 @@ function FriendCard(props) {
     console.log(appState.friend);
   }
 
+  function handleSendMessage() {
+    alert("message clicked");
+  }
+
   return (
     <Card className="friendcard-box shadow">
-      <Button onClick={handleremovefriend} className="remove-friend-btn" variant="light">
+      <Button onClick={openModal} className="remove-friend-btn" variant="light">
         <i className="fas fa-times"></i>
       </Button>
       <div className="d-flex justify-content-center">
@@ -83,21 +83,30 @@ function FriendCard(props) {
             <i className="far fa-calendar-alt"></i>
           </Button>
         )}
-        <Button variant="info" className="friendcard-btn" onClick={openModal}>
+        <Button variant="info" className="friendcard-btn" onClick={handleSendMessage}>
           <i className="far fa-envelope"></i>
         </Button>
 
         <Modal isOpen={modalIsOpen} style={customStyles} onRequestClose={closeModal} ariaHideApp={false}>
-          <Button variant="black" size="sm" onClick={closeModal}>
-            <i className="fas fa-times"></i>
-          </Button>
-          <div>Send a email</div>
-          <form className="d-flex justify-content-center">
-            <input />
-            <Button onClick={handleSendMassage} size="sm">
-              Send
-            </Button>
-          </form>
+          <div className="popup-screen-container">
+            <div className="popup-screen-close-btn">
+              <Button variant="black" size="sm" onClick={closeModal}>
+                <Image className="fas fa-times" />
+              </Button>
+            </div>
+
+            <div className="d-flex justify-content-center mt-2 mb-1">
+              <h3>Remove?</h3>
+            </div>
+            <div className="d-flex justify-content-center">
+              <Button onClick={handleremovefriend} className="popup-screen-btn" variant="success">
+                Yes
+              </Button>
+              <Button onClick={closeModal} className="popup-screen-btn" variant="danger">
+                No
+              </Button>
+            </div>
+          </div>
         </Modal>
       </div>
     </Card>

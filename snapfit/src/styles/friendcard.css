@@ -40,3 +40,25 @@
   width: 2rem;
   height: 2rem;
 }
+
+.popup-screen-container {
+  padding: 0rem;
+  position: relative;
+  height: 10rem;
+  width: 20rem;
+}
+.popup-screen-close-btn {
+  position: relative;
+  top: -1em;
+  left: 19rem;
+}
+.popup-screen-btn {
+  position: relative;
+  bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 6rem;
+  height: 2.5rem;
+  margin: 2rem;
+}
