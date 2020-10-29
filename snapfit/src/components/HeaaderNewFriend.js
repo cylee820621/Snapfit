@@ -62,10 +62,10 @@ function HeaderNewFriend() {
                     <div className="requestname">{requestid.user_name}</div>
                   </div>
                   <Button index={index} value={requestid.user_id} onClick={handleConfirm} className="friend-request-btn" size="sm" variant="success">
-                    <i className="fas fa-check"></i>
+                    <Image className="fas fa-check" />
                   </Button>
                   <Button index={index} value={requestid.user_id} onClick={handleCancel} className="friend-request-btn" size="sm" variant="danger">
-                    <i className="fas fa-times"></i>
+                    <Image className="fas fa-times" />
                   </Button>
                 </div>
               );
