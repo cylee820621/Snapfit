@@ -1,5 +1,10 @@
 #mainNav {
+  position: fixed;
+  z-index: 998;
+  width: 100%;
+  top: 0rem;
   background-color: rgb(232, 255, 79);
+  height: 4.5rem;
 }
 #logo {
   color: rgb(0, 0, 0);

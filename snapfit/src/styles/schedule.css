@@ -1,5 +1,6 @@
 #schedule-box {
   position: relative;
+  top: 5rem;
   display: flex;
   justify-content: center;
   padding: 1rem;
