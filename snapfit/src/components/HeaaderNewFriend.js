@@ -9,7 +9,7 @@ import "../styles/HeaderNewFriend.css";
 function HeaderNewFriend() {
   const appState = useContext(stateContext);
   const appDispatch = useContext(DispatchContext);
-  const requestList = appState.friendRequest;
+  const requestList = appState.friendRequestData;
   const [Loading, setLoading] = useState(false);
 
   async function handleConfirm(e) {
@@ -58,8 +58,8 @@ function HeaderNewFriend() {
             {requestList.map((requestid, index) => {
               return (
                 <div key={index} className="d-flex ">
-                  <Image roundedCircle />
-                  {requestid}
+                  <Image src={requestid.ImageUrl} roundedCircle />
+                  {requestid.user_name}
                   <Button index={index} value={requestid} onClick={handleConfirm} className="friend-request-btn" size="sm" variant="success">
                     <i className="fas fa-check"></i>
                   </Button>

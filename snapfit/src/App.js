@@ -33,7 +33,8 @@ function App() {
     },
     friend: getLocalStorateSchedule(localStorage.getItem("friend")),
     friendRequest: getLocalStorateSchedule(localStorage.getItem("friendRequest")),
-    friendData: []
+    friendData: [],
+    friendRequestData: []
   };
 
   //Method for updating AppState
@@ -75,6 +76,9 @@ function App() {
         return;
       case "updatefriendData":
         draft.friendData.push(action.value);
+        return;
+      case "updatefriendRequestData":
+        draft.friendRequestData.push(action.value);
         return;
       case "flashMessage":
         draft.flashMassage.push(action.value);
@@ -141,8 +145,14 @@ function App() {
   }, [state.friendRequest]);
 
   useEffect(() => {
+    console.log("friend data");
     console.log(state.friendData);
   }, [state.friendData]);
+
+  useEffect(() => {
+    console.log("friendRequest data");
+    console.log(state.friendRequestData);
+  }, [state.friendRequestData]);
 
   //Update user schedule in database
   async function putUserSchedule(appState) {
@@ -175,16 +185,20 @@ function App() {
   }
 
   async function getFriendsData(listOfId) {
-    listOfId.map(async (userid) => {
-      const response = await Axios.get(`/api/friendlist/${userid}`);
-      dispatch({ type: "updatefriendData", value: response.data });
-    });
+    if (listOfId.length !== 0) {
+      listOfId.map(async (userid) => {
+        const response = await Axios.get(`/api/friendlist/${userid}`);
+        dispatch({ type: "updatefriendData", value: response.data });
+      });
+    }
   }
   async function getRequestData(listOfId) {
-    listOfId.map(async (userid) => {
-      const response = await Axios.get(`/api/friendlist/${userid}`);
-      dispatch({ type: "updatefriendData", value: response.data });
-    });
+    if (listOfId.length !== 0) {
+      listOfId.map(async (userid) => {
+        const response = await Axios.get(`/api/friendlist/${userid}`);
+        dispatch({ type: "updatefriendRequestData", value: response.data });
+      });
+    }
   }
 
   return (

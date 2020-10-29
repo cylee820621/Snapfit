@@ -7,7 +7,6 @@ import "../styles/friendcard.css";
 function FriendCard(props) {
   const name = props.data.user_name;
   const image = props.data.ImageUrl;
-  console.log(name);
   const schedule = {
     Monday: props.data.Monday,
     Tuesday: props.data.Tuesday,
@@ -46,7 +45,7 @@ function FriendCard(props) {
     }
   };
   return (
-    <Card className="friendcard-box">
+    <Card className="friendcard-box shadow">
       <div className="d-flex justify-content-center">
         <Image className="image-size p-1" roundedCircle src={image} alt="user-image" />
       </div>

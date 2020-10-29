@@ -18,7 +18,7 @@ function Friends() {
           {friends.map((frienddata, index) => {
             return (
               <Col key={index}>
-                <div className="d-flex justify-content-center shadow-lg m-3 mb-5 ">
+                <div className="d-flex justify-content-center  m-3 mb-5 ">
                   <FriendCard data={frienddata} />
                 </div>
               </Col>
