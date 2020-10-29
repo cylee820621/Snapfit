@@ -1,0 +1,44 @@
+.chatroom-box {
+  position: fixed;
+  top: 5rem;
+  right: 1.4rem;
+  z-index: 999;
+  background-color: white;
+  height: auto;
+  width: 20rem;
+  border-radius: 0.4rem;
+}
+
+.chatroom-friendlist-box {
+  position: relative;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: auto;
+  margin: 0.7rem;
+}
+.chatroom-list {
+  position: relative;
+  height: auto;
+  width: 18.5rem;
+  padding: 0.3rem;
+  border-radius: 0.3rem;
+}
+.chatroom-list:hover {
+  background-color: rgb(245, 244, 244);
+}
+
+.chatroom-img {
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-right: 0.7rem;
+}
+.chatroom-name {
+  height: 50%;
+  padding-top: 0.4rem;
+}
+.chatroom-message {
+  height: 50%;
+  color: rgb(161, 158, 158);
+  padding-top: 0rem;
+}

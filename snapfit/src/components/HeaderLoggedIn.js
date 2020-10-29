@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Container, Image } from "react-bootstrap";
 import StateContext from "../StateContext";
 import HeaderNewFriend from "./HeaaderNewFriend";
-import ChatRoom from "./Chatroom/ChatRoom";
+import ChatRoom from "./ChatRoom";
 import "../styles/header.css";
 
 function HeaderLoggedIn() {
