@@ -61,7 +61,7 @@ function FriendCard(props) {
             <i className="far fa-calendar-alt"></i>
           </Button>
         )}
-        <Button variant="primary" className="friendcard-btn" onClick={openModal}>
+        <Button variant="info" className="friendcard-btn" onClick={openModal}>
           <i className="far fa-envelope"></i>
         </Button>
 
