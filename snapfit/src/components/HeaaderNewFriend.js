@@ -50,7 +50,7 @@ function HeaderNewFriend() {
       <Dropdown>
         <Dropdown.Toggle size="lg" variant="primary" className="p-2">
           {Loading ? <Spinner animation="border" variant="light" /> : <span className="friend-request">{appState.friendRequestData.length}</span>}
-          <span>NEW FRIEND</span>
+          <span>New Friend</span>
         </Dropdown.Toggle>
         {appState.friendRequestData.length !== 0 && (
           <Dropdown.Menu>
