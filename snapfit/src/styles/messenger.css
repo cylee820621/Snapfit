@@ -1,0 +1,33 @@
+.messenger-box {
+  position: fixed;
+  top: 5rem;
+  right: 1.4rem;
+  z-index: 999;
+  background-color: white;
+  width: 20rem;
+  border-radius: 0.4rem;
+}
+
+.messenger-friendlist-box {
+  position: relative;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: auto;
+  margin: 0.5rem;
+}
+
+.messenger-img {
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-right: 0.7rem;
+}
+.messenger-name {
+  height: 50%;
+  padding-top: 0.4rem;
+}
+.messenger-message {
+  height: 50%;
+  color: rgb(161, 158, 158);
+  padding-top: 0rem;
+}

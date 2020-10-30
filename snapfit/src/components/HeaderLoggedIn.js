@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Container, Image } from "react-bootstrap";
 import StateContext from "../StateContext";
 import HeaderNewFriend from "./HeaaderNewFriend";
-import ChatRoom from "./ChatRoom";
+import Messenger from "./Messenger";
 import "../styles/header.css";
 
 function HeaderLoggedIn() {
@@ -19,7 +19,7 @@ function HeaderLoggedIn() {
             <div className="username">{appState.user.name}</div>
           </div>
           <HeaderNewFriend />
-          <ChatRoom />
+          <Messenger />
         </div>
       </Container>
     </nav>
