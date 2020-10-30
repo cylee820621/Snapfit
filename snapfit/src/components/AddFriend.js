@@ -48,7 +48,7 @@ function AddFriend(props) {
       ) : (
         <>
           <div className="d-flex justify-content-center align-items-center">
-            <h3>My Friends</h3>
+            <h3 className="m-0">My Friends</h3>
             <Button
               className="ml-3"
               onClick={() => {
