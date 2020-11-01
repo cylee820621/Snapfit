@@ -5,6 +5,7 @@ import "../styles/chatroom.css";
 
 function ChatRoom() {
   const appDispatch = useContext(DispatchContext);
+
   return (
     <div className="chatroom">
       <div>chatroom</div>
