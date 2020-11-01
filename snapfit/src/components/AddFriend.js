@@ -46,7 +46,7 @@ function AddFriend(props) {
           <Spinner animation="border" variant="dark" />
         </Container>
       ) : (
-        <>
+        <div>
           <div className="d-flex justify-content-center align-items-center">
             <h3 className="m-0">My Friends</h3>
             <Button
@@ -59,17 +59,25 @@ function AddFriend(props) {
               +Add
             </Button>
           </div>
-          {addFriend && (
-            <div className="">
-              <form className="d-flex justify-content-center align-items-center p-4">
-                <input className="addfriend-input-box form-control m-0" id="userId" value={friendID} onChange={changeHandler} placeholder="Enter user id" />
-                <Button onClick={handleSubmit} className="ml-2" variant="success" size="md">
-                  Sumbit
-                </Button>
-              </form>
+          {appState.friendIsLoaded ? (
+            <div>
+              {addFriend && (
+                <div className="">
+                  <form className="d-flex justify-content-center align-items-center p-4">
+                    <input className="addfriend-input-box form-control m-0" id="userId" value={friendID} onChange={changeHandler} placeholder="Enter user id" />
+                    <Button onClick={handleSubmit} className="ml-2" variant="success" size="md">
+                      Sumbit
+                    </Button>
+                  </form>
+                </div>
+              )}
             </div>
+          ) : (
+            <Container className="d-flex justify-content-center align-items-center" fluid>
+              <Spinner animation="border" variant="dark" />
+            </Container>
           )}
-        </>
+        </div>
       )}
     </div>
   );

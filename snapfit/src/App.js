@@ -35,7 +35,8 @@ function App() {
     friendRequest: getLocalStorateSchedule(localStorage.getItem("friendRequest")),
     friendData: [],
     friendRequestData: [],
-    chatRoom: false
+    chatRoom: false,
+    friendIsLoaded: false
   };
 
   //Method for updating AppState
@@ -98,6 +99,9 @@ function App() {
         return;
       case "closeChatRoom":
         draft.chatRoom = false;
+        return;
+      case "friendIsLoaded":
+        draft.friendIsLoaded = true;
         return;
     }
   }
@@ -207,6 +211,7 @@ function App() {
       listOfId.map(async (userid) => {
         const response = await Axios.get(`/api/friendlist/${userid}`);
         dispatch({ type: "updatefriendData", value: response.data });
+        dispatch({ type: "friendIsLoaded" });
       });
     }
   }
