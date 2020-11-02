@@ -5,31 +5,12 @@ import "../styles/match.css";
 
 function Match() {
   const [match, setMatch] = useState(false);
-  const [exercise, setExercise] = useState({ value: "Select" });
-
-  const exercises = ["Select", "Weight Training Full Body", "Weight Training Upper Body", "Weight Training Lower Body", "Cardio Jogging", "Cardio Cycling", "Montain Climbing", "Tennis", "Skating"];
 
   async function getMatch(userid) {
-    const data = {
-      location: "",
-      time: "",
-      exercise: ""
-    };
+    const data = {};
     const response = await Axios.get(`api/match/${userid}`, data);
     if (response) {
       console.log(response);
-    }
-  }
-
-  function handleLocation() {
-    if ("geolocation" in navigator) {
-      console.log("Available");
-      navigator.geolocation.getCurrentPosition(function (position) {
-        console.log("Latitude is :", position.coords.latitude);
-        console.log("Longitude is :", position.coords.longitude);
-      });
-    } else {
-      console.log("Not Available");
     }
   }
   return (
@@ -41,21 +22,9 @@ function Match() {
         <Row className="justify-content-md-center mx-1">
           <Form>
             <Form.Group controlId="Exercise">
-              <select
-                value={exercise.value}
-                onChange={(e) => {
-                  setExercise({ value: e.target.value });
-                }}
-                className="form-control form-control-md"
-              >
-                {exercises.map((item, index) => {
-                  return (
-                    <option key={index} value={item}>
-                      {item}
-                    </option>
-                  );
-                })}
-              </select>
+              <Form.Label>Exercise</Form.Label>
+              <Form.Control type="Exercise" placeholder="Exercise" />
+              <Form.Text className="text-muted">Select exercise</Form.Text>
             </Form.Group>
 
             <Form.Group controlId="Time">
@@ -66,7 +35,7 @@ function Match() {
 
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Location</Form.Label>
-              <Form.Control type="Location" onClick={handleLocation} placeholder="Location" />
+              <Form.Control type="Location" placeholder="Location" />
             </Form.Group>
             <div className="d-flex justify-content-center mt-2">
               <Button variant="primary" type="submit" className="mt-2">

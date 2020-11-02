@@ -36,8 +36,7 @@ function App() {
     friendData: [],
     friendRequestData: [],
     chatRoom: false,
-    friendIsLoaded: false,
-    matchData: []
+    friendIsLoaded: false
   };
 
   //Method for updating AppState
@@ -104,9 +103,6 @@ function App() {
       case "friendIsLoaded":
         draft.friendIsLoaded = true;
         return;
-      case "getMatch":
-        draft.matchData = action.value;
-        return;
     }
   }
 
@@ -171,17 +167,13 @@ function App() {
   }, [state.friendRequest]);
 
   useEffect(() => {
-    if (state.friendData.length !== 0) {
-      console.log("friend data");
-      console.log(state.friendData);
-    }
+    console.log("friend data");
+    console.log(state.friendData);
   }, [state.friendData]);
 
   useEffect(() => {
-    if (state.friendRequestData.length !== 0) {
-      console.log("friendRequest data");
-      console.log(state.friendRequestData);
-    }
+    console.log("friendRequest data");
+    console.log(state.friendRequestData);
   }, [state.friendRequestData]);
 
   //Update user schedule in database
