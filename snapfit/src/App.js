@@ -211,9 +211,9 @@ function App() {
       listOfId.map(async (userid) => {
         const response = await Axios.get(`/api/friendlist/${userid}`);
         dispatch({ type: "updatefriendData", value: response.data });
-        dispatch({ type: "friendIsLoaded" });
       });
     }
+    dispatch({ type: "friendIsLoaded" });
   }
   async function getRequestData(listOfId) {
     if (listOfId.length !== 0) {
