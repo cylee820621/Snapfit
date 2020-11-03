@@ -73,9 +73,12 @@ function Match() {
                 {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                   <div>
                     <input className="location-input" {...getInputProps({ placeholder: "Enter Location" })} />
-                    <div>{loading ? <div>...loading</div> : null}</div>
+                    {loading ? <div>...loading</div> : null}
                     {suggestions.map((suggestion) => {
-                      return <div>{suggestion.description}</div>;
+                      const style = {
+                        backgroundColor: suggestion.active ? "#e8ff4f" : "#fff"
+                      };
+                      return <div {...getSuggestionItemProps(suggestion, { style })}>{suggestion.description}</div>;
                     })}
                   </div>
                 )}
