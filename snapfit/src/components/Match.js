@@ -43,7 +43,8 @@ function Match() {
         </div>
         <Row className="justify-content-md-center mx-1">
           <Form>
-            <Form.Group controlId="Exercise">
+            <Form.Group className="mb-3" controlId="Exercise">
+              <Form.Label>Exercise</Form.Label>
               <select
                 value={exercise.value}
                 onChange={(e) => {
@@ -61,15 +62,24 @@ function Match() {
               </select>
             </Form.Group>
 
-            <Form.Group controlId="Time">
+            <Form.Group className="mb-3" controlId="Time">
               <Form.Label>Time</Form.Label>
               <Form.Control type="Time" placeholder="15:00-17:00" />
-              <Form.Text className="text-muted">Pass in the time you want to do exercise</Form.Text>
             </Form.Group>
 
-            <Form.Group controlId="formBasicPassword">
+            <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Location</Form.Label>
-              <Form.Control type="Location" onClick={handleLocation} placeholder="Location" />
+              <PlacesAutocomplete value={address} onChange={setAddress} onSelect={handleSelect}>
+                {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+                  <div>
+                    <input className="location-input" {...getInputProps({ placeholder: "Enter Location" })} />
+                    <div>{loading ? <div>...loading</div> : null}</div>
+                    {suggestions.map((suggestion) => {
+                      return <div>{suggestion.description}</div>;
+                    })}
+                  </div>
+                )}
+              </PlacesAutocomplete>
             </Form.Group>
 
             <div className="d-flex justify-content-center mt-2">
@@ -80,17 +90,6 @@ function Match() {
           </Form>
         </Row>
       </div>
-      <PlacesAutocomplete value={address} onChange={setAddress} onSelect={handleSelect}>
-        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-          <div>
-            <input {...getInputProps({ placeholder: "type address" })} />
-            <div>{loading ? <div>...loading</div> : null}</div>
-            {suggestions.map((suggestion) => {
-              return <div>{suggestion.description}</div>;
-            })}
-          </div>
-        )}
-      </PlacesAutocomplete>
     </Container>
   );
 }
