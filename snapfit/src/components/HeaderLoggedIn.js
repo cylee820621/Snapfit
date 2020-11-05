@@ -16,7 +16,6 @@ function HeaderLoggedIn() {
         <div className="d-flex justify-content-between px-2">
           <div className="d-flex justify-content-center align-items-center pr-3">
             <Image className="avatar" src={appState.user.imageUrl} roundedCircle />
-            <div className="username">{appState.user.name}</div>
           </div>
           <HeaderNewFriend />
           <Messenger />

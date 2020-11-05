@@ -8,8 +8,10 @@
   background-color: white;
 }
 .match-form-box {
+  position: relative;
   padding: 2rem;
-  width: 30%;
+  width: 22rem;
+  height: 28rem;
 }
 .location-input {
   padding-left: 1rem;
@@ -19,5 +21,21 @@
   border-width: 0.1rem;
   border-radius: 0.2rem;
   border-color: #ced4da;
-  color: #495057;
+}
+.selection-box {
+  position: relative;
+  background-color: white;
+  color: black;
+  z-index: 999;
+}
+.listOfSuggestion {
+  margin-bottom: 0.2rem;
+}
+.listOfSuggestion:hover {
+  cursor: pointer;
+  background-color: #f8f9fa;
+}
+.match-btn {
+  position: absolute;
+  bottom: 2rem;
 }

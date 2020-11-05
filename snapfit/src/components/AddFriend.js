@@ -25,7 +25,7 @@ function AddFriend(props) {
     const response = await Axios.put(`/api/sendrequest/${sendID},${appState.user.userID}`);
     if (response) {
       console.log(response);
-      if (response.data == "User Already Sent Request or Is already a friend") {
+      if (response.data === "User Already Sent Request or Is already a friend") {
         await appDispatch({ type: "flashMessage", value: "User Already Sent Request or Is already a friend" });
         setLoading(false);
         setFriendID("");

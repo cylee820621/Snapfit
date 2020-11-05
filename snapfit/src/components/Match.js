@@ -2,15 +2,15 @@ import Axios from "axios";
 import React, { useState } from "react";
 import { Container, Row, Button, Form } from "react-bootstrap";
 import PlacesAutocomplete from "react-places-autocomplete";
+import MatchUser from "./MatchUser";
 import "../styles/match.css";
 
 function Match() {
   const [match, setMatch] = useState(false);
-  const [exercise, setExercise] = useState({ value: "Select" });
+  const [exercise, setExercise] = useState("");
   const [address, setAddress] = useState("");
+  const [time, setTime] = useState("");
   const exercises = ["Select", "Weight Training Full Body", "Weight Training Upper Body", "Weight Training Lower Body", "Cardio Jogging", "Cardio Cycling", "Montain Climbing", "Tennis", "Skating"];
-
-  const handleSelect = async (value) => {};
 
   async function getMatch(userid) {
     const data = {
@@ -24,7 +24,109 @@ function Match() {
     }
   }
 
-  function handleLocation() {
+  const selectLocation = (e) => {
+    console.log(e.target.getAttribute("value"));
+    setAddress(getCityName(e.target.getAttribute("value")));
+  };
+
+  function handelMatch() {
+    setMatch(false);
+    console.log(exercise);
+    console.log(time);
+    console.log(address);
+    setExercise("");
+    setTime("");
+    setAddress("");
+  }
+
+  function getCityName(address) {
+    const adlist = address.split(",");
+    const city = adlist[adlist.length - 3];
+    return city;
+  }
+
+  return (
+    <Container fluid id="match-box">
+      <div className="match-form-box rounded shadow-lg">
+        {match ? (
+          <MatchUser />
+        ) : (
+          <div>
+            <div className="d-flex justify-content-center mb-4">
+              <h3>Match</h3>
+            </div>
+            <Row className="justify-content-md-center mx-1">
+              <Form>
+                <Form.Group className="mb-3" controlId="Exercise">
+                  <Form.Label>Exercise</Form.Label>
+                  <select
+                    value={exercise}
+                    onChange={(e) => {
+                      setExercise(e.target.value);
+                    }}
+                    className="form-control form-control-md"
+                  >
+                    {exercises.map((item, index) => {
+                      return (
+                        <option key={index} value={item}>
+                          {item}
+                        </option>
+                      );
+                    })}
+                  </select>
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="Time">
+                  <Form.Label>Time</Form.Label>
+                  <Form.Control value={time} onChange={(e) => setTime(e.target.value)} type="Time" placeholder="15:00-17:00" />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                  <Form.Label>Location</Form.Label>
+                  <PlacesAutocomplete value={address} onChange={setAddress}>
+                    {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+                      <div>
+                        <input className="location-input" {...getInputProps({ placeholder: "Enter Location" })} />
+                        {loading ? <div>...loading</div> : null}
+                        <div className="selection-box">
+                          <ul className="p-2">
+                            {suggestions.map((suggestion, index) => {
+                              return (
+                                /* 
+                              <div key={index} className="suggestion" onClick={selectLocation} {...getSuggestionItemProps(suggestion, { style })}>
+                                {suggestion.description}
+                              </div>
+                              */
+                                <li onmousedown="myFunction()" key={index} value={suggestion.description} className="listOfSuggestion">
+                                  {suggestion.description}
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </div>
+                      </div>
+                    )}
+                  </PlacesAutocomplete>
+                </Form.Group>
+
+                <div className="d-flex justify-content-center mt-2">
+                  <Button variant="primary" onClick={handelMatch} className="match-btn">
+                    Match
+                  </Button>
+                </div>
+              </Form>
+            </Row>
+          </div>
+        )}
+      </div>
+    </Container>
+  );
+}
+
+export default Match;
+
+/*
+function handleLocation() {
     if ("geolocation" in navigator) {
       console.log("Available");
       navigator.geolocation.getCurrentPosition(function (position) {
@@ -35,66 +137,4 @@ function Match() {
       console.log("Not Available");
     }
   }
-  return (
-    <Container fluid id="match-box">
-      <div className="match-form-box rounded shadow-lg">
-        <div className="d-flex justify-content-center mb-4">
-          <h3>Match</h3>
-        </div>
-        <Row className="justify-content-md-center mx-1">
-          <Form>
-            <Form.Group className="mb-3" controlId="Exercise">
-              <Form.Label>Exercise</Form.Label>
-              <select
-                value={exercise.value}
-                onChange={(e) => {
-                  setExercise({ value: e.target.value });
-                }}
-                className="form-control form-control-md"
-              >
-                {exercises.map((item, index) => {
-                  return (
-                    <option key={index} value={item}>
-                      {item}
-                    </option>
-                  );
-                })}
-              </select>
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="Time">
-              <Form.Label>Time</Form.Label>
-              <Form.Control type="Time" placeholder="15:00-17:00" />
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Location</Form.Label>
-              <PlacesAutocomplete value={address} onChange={setAddress} onSelect={handleSelect}>
-                {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-                  <div>
-                    <input className="location-input" {...getInputProps({ placeholder: "Enter Location" })} />
-                    {loading ? <div>...loading</div> : null}
-                    {suggestions.map((suggestion) => {
-                      const style = {
-                        backgroundColor: suggestion.active ? "#e8ff4f" : "#fff"
-                      };
-                      return <div {...getSuggestionItemProps(suggestion, { style })}>{suggestion.description}</div>;
-                    })}
-                  </div>
-                )}
-              </PlacesAutocomplete>
-            </Form.Group>
-
-            <div className="d-flex justify-content-center mt-2">
-              <Button variant="primary" type="submit" className="mt-2">
-                Match
-              </Button>
-            </div>
-          </Form>
-        </Row>
-      </div>
-    </Container>
-  );
-}
-
-export default Match;
+*/

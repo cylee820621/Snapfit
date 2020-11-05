@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Card, Button, Image } from "react-bootstrap";
-import FriendCardSchedule from "./FriednCardSchedule";
+import FriendCardSchedule from "./FriendCardSchedule";
 import StateContext from "../StateContext";
 import DispatchContext from "../DispatchContext";
 import Modal from "react-modal";

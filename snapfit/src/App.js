@@ -36,7 +36,13 @@ function App() {
     friendData: [],
     friendRequestData: [],
     chatRoom: false,
-    friendIsLoaded: false
+    friendIsLoaded: false,
+    matchUser: [
+      { name: "Sonic the Hedgehog", image: "src/assets/sonic.png" },
+      { name: "Peter Parker", image: "src/assets/spiderman.jpg" },
+      { name: "Kanye West", image: "src/assets/kanye.jpg" },
+      { name: "Elon Musk", image: "src/assets/elon.jpg" }
+    ]
   };
 
   //Method for updating AppState
