@@ -1,0 +1,18 @@
+.matchuser-container {
+  position: relative;
+}
+
+.matched-close-btn {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+}
+.matchuser-image {
+  margin-right: 1rem;
+  width: 4rem;
+  height: 4rem;
+}
+.matchuser-name {
+  font-weight: medium;
+  font-size: large;
+}

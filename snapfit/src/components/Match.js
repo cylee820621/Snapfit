@@ -24,16 +24,8 @@ function Match() {
     }
   }
 
-  const selectLocation = (e) => {
-    console.log(e.target.getAttribute("value"));
-    setAddress(getCityName(e.target.getAttribute("value")));
-  };
-
   function handelMatch() {
-    setMatch(false);
-    console.log(exercise);
-    console.log(time);
-    console.log(address);
+    setMatch(true);
     setExercise("");
     setTime("");
     setAddress("");
@@ -49,7 +41,7 @@ function Match() {
     <Container fluid id="match-box">
       <div className="match-form-box rounded shadow-lg">
         {match ? (
-          <MatchUser />
+          <MatchUser data={{ exercise: exercise, time: time, address: address }} setMatch={setMatch} />
         ) : (
           <div>
             <div className="d-flex justify-content-center mb-4">
@@ -97,7 +89,7 @@ function Match() {
                                 {suggestion.description}
                               </div>
                               */
-                                <li onmousedown="myFunction()" key={index} value={suggestion.description} className="listOfSuggestion">
+                                <li key={index} value={suggestion.description} className="listOfSuggestion">
                                   {suggestion.description}
                                 </li>
                               );
