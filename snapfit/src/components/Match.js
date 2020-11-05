@@ -39,24 +39,24 @@ function Match() {
 
   return (
     <Container fluid id="match-box">
-      <div className="match-form-box rounded shadow-lg">
+      <div className="match-form-box shadow-lg">
         {match ? (
           <MatchUser data={{ exercise: exercise, time: time, address: address }} setMatch={setMatch} />
         ) : (
-          <div>
+          <div className="match-form-container">
             <div className="d-flex justify-content-center mb-4">
               <h3>Match</h3>
             </div>
             <Row className="justify-content-md-center mx-1">
               <Form>
-                <Form.Group className="mb-3" controlId="Exercise">
+                <Form.Group className="mb-4" controlId="Exercise">
                   <Form.Label>Exercise</Form.Label>
                   <select
                     value={exercise}
                     onChange={(e) => {
                       setExercise(e.target.value);
                     }}
-                    className="form-control form-control-md"
+                    className="form-control form-control-md form-sizing"
                   >
                     {exercises.map((item, index) => {
                       return (
@@ -68,12 +68,12 @@ function Match() {
                   </select>
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="Time">
+                <Form.Group className="mb-4" controlId="Time">
                   <Form.Label>Time</Form.Label>
                   <Form.Control value={time} onChange={(e) => setTime(e.target.value)} type="Time" placeholder="15:00-17:00" />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Group className="mb-4" controlId="formBasicPassword">
                   <Form.Label>Location</Form.Label>
                   <PlacesAutocomplete value={address} onChange={setAddress}>
                     {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (

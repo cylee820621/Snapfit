@@ -10,7 +10,7 @@ import spiderman from "../assets/spiderman.jpg";
 function MatchUser(props) {
   return (
     <div className="matchuser-container">
-      <Button variant="danger" className="matched-close-btn" onClick={() => props.setMatch(false)}>
+      <Button variant="light" className="matched-close-btn" onClick={() => props.setMatch(false)}>
         x
       </Button>
       <div className="d-flex justify-content-center mb-4">
