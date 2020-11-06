@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
-import HeaderLoggedIn from "./HeaderLoggedIn";
+import Header from "./Header";
 import Schedule from "./Schedule";
 import Friends from "./Friends";
-import Match from "./Match";
 import Footer from "./Footer";
 import ChatRoom from "./ChatRoom";
 import StateContext from "../StateContext";
@@ -12,10 +11,9 @@ function Home() {
 
   return (
     <div>
-      <HeaderLoggedIn />
+      <Header />
       <Schedule />
       <Friends />
-      <Match />
       <Footer />
       {appState.chatRoom && <ChatRoom />}
     </div>

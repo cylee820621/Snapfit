@@ -31,12 +31,6 @@ function Match() {
     setAddress("");
   }
 
-  function getCityName(address) {
-    const adlist = address.split(",");
-    const city = adlist[adlist.length - 3];
-    return city;
-  }
-
   return (
     <Container fluid id="match-box">
       <div className="match-form-box shadow-lg">
@@ -84,11 +78,6 @@ function Match() {
                           <ul className="p-2">
                             {suggestions.map((suggestion, index) => {
                               return (
-                                /* 
-                              <div key={index} className="suggestion" onClick={selectLocation} {...getSuggestionItemProps(suggestion, { style })}>
-                                {suggestion.description}
-                              </div>
-                              */
                                 <li key={index} value={suggestion.description} className="listOfSuggestion">
                                   {suggestion.description}
                                 </li>

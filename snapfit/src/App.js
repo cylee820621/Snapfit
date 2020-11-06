@@ -4,10 +4,12 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./styles/App.css";
 import LandingPage from "./components/LandingPage";
 import Home from "./components/Home";
+import Header from "./components/Header";
 import StateContext from "./StateContext";
 import DispatchContext from "./DispatchContext";
 import FlashMessage from "./components/FlashMessage";
 import Axios from "axios";
+import Match from "./components/Match";
 
 const preventCORS = "https://cors-anywhere.herokuapp.com/";
 Axios.defaults.baseURL = `${preventCORS}https://snapfit-lutein.herokuapp.com/`;
@@ -239,6 +241,14 @@ function App() {
             <Route path="/" exact>
               {state.loggedIn ? <Home /> : <LandingPage />}
             </Route>
+            {state.loggedIn && (
+              <div>
+                <Header />
+                <Route path="/match" exact>
+                  {state.loggedIn ? <Match /> : <LandingPage />}
+                </Route>
+              </div>
+            )}
           </Switch>
         </BrowserRouter>
       </DispatchContext.Provider>

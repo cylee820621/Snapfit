@@ -21,7 +21,7 @@ function Footer() {
 
   return (
     <div className="sticky-bottom mt-3 d-flex justify-content-center footer-box">
-      <Button onClick={handleLogout} variant="danger">
+      <Button onClick={handleLogout} variant="dark">
         Log out
       </Button>
     </div>
