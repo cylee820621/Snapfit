@@ -5,6 +5,7 @@ import "./styles/App.css";
 import LandingPage from "./components/LandingPage";
 import Home from "./components/Home";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import StateContext from "./StateContext";
 import DispatchContext from "./DispatchContext";
 import FlashMessage from "./components/FlashMessage";

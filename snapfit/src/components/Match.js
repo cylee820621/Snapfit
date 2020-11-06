@@ -38,12 +38,12 @@ function Match() {
           <MatchUser data={{ exercise: exercise, time: time, address: address }} setMatch={setMatch} />
         ) : (
           <div className="match-form-container">
-            <div className="d-flex justify-content-center mb-4">
+            <div className="d-flex justify-content-center mb-2">
               <h3>Match</h3>
             </div>
             <Row className="justify-content-md-center mx-1">
               <Form>
-                <Form.Group className="mb-4" controlId="Exercise">
+                <Form.Group className="mb-3" controlId="Exercise">
                   <Form.Label>Exercise</Form.Label>
                   <select
                     value={exercise}
@@ -62,12 +62,12 @@ function Match() {
                   </select>
                 </Form.Group>
 
-                <Form.Group className="mb-4" controlId="Time">
+                <Form.Group className="mb-3" controlId="Time">
                   <Form.Label>Time</Form.Label>
                   <Form.Control value={time} onChange={(e) => setTime(e.target.value)} type="Time" placeholder="15:00-17:00" />
                 </Form.Group>
 
-                <Form.Group className="mb-4" controlId="formBasicPassword">
+                <Form.Group className="mb-3" controlId="formBasicPassword">
                   <Form.Label>Location</Form.Label>
                   <PlacesAutocomplete value={address} onChange={setAddress}>
                     {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
