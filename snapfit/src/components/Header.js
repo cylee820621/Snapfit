@@ -15,9 +15,6 @@ function HeaderLoggedIn() {
           SNAPFIT
         </Link>
         <div className="d-flex justify-content-between align-items-center px-2">
-          <div className="d-flex justify-content-center align-items-center ">
-            <Image className="avatar" src={appState.user.imageUrl} roundedCircle />
-          </div>
           <div className="d-flex justify-content-between align-items-center">
             <HeaderNewFriend />
             <Messenger />

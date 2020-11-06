@@ -10,7 +10,7 @@ function Friends() {
   const [addFriend, setAddFriend] = useState(false);
 
   return (
-    <Container className="mb-3 mt-5 " id="f-box" fluid>
+    <Container fluid>
       <AddFriend addFriend={addFriend} setAddFriend={setAddFriend} />
       <div className="p-4">
         <Row xs={1} sm={1} md={3} lg={3} xl={4} className="justify-content-around">

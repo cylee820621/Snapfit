@@ -1,9 +1,11 @@
-#schedule-box {
+#profile-box {
+  background-color: aqua;
   position: relative;
-  width: 25%;
+  width: 48%;
   margin-left: 0rem;
   margin-right: 0rem;
   padding-left: 0rem;
   padding-right: 0rem;
   top: 5rem;
+  background-color: rgb(228, 215, 240);
 }

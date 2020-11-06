@@ -7,7 +7,7 @@ function WeekSchedule(props) {
   const WeekSchedule = props.data;
   return (
     <Container className="week-box shadow" fluid>
-      <div className="week-title">Week schedule</div>
+      <div className="week-title">Schedule</div>
       <Container className="days-box" fluid>
         <Row xs={1} sm={1} md={2} lg={3} xl={4} className="day-list">
           {Object.keys(WeekSchedule).map((eachday, index) => {

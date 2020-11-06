@@ -7,7 +7,7 @@ import "../styles/schedule.css";
 function Schedule() {
   const appState = useContext(StateContext);
   return (
-    <Container id="schedule-box" fluid>
+    <Container id="schedule-box">
       <WeekSchedule data={appState.schedule} />
     </Container>
   );
