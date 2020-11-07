@@ -21,7 +21,6 @@
 .day {
   display: flex;
   justify-content: center;
-  padding-bottom: 0.5rem;
   color: #9fe0ee;
   font-size: 1.7em;
   font-weight: bold;
@@ -30,7 +29,7 @@
 .schedule-box {
   padding-left: auto;
   padding-right: auto;
-  width: 15rem;
+  width: 20rem;
   height: 15rem;
   background-color: white;
   color: black;
@@ -38,5 +37,5 @@
 
 .schedule-box:hover {
   transition: all 0.3s ease-in-out;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }

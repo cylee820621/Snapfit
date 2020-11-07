@@ -12,9 +12,9 @@ function Schedule() {
     <Container className="shadow" fluid>
       <div className="schedule-title">Schedule</div>
       {display && (
-        <div className="schedule-display">
+        <div>
           <div className="day">{dayData}</div>
-          <div className="d-flex justify-content-center mt-1">
+          <div className="d-flex justify-content-center">
             <div className="schedule-box shadow-lg mb-3 rounded">
               <DayScheduleContent day={dayData} data={appState.schedule[dayData]} />
             </div>

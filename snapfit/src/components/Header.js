@@ -1,15 +1,14 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { Button, Container, Image } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import StateContext from "../StateContext";
 import HeaderNewFriend from "./HeaaderNewFriend";
 import Messenger from "./Messenger";
 import "../styles/header.css";
 
 function HeaderLoggedIn() {
-  const appState = useContext(StateContext);
   return (
-    <nav className="navbar navbar-expand-md shadow mb-3" id="mainNav">
+    <nav className="navbar navbar-expand-md shadow-sm mb-3" id="mainNav">
       <Container fluid className="d-flex justify-content-between">
         <Link id="logo" className="navbar-brand" to="/">
           SNAPFIT
