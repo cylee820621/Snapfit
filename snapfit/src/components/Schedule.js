@@ -10,7 +10,6 @@ function Schedule() {
   const [dayData, setDayData] = useState("");
   return (
     <Container className="shadow" fluid>
-      <div className="schedule-title">Schedule</div>
       {display && (
         <div>
           <div className="day">{dayData}</div>

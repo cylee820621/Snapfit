@@ -14,16 +14,16 @@
   align-items: center;
   width: 6.5rem;
   height: 6.5rem;
-  font-weight: bolder;
+  font-weight: inherit;
   font-size: 1.5rem;
 }
 
 .day {
   display: flex;
   justify-content: center;
-  color: #9fe0ee;
+  color: #000000;
   font-size: 1.7em;
-  font-weight: bold;
+  font-weight: inherit;
 }
 
 .schedule-box {
