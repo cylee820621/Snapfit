@@ -4,5 +4,8 @@
   margin-left: 0rem;
   margin-right: 0rem;
   padding-top: 2rem;
-  background-color: rgb(228, 215, 240);
+}
+.profile-name {
+  font-weight: inherit;
+  font-size: larger;
 }

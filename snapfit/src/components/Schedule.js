@@ -10,7 +10,7 @@ function Schedule() {
   const [dayData, setDayData] = useState("");
   return (
     <Container className="shadow" fluid>
-      {display && (
+      {display ? (
         <div>
           <div className="day">{dayData}</div>
           <div className="d-flex justify-content-center">
@@ -19,6 +19,8 @@ function Schedule() {
             </div>
           </div>
         </div>
+      ) : (
+        <div className="schedule-title">Schedule</div>
       )}
 
       <Row className="d-flex justify-content-center pb-2">

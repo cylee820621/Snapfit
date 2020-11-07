@@ -3,8 +3,10 @@
   color: white;
 }
 .schedule-title {
-  font-style: italic;
-  font-weight: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
   font-size: 2rem;
 }
 
