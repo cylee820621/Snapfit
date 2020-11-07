@@ -13,7 +13,7 @@ function Home() {
   return (
     <div>
       <Header />
-      <div style={{ height: "87.7vh" }} className="d-flex justify-content-between mb-2">
+      <div className="d-flex justify-content-between mb-2">
         <LeftSection />
         <MiddleSection />
         <RightSection />
