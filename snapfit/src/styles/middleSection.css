@@ -1,11 +1,8 @@
-#profile-box {
-  background-color: aqua;
+#middleSection-box {
   position: relative;
   width: 48%;
   margin-left: 0rem;
   margin-right: 0rem;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  top: 5rem;
+  padding-top: 2rem;
   background-color: rgb(228, 215, 240);
 }

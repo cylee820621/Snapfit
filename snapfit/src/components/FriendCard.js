@@ -64,7 +64,7 @@ function FriendCard(props) {
   }
 
   return (
-    <Card className="friendcard-box shadow">
+    <div className="friendcard-box shadow">
       <Button onClick={openModal} className="remove-friend-btn" variant="light">
         <i className="fas fa-times"></i>
       </Button>
@@ -109,7 +109,7 @@ function FriendCard(props) {
           </div>
         </Modal>
       </div>
-    </Card>
+    </div>
   );
 }
 

@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
 import Header from "./Header";
-import Schedule from "./Schedule";
-import Profile from "./Profile";
-import RightBar from "./RightBar";
-import Friends from "./Friends";
+import LeftSection from "./LeftSection";
+import MiddleSection from "./MiddleSection";
+import RightSection from "./RightSection";
 import Footer from "./Footer";
 import ChatRoom from "./ChatRoom";
 import StateContext from "../StateContext";
@@ -15,12 +14,10 @@ function Home() {
     <div>
       <Header />
       <div className="d-flex justify-content-between mb-2">
-        <Schedule />
-        <Profile />
-        <RightBar />
+        <LeftSection />
+        <MiddleSection />
+        <RightSection />
       </div>
-
-      <Friends />
       <Footer />
       {appState.chatRoom && <ChatRoom />}
     </div>

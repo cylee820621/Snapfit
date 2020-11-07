@@ -17,7 +17,7 @@ function Friends() {
           {appState.friendData.map((frienddata, index) => {
             return (
               <Col key={index}>
-                <div className="d-flex justify-content-center  m-3 mb-5 ">
+                <div className="d-flex justify-content-center align-items-center m-3 ">
                   <FriendCard index={index} data={frienddata} />
                 </div>
               </Col>

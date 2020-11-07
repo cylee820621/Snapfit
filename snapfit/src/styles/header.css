@@ -1,8 +1,5 @@
 #mainNav {
-  position: fixed;
-  z-index: 998;
   width: 100%;
-  top: 0rem;
   height: 3.5rem;
 }
 #logo {

@@ -1,25 +1,21 @@
-.week-box {
-  padding-bottom: 2rem;
-  padding-top: 1rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+.schedule-container {
   background-color: #a58af5;
   color: white;
 }
-.week-title {
+.schedule-title {
   font-style: italic;
-  font-weight: bold;
-  font-size: 2.5rem;
-}
-.days-box {
-  padding: 1rem;
-  padding-left: auto;
-  padding-right: auto;
+  font-weight: inherit;
+  font-size: 2rem;
 }
 
-.day-list {
+.day-btn {
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: 6.5rem;
+  height: 6.5rem;
+  font-weight: bolder;
+  font-size: 1.5rem;
 }
 
 .day {

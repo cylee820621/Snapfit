@@ -1,7 +1,8 @@
 .friendcard-box {
   position: relative;
+  background-color: white;
   padding: 1rem;
-  width: 100%;
+  width: 18rem;
   border-width: 0rem;
   border-radius: 0.3rem;
 }
@@ -16,7 +17,8 @@
 }
 
 .image-size {
-  width: 8rem;
+  width: 4rem;
+  height: 4rem;
 }
 .addfriend-input-box {
   width: 20%;
@@ -58,7 +60,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 6rem;
+  width: 3rem;
   height: 2.5rem;
   margin: 2rem;
 }
