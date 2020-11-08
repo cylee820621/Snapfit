@@ -18,19 +18,19 @@ function MiddleSection() {
           <div className="profile-name">{appState.user.name}</div>
         </div>
       </div>
-      <div className="d-flex justify-content-center align-items-center mt-4 mb-3">
+      <div className="d-flex justify-content-center align-items-center mt-3 mb-3">
         <Container fluid className="p-0 shadow">
-          <Button className="rounded-0" onClick={() => setDisplay(false)} block variant="light">
+          <Button size="sm" className="rounded-0" onClick={() => setDisplay(false)} block variant="light">
             FRIEND
           </Button>
         </Container>
         <Container fluid className="p-0 shadow">
-          <Button className="rounded-0" onClick={() => setDisplay(true)} block variant="light">
+          <Button size="sm" className="rounded-0" onClick={() => setDisplay(true)} block variant="light">
             XXXXXX
           </Button>
         </Container>
       </div>
-      {display ? <div>XXXXX</div> : <Friends />}
+      <div className="midsection-content-box">{display ? <div>XXXXX</div> : <Friends />}</div>
     </Container>
   );
 }

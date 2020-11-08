@@ -3,11 +3,16 @@
   width: 48%;
   margin-left: 0rem;
   margin-right: 0rem;
-  padding-top: 2rem;
+  padding-top: 1rem;
   padding-left: 0rem;
   padding-right: 0rem;
 }
 .profile-name {
   font-weight: inherit;
   font-size: larger;
+  color: rgb(109, 108, 108);
+}
+.midsection-content-box {
+  padding: 2rem;
+  min-height: 25rem;
 }
