@@ -19,13 +19,13 @@ function MiddleSection() {
         </div>
       </div>
       <div className="d-flex justify-content-center align-items-center mt-4 mb-3">
-        <Container fluid className="p-0">
-          <Button className="rounded-0" onClick={() => setDisplay(false)} block variant="outline-dark">
+        <Container fluid className="p-0 shadow">
+          <Button className="rounded-0" onClick={() => setDisplay(false)} block variant="light">
             FRIEND
           </Button>
         </Container>
-        <Container fluid className="p-0">
-          <Button className="rounded-0" onClick={() => setDisplay(true)} block variant="outline-dark">
+        <Container fluid className="p-0 shadow">
+          <Button className="rounded-0" onClick={() => setDisplay(true)} block variant="light">
             XXXXXX
           </Button>
         </Container>

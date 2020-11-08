@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Container } from "react-bootstrap";
+import CovidNews from "./CovidNews";
 
 function RightSection() {
   const style = {
@@ -10,7 +11,9 @@ function RightSection() {
   };
   return (
     <Container style={style} className="shadow" fluid>
-      <div>covid news</div>
+      <div>
+        <CovidNews />
+      </div>
     </Container>
   );
 }
