@@ -5,12 +5,12 @@ import "./styles/App.css";
 import LandingPage from "./components/LandingPage";
 import Home from "./components/Home";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
 import StateContext from "./StateContext";
 import DispatchContext from "./DispatchContext";
 import FlashMessage from "./components/FlashMessage";
 import Axios from "axios";
 import Match from "./components/Match";
+import CovidNews from "./components/CovidNews";
 
 const preventCORS = "https://cors-anywhere.herokuapp.com/";
 Axios.defaults.baseURL = `${preventCORS}https://snapfit-lutein.herokuapp.com/`;
@@ -45,7 +45,8 @@ function App() {
       { name: "Peter Parker", image: "src/assets/spiderman.jpg" },
       { name: "Kanye West", image: "src/assets/kanye.jpg" },
       { name: "Elon Musk", image: "src/assets/elon.jpg" }
-    ]
+    ],
+    news: []
   };
 
   //Method for updating AppState

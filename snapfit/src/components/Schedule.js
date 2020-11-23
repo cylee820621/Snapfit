@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Button } from "react-bootstrap";
 import StateContext from "../StateContext";
 import DayScheduleContent from "./DayScheduleContent";
 import "../styles/weekschedule.css";
 
 function Schedule() {
   const appState = useContext(StateContext);
+  const [click, setclick] = useState("");
   const [display, setDisplay] = useState(false);
   const [dayData, setDayData] = useState("");
   return (
@@ -31,6 +32,10 @@ function Schedule() {
                 onClick={() => {
                   setDayData(eachday);
                   setDisplay(true);
+                  if (click == eachday) {
+                    setDisplay(false);
+                  }
+                  setclick(eachday);
                 }}
                 variant="light"
                 className="day-btn"
