@@ -11,11 +11,14 @@ function MiddleSection() {
   return (
     <Container fluid id="middleSection-box" className="shadow">
       <div>
-        <div className="d-flex justify-content-center mb-1">
+        <div className="d-flex justify-content-center align-content-center mb-1">
           <Image src={appState.user.imageUrl} roundedCircle />
         </div>
-        <div className="d-flex justify-content-center">
-          <div className="profile-name">{appState.user.name}</div>
+        <div className="d-flex justify-content-center align-content-center mb-1">
+          <div className="profile-name-id">{appState.user.name}</div>
+        </div>
+        <div className="d-flex justify-content-center align-content-center">
+          <div className="profile-name-id">ID: {appState.user.userID}</div>
         </div>
       </div>
       <div className="d-flex justify-content-center align-items-center mt-3 mb-3">

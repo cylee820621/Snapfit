@@ -40,7 +40,7 @@ function CovidNews() {
             return (
               <li>
                 <Button block href={aNews.webUrl} target="_blank" variant="light">
-                  {aNews.title}
+                  <div className="d-flex justify-content-start">{aNews.title}</div>
                 </Button>
               </li>
             );
