@@ -33,7 +33,7 @@ function MiddleSection() {
           </Button>
         </Container>
       </div>
-      <div className="midsection-content-box">{display ? <div>XXXXX</div> : <Friends />}</div>
+      <div className="midsection-content-box overflow-auto">{display ? <div>XXXXX</div> : <Friends />}</div>
     </Container>
   );
 }
