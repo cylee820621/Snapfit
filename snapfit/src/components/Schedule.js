@@ -21,7 +21,9 @@ function Schedule() {
           </div>
         </div>
       ) : (
-        <div className="schedule-title">Schedule</div>
+        <div className="schedule-title pt-2">
+          <h3>Schedule</h3>
+        </div>
       )}
 
       <Row className="d-flex justify-content-center pb-2">

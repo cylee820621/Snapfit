@@ -12,7 +12,7 @@ function Friends() {
   return (
     <Container fluid>
       <AddFriend addFriend={addFriend} setAddFriend={setAddFriend} />
-      <div className="p-4 overflow-auto">
+      <div className="p-3 overflow-auto">
         <Row xs={1} sm={1} md={3} lg={3} xl={4} className="justify-content-around">
           {appState.friendData.map((frienddata, index) => {
             return (
