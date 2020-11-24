@@ -16,8 +16,12 @@ function AddFriend(props) {
     setFriendID(e.target.value);
   }
   function handleSubmit() {
-    setLoading(true);
-    sendFriendRequest(friendID);
+    if (friendID) {
+      setLoading(true);
+      sendFriendRequest(friendID);
+    } else {
+      alert("please enter an ID");
+    }
   }
 
   //Send friend request by other user's id
@@ -62,14 +66,12 @@ function AddFriend(props) {
           {appState.friendIsLoaded ? (
             <div>
               {addFriend && (
-                <div className="">
-                  <form className="d-flex justify-content-center align-items-center p-4">
-                    <input className="addfriend-input-box form-control m-0" id="userId" value={friendID} onChange={changeHandler} placeholder="Enter user id" />
-                    <Button onClick={handleSubmit} className="ml-2" variant="success" size="md">
-                      Sumbit
-                    </Button>
-                  </form>
-                </div>
+                <form className="d-flex justify-content-center align-items-center p-4">
+                  <input className="addfriend-input-box form-control m-0" id="userId" value={friendID} onChange={changeHandler} placeholder="Enter user id" />
+                  <Button onClick={handleSubmit} className="ml-2" variant="success" size="md">
+                    Sumbit
+                  </Button>
+                </form>
               )}
             </div>
           ) : (
