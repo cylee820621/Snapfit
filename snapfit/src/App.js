@@ -10,7 +10,6 @@ import DispatchContext from "./DispatchContext";
 import FlashMessage from "./components/FlashMessage";
 import Axios from "axios";
 import Match from "./components/Match";
-import CovidNews from "./components/CovidNews";
 
 const preventCORS = "https://cors-anywhere.herokuapp.com/";
 Axios.defaults.baseURL = `${preventCORS}https://snapfit-lutein.herokuapp.com/`;

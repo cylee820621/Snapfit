@@ -12,18 +12,22 @@ function Friends() {
   return (
     <Container fluid>
       <AddFriend addFriend={addFriend} setAddFriend={setAddFriend} />
-      <div className="p-3 overflow-auto">
-        <Row xs={1} sm={1} md={3} lg={3} xl={4} className="justify-content-around">
-          {appState.friendData.map((frienddata, index) => {
-            return (
-              <Col key={index}>
-                <div className="d-flex justify-content-center align-items-center m-3 ">
-                  <FriendCard index={index} data={frienddata} />
-                </div>
-              </Col>
-            );
-          })}
-        </Row>
+      <div className="p-2 overflow-auto">
+        {appState.friendIsLoaded ? (
+          <Row xs={1} sm={1} md={3} lg={3} xl={4} className="justify-content-around">
+            {appState.friendData.map((frienddata, index) => {
+              return (
+                <Col key={index}>
+                  <div className="d-flex justify-content-center align-items-center m-3 ">
+                    <FriendCard index={index} data={frienddata} />
+                  </div>
+                </Col>
+              );
+            })}
+          </Row>
+        ) : (
+          <div>Loading...</div>
+        )}
       </div>
     </Container>
   );

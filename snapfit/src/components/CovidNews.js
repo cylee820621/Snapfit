@@ -36,9 +36,9 @@ function CovidNews() {
       </div>
       <div style={style} className="shadow mt-1 px-1 overflow-auto">
         <ul>
-          {news.map((aNews) => {
+          {news.map((aNews, index) => {
             return (
-              <li>
+              <li key={index}>
                 <Button block href={aNews.webUrl} target="_blank" variant="light">
                   <div className="d-flex justify-content-start">{aNews.title}</div>
                 </Button>
