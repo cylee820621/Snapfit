@@ -35,7 +35,7 @@ function Schedule() {
                   setDayData(eachday);
                   setDisplay(true);
                   setClick(eachday);
-                  if (click == eachday) {
+                  if (click === eachday) {
                     setDisplay(false);
                     setClick("");
                   }

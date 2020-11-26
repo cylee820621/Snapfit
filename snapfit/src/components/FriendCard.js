@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Card, Button, Image } from "react-bootstrap";
+import { Button, Image } from "react-bootstrap";
 import FriendCardSchedule from "./FriendCardSchedule";
 import StateContext from "../StateContext";
 import DispatchContext from "../DispatchContext";

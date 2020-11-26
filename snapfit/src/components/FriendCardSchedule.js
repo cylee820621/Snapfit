@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Carousel } from "react-bootstrap";
+import { Carousel } from "react-bootstrap";
 import "../styles/friendcardschedule.css";
 
 function FriendCardSchedule(props) {

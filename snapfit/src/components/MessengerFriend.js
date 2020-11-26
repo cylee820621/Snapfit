@@ -1,10 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Button, Image } from "react-bootstrap";
-import DispatchContext from "../DispatchContext";
 import "../styles/messengerfriend.css";
 
 function MessengerFriend(props) {
-  const appDispatch = useContext(DispatchContext);
   const friendData = props.data;
   const setMessenger = props.setMessenger;
 

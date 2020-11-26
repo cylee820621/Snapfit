@@ -1,6 +1,5 @@
-import React, { useEffect, useContext } from "react";
+import React from "react";
 import { Button, Image } from "react-bootstrap";
-import StateContext from "../StateContext";
 import "../styles/matchuser.css";
 import elon from "../assets/elon.png";
 import kanye from "../assets/kanye.jpg";
@@ -23,7 +22,7 @@ function MatchUser(props) {
             <div className="matchuser-name">Peter-Parker</div>
           </div>
           <Button onClick={() => alert("send email")} variant="light">
-            <i class="far fa-paper-plane"></i>
+            <i className="far fa-paper-plane"></i>
           </Button>
         </div>
         <div className="d-flex justify-content-between align-items-center mb-3">
@@ -32,7 +31,7 @@ function MatchUser(props) {
             <div className="matchuser-name">Sonic the Hedgehog</div>
           </div>
           <Button onClick={() => alert("send email")} variant="light">
-            <i class="far fa-paper-plane"></i>
+            <i className="far fa-paper-plane"></i>
           </Button>
         </div>
         <div className="d-flex justify-content-between align-items-center mb-3">
@@ -41,7 +40,7 @@ function MatchUser(props) {
             <div className="matchuser-name">Elon Musk</div>
           </div>
           <Button onClick={() => alert("send email")} variant="light">
-            <i class="far fa-paper-plane"></i>
+            <i className="far fa-paper-plane"></i>
           </Button>
         </div>
         <div className="d-flex justify-content-between align-items-center mb-3">
@@ -50,7 +49,7 @@ function MatchUser(props) {
             <div className="matchuser-name">Kanye West</div>
           </div>
           <Button onClick={() => alert("send email")} variant="light">
-            <i class="far fa-paper-plane"></i>
+            <i className="far fa-paper-plane"></i>
           </Button>
         </div>
       </div>

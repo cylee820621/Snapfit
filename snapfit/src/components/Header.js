@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Button, Container } from "react-bootstrap";
-import StateContext from "../StateContext";
 import HeaderNewFriend from "./HeaaderNewFriend";
 import Messenger from "./Messenger";
 import "../styles/header.css";

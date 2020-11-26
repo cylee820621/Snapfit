@@ -1,6 +1,6 @@
 import Axios from "axios";
 import React, { useState, useContext } from "react";
-import { Container, Row, Button, Form, Spinner } from "react-bootstrap";
+import { Container, Row, Button, Form } from "react-bootstrap";
 import PlacesAutocomplete from "react-places-autocomplete";
 import StateContext from "../StateContext";
 import MatchUser from "./MatchUser";
@@ -17,11 +17,11 @@ function Match() {
 
   async function handelMatch() {
     console.log("start matching");
-    console.log(`time: ${time}. location:${location}. `);
+    console.log(`time: ${time}. location:${location}. workout:${exercise}`);
     setLoading(true);
     const res = await Axios.put(`/api/match/${time},${location},${exercise},${appState.user.userID}`);
     if (res) {
-      console.log(res);
+      console.log(res.data);
       setMatch(true);
       setLoading(false);
     } else {
@@ -43,7 +43,7 @@ function Match() {
               <h3>Match</h3>
             </div>
             {loading ? (
-              <div>Loading...</div>
+              <div className="justify-content-center align-content-center">Loading...</div>
             ) : (
               <Row className="justify-content-md-center mx-1">
                 <Form>

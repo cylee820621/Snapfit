@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Container, Row, Col, Spinner } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import StateContext from "../StateContext";
 import FriendCard from "./FriendCard";
 import AddFriend from "./AddFriend";
