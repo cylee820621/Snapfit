@@ -22,7 +22,8 @@ function App() {
     user: {
       userID: localStorage.getItem("snapfitUserId"),
       name: localStorage.getItem("snapfitName"),
-      imageUrl: localStorage.getItem("snapfitImageUrl")
+      imageUrl: localStorage.getItem("snapfitImageUrl"),
+      email: ""
     },
     schedule: {
       Monday: getLocalStorateSchedule(localStorage.getItem("Monday")),
@@ -37,14 +38,14 @@ function App() {
     friendRequest: getLocalStorateSchedule(localStorage.getItem("friendRequest")),
     friendRequestData: [],
     chatRoom: false,
-    friendIsLoaded: false,
     matchUser: [
       { name: "Sonic the Hedgehog", image: "src/assets/sonic.png" },
       { name: "Peter Parker", image: "src/assets/spiderman.jpg" },
       { name: "Kanye West", image: "src/assets/kanye.jpg" },
       { name: "Elon Musk", image: "src/assets/elon.jpg" }
     ],
-    news: []
+    news: [],
+    message: []
   };
 
   //Method for updating AppState
@@ -63,6 +64,7 @@ function App() {
         draft.schedule.Sunday = action.data.Sunday;
         draft.friendRequest = action.data.FriendRequests;
         draft.friend = action.data.Friendslist;
+        draft.message = action.data.Message;
         draft.loggedIn = true;
         return;
       case "logout":

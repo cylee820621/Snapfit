@@ -38,7 +38,8 @@ function LandingPage() {
       const data = {
         user_id: userData.googleId,
         user_name: userData.name,
-        ImageUrl: userData.imageUrl
+        ImageUrl: userData.imageUrl,
+        email: userData.email
       };
       const response = await Axios.post("/api/friends", data);
       if (response) {
