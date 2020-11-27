@@ -35,7 +35,6 @@ function App() {
     },
     friend: getLocalStorateSchedule(localStorage.getItem("friend")),
     friendRequest: getLocalStorateSchedule(localStorage.getItem("friendRequest")),
-    friendData: [],
     friendRequestData: [],
     chatRoom: false,
     friendIsLoaded: false,
@@ -109,9 +108,6 @@ function App() {
       case "closeChatRoom":
         draft.chatRoom = false;
         return;
-      case "friendIsLoaded":
-        draft.friendIsLoaded = true;
-        return;
     }
   }
 
@@ -122,7 +118,7 @@ function App() {
   //When AppState loggedin state changes to false, clean up user info in localStorage
   useEffect(() => {
     if (state.loggedIn) {
-      console.log("loging state " + state.loggedIn);
+      console.log("loging status " + state.loggedIn);
       localStorage.setItem("snapfitUserId", state.user.userID);
       localStorage.setItem("snapfitName", state.user.name);
       localStorage.setItem("snapfitImageUrl", state.user.imageUrl);
@@ -135,7 +131,6 @@ function App() {
       localStorage.setItem("Sunday", state.schedule.Sunday);
       localStorage.setItem("friend", state.friend);
       localStorage.setItem("friendRequest", state.friendRequest);
-      getFriendsData(state.friend);
       getRequestData(state.friendRequest);
     } else {
       console.log("loging state " + state.loggedIn);
@@ -166,19 +161,9 @@ function App() {
   }, [state.schedule]);
 
   useEffect(() => {
-    localStorage.setItem("friend", state.friend);
-    getFriendsData(state.friend);
-  }, [state.friend]);
-
-  useEffect(() => {
     localStorage.setItem("friendRequest", state.friendRequest);
     getRequestData(state.friendRequest);
   }, [state.friendRequest]);
-
-  useEffect(() => {
-    console.log("friend data");
-    console.log(state.friendData);
-  }, [state.friendData]);
 
   useEffect(() => {
     console.log("friendRequest data");
@@ -215,15 +200,6 @@ function App() {
     }
   }
 
-  async function getFriendsData(listOfId) {
-    if (listOfId.length !== 0) {
-      listOfId.map(async (userid) => {
-        const response = await Axios.get(`/api/friendlist/${userid}`);
-        dispatch({ type: "updatefriendData", value: response.data });
-      });
-    }
-    dispatch({ type: "friendIsLoaded" });
-  }
   async function getRequestData(listOfId) {
     if (listOfId.length !== 0) {
       listOfId.map(async (userid) => {

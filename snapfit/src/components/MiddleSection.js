@@ -14,11 +14,15 @@ function MiddleSection() {
         <div className="d-flex justify-content-center align-content-center mb-1">
           <Image src={appState.user.imageUrl} roundedCircle />
         </div>
-        <div className="d-flex justify-content-center align-content-center mb-1">
+        <div className="d-flex justify-content-center align-content-center">
           <div className="profile-name-id">{appState.user.name}</div>
         </div>
         <div className="d-flex justify-content-center align-content-center">
           <div className="profile-name-id">ID: {appState.user.userID}</div>
+        </div>
+        <div className="d-flex justify-content-center align-items-center">
+          <div>About me</div>
+          <i className="far fa-edit edit-icon"></i>
         </div>
       </div>
       <div className="d-flex justify-content-center align-items-center mt-3 mb-3">

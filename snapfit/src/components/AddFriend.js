@@ -63,7 +63,7 @@ function AddFriend(props) {
               +Add
             </Button>
           </div>
-          {appState.friendIsLoaded ? (
+          {setLoading ? (
             <div>
               {addFriend && (
                 <form className="d-flex justify-content-center align-items-center p-4">
