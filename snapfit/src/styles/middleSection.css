@@ -16,3 +16,9 @@
   padding: 2rem;
   min-height: 25rem;
 }
+.AboutContainer {
+}
+.AboutBtn {
+  position: relative;
+  left: 85%;
+}

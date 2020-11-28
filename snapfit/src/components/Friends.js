@@ -14,12 +14,14 @@ function Friends() {
 
   useEffect(() => {
     const allFriend = async () => {
-      setLoading(true);
-      const res = await Axios.get(`/api/allfriends/${appState.user.userID}`);
-      if (res) {
-        console.log(res.data);
-        setFriendList(res.data);
-        setLoading(false);
+      if (appState.loggedIn === true) {
+        setLoading(true);
+        const res = await Axios.get(`/api/allfriends/${appState.user.userID}`);
+        if (res) {
+          console.log(res.data);
+          setFriendList(res.data);
+          setLoading(false);
+        }
       }
     };
     allFriend();

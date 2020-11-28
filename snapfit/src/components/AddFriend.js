@@ -59,6 +59,7 @@ function AddFriend(props) {
                 setAddFriend(!addFriend);
               }}
               data-toggle="collapse"
+              size="sm"
             >
               +Add
             </Button>

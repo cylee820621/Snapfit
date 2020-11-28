@@ -23,7 +23,8 @@ function App() {
       userID: localStorage.getItem("snapfitUserId"),
       name: localStorage.getItem("snapfitName"),
       imageUrl: localStorage.getItem("snapfitImageUrl"),
-      email: ""
+      email: localStorage.getItem("snapfitEmail"),
+      about: localStorage.getItem("snapfitAbout")
     },
     schedule: {
       Monday: getLocalStorateSchedule(localStorage.getItem("Monday")),
@@ -55,6 +56,8 @@ function App() {
         draft.user.userID = action.data.user_id;
         draft.user.name = action.data.user_name;
         draft.user.imageUrl = action.data.ImageUrl;
+        draft.user.email = action.data.email;
+        draft.user.about = action.data.about_me;
         draft.schedule.Monday = action.data.Monday;
         draft.schedule.Tuesday = action.data.Tuesday;
         draft.schedule.Wednesday = action.data.Wednesday;
@@ -124,6 +127,8 @@ function App() {
       localStorage.setItem("snapfitUserId", state.user.userID);
       localStorage.setItem("snapfitName", state.user.name);
       localStorage.setItem("snapfitImageUrl", state.user.imageUrl);
+      localStorage.setItem("snapfitEmail", state.user.email);
+      localStorage.setItem("snapfitAbout", state.user.about);
       localStorage.setItem("Monday", state.schedule.Monday);
       localStorage.setItem("Tuesday", state.schedule.Tuesday);
       localStorage.setItem("Wednesday", state.schedule.Wednesday);
@@ -139,6 +144,8 @@ function App() {
       localStorage.removeItem("snapfitUserId");
       localStorage.removeItem("snapfitName");
       localStorage.removeItem("snapfitImageUrl");
+      localStorage.removeItem("snapfitEmail");
+      localStorage.removeItem("snapfitAbout");
       localStorage.removeItem("Monday");
       localStorage.removeItem("Tuesday");
       localStorage.removeItem("Wednesday");

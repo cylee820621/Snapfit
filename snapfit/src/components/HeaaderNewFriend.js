@@ -20,7 +20,6 @@ function HeaderNewFriend() {
       if (response) {
         appDispatch({ type: "flashMessage", value: "Successfully Confirm!" });
         setLoading(false);
-        console.log(response);
         appDispatch({
           type: "confirmFriendRequest",
           value: { friendid: friendID, index: index }
