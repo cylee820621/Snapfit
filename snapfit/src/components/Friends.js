@@ -17,6 +17,7 @@ function Friends() {
       setLoading(true);
       const res = await Axios.get(`/api/allfriends/${appState.user.userID}`);
       if (res) {
+        console.log(res.data);
         setFriendList(res.data);
         setLoading(false);
       }

@@ -13,6 +13,7 @@ function Match() {
   const [exercise, setExercise] = useState("");
   const [location, setLocation] = useState("");
   const [time, setTime] = useState("");
+  const [matchUser, setMatchUser] = useState([]);
   const exercises = ["Select", "Weight Training Full Body", "Weight Training Upper Body", "Weight Training Lower Body", "Cardio Jogging", "Cardio Cycling", "Montain Climbing", "Tennis", "Skating"];
 
   async function handelMatch() {
@@ -22,6 +23,7 @@ function Match() {
     const res = await Axios.put(`/api/match/${time},${location},${exercise},${appState.user.userID}`);
     if (res) {
       console.log(res.data);
+      setMatchUser(res.data);
       setMatch(true);
       setLoading(false);
     } else {
@@ -36,7 +38,7 @@ function Match() {
     <Container fluid id="match-box">
       <div className="match-form-box shadow-lg">
         {match ? (
-          <MatchUser data={{ exercise: exercise, time: time, location: location }} setMatch={setMatch} />
+          <MatchUser matchuser={matchUser} matchdata={{ exercise: exercise, time: time, location: location }} setMatch={setMatch} />
         ) : (
           <div className="match-form-container">
             <div className="d-flex justify-content-center mb-2">
