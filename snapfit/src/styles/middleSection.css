@@ -7,6 +7,12 @@
   padding-left: 0rem;
   padding-right: 0rem;
 }
+.edit-icon {
+  position: relative;
+  left: 94%;
+  top: 4%;
+  z-index: 999;
+}
 .profile-name-id {
   font-weight: inherit;
   font-size: larger;
