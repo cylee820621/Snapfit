@@ -8,18 +8,20 @@ function HealthInfo() {
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("1");
   const [level, setLevel] = useState("1");
+  const [BMI, setBMI] = useState("");
+  const [BMR, setBMR] = useState("");
 
-  const bmr = async () => {
-    const bmr = await Axios.get(`https://urvipaithankar.herokuapp.com/bmr/index.php/${height}/${weight}/${age}/${gender}`);
-    if (bmr) {
-      console.log(bmr);
+  const getbmr = async () => {
+    const res = await Axios.get(`https://urvipaithankar.herokuapp.com/bmr/index.php/${height}/${weight}/${age}/${gender}`);
+    if (res) {
+      console.log(res);
     }
   };
 
-  const bmi = async () => {
-    const bmi = await Axios.get(`https://urvipaithankar.herokuapp.com/bmi/index.php/${height}/${weight}/${age}`);
-    if (bmi) {
-      console.log(bmi);
+  const getbmi = async () => {
+    const res = await Axios.get(`https://urvipaithankar.herokuapp.com/bmi/index.php/${height}/${weight}/${age}`);
+    if (res) {
+      console.log(res);
     }
   };
 
@@ -60,11 +62,19 @@ function HealthInfo() {
         </select>
       </Container>
       <Container fluid className="d-flex justify-content-center mt-1">
-        <Button onClick={handleSubmit}>Calulate</Button>
+        <Button
+          onClick={() => {
+            getbmi();
+            getbmr();
+          }}
+        >
+          Calulate
+        </Button>
       </Container>
 
       <Container fluid className="d-flex justify-content-center mt-1">
-        BMI:
+        <div>BMI:</div>
+        <div>{}</div>
       </Container>
       <Container fluid className="d-flex justify-content-center mt-1">
         Food calorie calculator

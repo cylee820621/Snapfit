@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Image } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import "../styles/messengerfriend.css";
 
 function MessengerFriend(props) {
@@ -14,10 +14,9 @@ function MessengerFriend(props) {
   return (
     <Button onClick={handleSelect} className="msg-friend" variant="light">
       <div className="d-flex">
-        <Image className="messenger-img" src={friendData.ImageUrl} alt="user-image" roundedCircle />
         <div>
-          <div className="messenger-name">{friendData.user_name}</div>
-          <div className="messenger-message">message</div>
+          <div className="messenger-name">{friendData[1]}</div>
+          <div className="messenger-message">{friendData[2]}</div>
         </div>
       </div>
     </Button>

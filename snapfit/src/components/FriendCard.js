@@ -59,12 +59,12 @@ function FriendCard(props) {
     console.log(appState.friend);
   }
 
-  function handleSendMessage() {
-    /*
-    const defaulMessage = `Nice to meet you, Contact me ${appState.user.email}`
-    Axios.put(`/api/message/<msg>,<friend_name>,<friend_id>,<user_id>`)
-    */
-    alert("message clicked");
+  async function handleSendMessage() {
+    const defaulMessage = `Nice to meet you, Contact me ${appState.user.email}`;
+    const res = await Axios.put(`/api/message/${defaulMessage},${appState.user.name},${appState.user.userID},${userid}`);
+    if (res) {
+      console.log(res);
+    }
   }
 
   return (

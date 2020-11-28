@@ -1,7 +1,21 @@
 .msg-friend {
   position: relative;
-  height: auto;
   width: 18.5rem;
   padding: 0.3rem;
   border-radius: 0.3rem;
+}
+.messenger-name {
+  height: 30%;
+  padding-top: 0.4rem;
+  padding-left: 0.3rem;
+  padding-bottom: 0.4rem;
+  display: flex;
+  justify-content: start;
+}
+.messenger-message {
+  height: 30%;
+  color: rgb(136, 133, 133);
+  padding-top: 0.3rem;
+  display: flex;
+  justify-content: start;
 }

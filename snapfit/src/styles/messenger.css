@@ -16,18 +16,3 @@
   height: auto;
   margin: 0.5rem;
 }
-
-.messenger-img {
-  width: 3.5rem;
-  height: 3.5rem;
-  margin-right: 0.7rem;
-}
-.messenger-name {
-  height: 50%;
-  padding-top: 0.4rem;
-}
-.messenger-message {
-  height: 50%;
-  color: rgb(161, 158, 158);
-  padding-top: 0rem;
-}

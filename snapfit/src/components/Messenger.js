@@ -1,12 +1,25 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import StateContext from "../StateContext";
 import MessengerFriend from "./MessengerFriend";
+import Axios from "axios";
 import "../styles/messenger.css";
 
 function Messenger() {
   const appState = useContext(StateContext);
   const [messenger, setMessenger] = useState(false);
+  const [msg, setMsg] = useState([]);
+
+  useEffect(() => {
+    const getMsg = async () => {
+      const res = await Axios.get(`/api/friendlist/${appState.user.userID}`);
+      if (res) {
+        const resMsg = res.data.Message;
+        setMsg(resMsg);
+      }
+    };
+    getMsg();
+  }, []);
 
   return (
     <div className="messenger px-1">
@@ -23,7 +36,8 @@ function Messenger() {
               <div>None</div>
             ) : (
               <ul>
-                {appState.friendData.map((eachfriend, index) => {
+                {msg.map((eachfriend, index) => {
+                  console.log(eachfriend);
                   return (
                     <li key={index}>
                       <MessengerFriend data={eachfriend} setMessenger={setMessenger} />
