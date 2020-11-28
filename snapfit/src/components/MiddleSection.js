@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Container, Image, Button } from "react-bootstrap";
 import StateContext from "../StateContext";
+import DispatchContext from "../DispatchContext";
 import Friends from "./Friends";
 import HealthInfo from "./HealthInfo";
 import "../styles/middleSection.css";
@@ -8,6 +9,7 @@ import Axios from "axios";
 
 function MiddleSection() {
   const appState = useContext(StateContext);
+  const appDispatch = useContext(DispatchContext);
   const [display, setDisplay] = useState(false);
   const [update, setUpdate] = useState(false);
   const [about, setAbout] = useState(appState.user.about);
@@ -17,6 +19,8 @@ function MiddleSection() {
       const res = await Axios.put(`/api/aboutme/${about},${appState.user.userID}`);
       if (res) {
         console.log(res);
+        appDispatch({ type: "flashMessage", value: "Successfully Updated!" });
+        localStorage.setItem("snapfitAbout", about);
       }
     } else {
       alert("Please enter somthing");

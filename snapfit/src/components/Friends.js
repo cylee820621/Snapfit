@@ -27,25 +27,46 @@ function Friends() {
     allFriend();
   }, []);
 
+  useEffect(() => {
+    const allFriend = async () => {
+      if (appState.loggedIn === true) {
+        setLoading(true);
+        const res = await Axios.get(`/api/allfriends/${appState.user.userID}`);
+        if (res) {
+          console.log(res.data);
+          setFriendList(res.data);
+          setLoading(false);
+        }
+      }
+    };
+    allFriend();
+  }, [appState.friend]);
+
   return (
     <Container fluid>
       <AddFriend addFriend={addFriend} setAddFriend={setAddFriend} />
       <div className="p-2 overflow-auto">
         {loading ? (
-          <div className="d-flex justify-content-center">
+          <div className="d-flex justify-content-center pt-5 mt-5">
             <Spinner animation="border" />
           </div>
         ) : (
           <Row xs={1} sm={1} md={3} lg={3} xl={4} className="justify-content-around">
-            {friendList.map((frienddata, index) => {
-              return (
-                <Col key={index}>
-                  <div className="d-flex justify-content-center align-items-center m-3 ">
-                    <FriendCard index={index} data={frienddata} />
-                  </div>
-                </Col>
-              );
-            })}
+            {friendList.length === 0 ? (
+              <div className="d-flex justify-content-center align-centent-center pt-5 mt-5">No Friends</div>
+            ) : (
+              <>
+                {friendList.map((frienddata, index) => {
+                  return (
+                    <Col key={index}>
+                      <div className="d-flex justify-content-center align-items-center m-3 ">
+                        <FriendCard index={index} data={frienddata} />
+                      </div>
+                    </Col>
+                  );
+                })}
+              </>
+            )}
           </Row>
         )}
       </div>
