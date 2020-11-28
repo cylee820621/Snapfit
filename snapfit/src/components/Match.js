@@ -38,7 +38,7 @@ function Match() {
     <Container fluid id="match-box">
       <div className="match-form-box shadow-lg">
         {match ? (
-          <MatchUser matchuser={matchUser} matchdata={{ exercise: exercise, time: time, location: location }} setMatch={setMatch} />
+          <MatchUser data={matchUser} matchdata={{ exercise: exercise, time: time, location: location }} setMatch={setMatch} />
         ) : (
           <div className="match-form-container">
             <div className="d-flex justify-content-center mb-2">

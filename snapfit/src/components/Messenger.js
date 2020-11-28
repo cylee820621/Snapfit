@@ -37,7 +37,6 @@ function Messenger() {
             ) : (
               <ul>
                 {msg.map((eachfriend, index) => {
-                  console.log(eachfriend);
                   return (
                     <li key={index}>
                       <MessengerFriend data={eachfriend} setMessenger={setMessenger} />

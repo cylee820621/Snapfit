@@ -1,10 +1,7 @@
 import React from "react";
-import { Button, Image } from "react-bootstrap";
+import { Button, Image, Row, Col } from "react-bootstrap";
 import "../styles/matchuser.css";
-import elon from "../assets/elon.png";
-import kanye from "../assets/kanye.jpg";
-import sonic from "../assets/sonic.png";
-import spiderman from "../assets/spiderman.jpg";
+import FriendCard from "./FriendCard";
 
 function MatchUser(props) {
   return (
@@ -16,42 +13,17 @@ function MatchUser(props) {
         <h3>Matched!</h3>
       </div>
       <div className="overflow-auto">
-        <div className="d-flex justify-content-between align-items-center mb-3">
-          <div className="d-flex align-items-center">
-            <Image className="matchuser-image" src={spiderman} roundedCircle />
-            <div className="matchuser-name">Peter-Parker</div>
-          </div>
-          <Button onClick={() => alert("send email")} variant="light">
-            <i className="far fa-paper-plane"></i>
-          </Button>
-        </div>
-        <div className="d-flex justify-content-between align-items-center mb-3">
-          <div className="d-flex align-items-center">
-            <Image className="matchuser-image" src={sonic} roundedCircle />
-            <div className="matchuser-name">Sonic the Hedgehog</div>
-          </div>
-          <Button onClick={() => alert("send email")} variant="light">
-            <i className="far fa-paper-plane"></i>
-          </Button>
-        </div>
-        <div className="d-flex justify-content-between align-items-center mb-3">
-          <div className="d-flex align-items-center">
-            <Image className="matchuser-image" src={elon} roundedCircle />
-            <div className="matchuser-name">Elon Musk</div>
-          </div>
-          <Button onClick={() => alert("send email")} variant="light">
-            <i className="far fa-paper-plane"></i>
-          </Button>
-        </div>
-        <div className="d-flex justify-content-between align-items-center mb-3">
-          <div className="d-flex align-items-center">
-            <Image className="matchuser-image" src={kanye} roundedCircle />
-            <div className="matchuser-name">Kanye West</div>
-          </div>
-          <Button onClick={() => alert("send email")} variant="light">
-            <i className="far fa-paper-plane"></i>
-          </Button>
-        </div>
+        <Row xs={1} sm={2} md={3} lg={4} xl={5} className="justify-content-around">
+          {props.data.map((matchedUser, index) => {
+            return (
+              <Col key={index}>
+                <div className="d-flex justify-content-center align-items-center m-3 ">
+                  <FriendCard index={index} data={matchedUser} />
+                </div>
+              </Col>
+            );
+          })}
+        </Row>
       </div>
     </div>
   );

@@ -19,7 +19,6 @@ function CovidNews() {
       setLoading(true);
       const res = await Axios.request(options);
       if (res) {
-        console.log(res.data.news);
         setNews(res.data.news);
       } else {
         console.log("no news");

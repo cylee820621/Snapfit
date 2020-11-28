@@ -14,6 +14,7 @@ function FriendCard(props) {
   const name = props.data.user_name;
   const image = props.data.ImageUrl;
   const userid = props.data.user_id;
+  const about = props.data.about_me;
   const schedule = {
     Monday: props.data.Monday,
     Tuesday: props.data.Tuesday,
@@ -76,6 +77,7 @@ function FriendCard(props) {
         <Image className="image-size p-1" roundedCircle src={image} alt="user-image" />
       </div>
       <div className="friendcard-username d-flex justify-content-center">{name}</div>
+      <div className="d-flex justify-content-center mb-2">{about}</div>
       {openSchedule && <FriendCardSchedule schedule={schedule} />}
       <div className="friend-card-btn-box d-flex justify-content-between">
         {!openSchedule ? (
