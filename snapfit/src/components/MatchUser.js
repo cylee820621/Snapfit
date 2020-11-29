@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Image, Row, Col } from "react-bootstrap";
+import { Button, Row, Col } from "react-bootstrap";
 import "../styles/matchuser.css";
 import FriendCard from "./FriendCard";
 
@@ -13,7 +13,7 @@ function MatchUser(props) {
         <h3>Matched!</h3>
       </div>
       <div className="overflow-auto">
-        <Row xs={1} sm={2} md={3} lg={4} xl={5} className="justify-content-around">
+        <Row xs={1} sm={2} md={3} lg={4} xl={4} className="justify-content-around">
           {props.data.map((matchedUser, index) => {
             return (
               <Col key={index}>

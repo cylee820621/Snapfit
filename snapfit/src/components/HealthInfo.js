@@ -1,37 +1,37 @@
 import Axios from "axios";
 import React, { useState } from "react";
-import { Button, Container } from "react-bootstrap";
+import { Button, Container, Spinner } from "react-bootstrap";
 
 function HealthInfo() {
+  const [loading, setLoading] = useState(false);
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
   const [age, setAge] = useState("");
-  const [gender, setGender] = useState("1");
+  const [gender, setGender] = useState("");
   const [level, setLevel] = useState("1");
   const [BMI, setBMI] = useState("");
   const [BMR, setBMR] = useState("");
 
-  const getbmr = async () => {
-    const res = await Axios.get(`https://urvipaithankar.herokuapp.com/bmr/index.php/${height}/${weight}/${age}/${gender}`);
-    if (res) {
-      console.log(res);
+  const getbmrbmi = async () => {
+    setLoading(true);
+    const options1 = {
+      method: "GET",
+      url: `https://urvipaithankar.herokuapp.com/bmr/index.php/${height}/${weight}/${age}/${gender}`,
+      headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS" }
+    };
+    const options2 = {
+      method: "GET",
+      url: `https://urvipaithankar.herokuapp.com/bmi/index.php/${height}/${weight}/${age}/${gender}`,
+      headers: { crossDomain: true, "Access-Control-Allow-Origin": "*" }
+    };
+    const resbmr = await Axios.request(options1);
+    const resbmi = await Axios.request(options2);
+    if (resbmr && resbmi) {
+      console.log(resbmr);
+      console.log(resbmi);
+      setLoading(false);
     }
   };
-
-  const getbmi = async () => {
-    const res = await Axios.get(`https://urvipaithankar.herokuapp.com/bmi/index.php/${height}/${weight}/${age}`);
-    if (res) {
-      console.log(res);
-    }
-  };
-
-  function handleSubmit() {
-    console.log(weight);
-    console.log(height);
-    console.log(age);
-    console.log(gender);
-    console.log(level);
-  }
 
   return (
     <Container fluid className="justify-content-center">
@@ -47,8 +47,8 @@ function HealthInfo() {
       <Container fluid className="d-flex mt-1">
         <div className="pr-1">Gender :</div>
         <select onChange={(e) => setGender(e.target.value)}>
-          <option value="1">Male</option>
-          <option value="2">Female</option>
+          <option value="">Male</option>
+          <option value="femail">Female</option>
         </select>
       </Container>
       <Container fluid className="d-flex  mt-1">
@@ -62,14 +62,19 @@ function HealthInfo() {
         </select>
       </Container>
       <Container fluid className="d-flex justify-content-center mt-1">
-        <Button
-          onClick={() => {
-            getbmi();
-            getbmr();
-          }}
-        >
-          Calulate
-        </Button>
+        {loading ? (
+          <div>
+            <Spinner animation="border" />
+          </div>
+        ) : (
+          <Button
+            onClick={() => {
+              getbmrbmi();
+            }}
+          >
+            Calulate
+          </Button>
+        )}
       </Container>
 
       <Container fluid className="d-flex justify-content-center mt-1">

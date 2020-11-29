@@ -49,7 +49,7 @@ function Friends() {
             <Spinner animation="border" />
           </div>
         ) : (
-          <Row xs={1} sm={1} md={3} lg={3} xl={4} className="justify-content-around">
+          <Row xs={1} sm={1} md={2} lg={2} xl={2} className="justify-content-around">
             {friendList.length === 0 ? (
               <div className="d-flex justify-content-center align-centent-center pt-5 mt-5">No Friends</div>
             ) : (
