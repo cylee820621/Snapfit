@@ -1,5 +1,6 @@
 .matchuser-container {
   position: relative;
+  width: auto;
 }
 
 .matched-close-btn {

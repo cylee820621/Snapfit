@@ -3,12 +3,20 @@
   height: 90vh;
   justify-content: center;
   align-items: center;
-  background-color: white;
+}
+.match-bg {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
 }
 .match-form-box {
   position: relative;
   padding: 1rem;
+  background-color: white;
+  transition: width 1.3s;
+  border-radius: 15px;
 }
+
 .match-form-container {
   position: relative;
   width: 17rem;

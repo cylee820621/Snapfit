@@ -5,6 +5,7 @@ import PlacesAutocomplete from "react-places-autocomplete";
 import StateContext from "../StateContext";
 import MatchUser from "./MatchUser";
 import "../styles/match.css";
+import video from "../assets/video1.mp4";
 
 function Match() {
   const appState = useContext(StateContext);
@@ -36,6 +37,7 @@ function Match() {
 
   return (
     <Container fluid id="match-box">
+      <video src={video} autoPlay="true" loop="true" muted className="match-bg"></video>
       <div className="match-form-box shadow-lg">
         {match ? (
           <MatchUser data={matchUser} matchdata={{ exercise: exercise, time: time, location: location }} setMatch={setMatch} />
