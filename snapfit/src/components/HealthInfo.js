@@ -92,11 +92,11 @@ function HealthInfo() {
 
       <Container fluid className="d-flex justify-content-center mt-1">
         <div className="pr-1 h4">BMI:</div>
-        <div>{BMI}</div>
+        <div className="h4">{BMI}</div>
       </Container>
       <Container fluid className="d-flex justify-content-center mt-1">
         <div className="pr-1 h4">BMR:</div>
-        <div>{BMR}</div>
+        <div className="h4">{BMR}</div>
       </Container>
       <Container fluid className="d-flex justify-content-center mt-1">
         Food calorie calculator
