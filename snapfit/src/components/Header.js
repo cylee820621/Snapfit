@@ -17,7 +17,7 @@ function HeaderLoggedIn() {
             <HeaderNewFriend />
             <Messenger />
             <Link to="/match">
-              <Button size="lg" style={{ textDecoration: "none" }} variant="dark">
+              <Button size="lg" style={{ textDecoration: "none" }} variant="light">
                 Match
               </Button>
             </Link>

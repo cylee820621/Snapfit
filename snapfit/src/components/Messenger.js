@@ -23,7 +23,7 @@ function Messenger() {
 
   return (
     <div className="messenger px-1">
-      <Button variant="dark" onClick={() => setMessenger(!messenger)} size="lg">
+      <Button variant="light" onClick={() => setMessenger(!messenger)} size="lg">
         Messenger
       </Button>
       {messenger && (
