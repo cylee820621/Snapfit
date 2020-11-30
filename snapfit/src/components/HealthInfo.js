@@ -52,23 +52,23 @@ function HealthInfo() {
   return (
     <Container fluid className="justify-content-center">
       <Container className="d-flex my-2 ">
-        <div className="pr-1 h5">Weight :</div> <input placeholder="kilogram" as="text" value={weight} onChange={(e) => setWeight(e.target.value)} />
+        <div className="pr-1 h5 weight">Weight :</div> <input placeholder="kilogram" as="text" value={weight} onChange={(e) => setWeight(e.target.value)} />
       </Container>
       <Container className="d-flex my-2">
-        <div className="pr-1 h5">Height :</div> <input placeholder="cm" as="text" value={height} onChange={(e) => setHeight(e.target.value)} />
+        <div className="pr-1 h5 height">Height :</div> <input placeholder="cm" as="text" value={height} onChange={(e) => setHeight(e.target.value)} />
       </Container>
       <Container fluid className="d-flex my-2">
-        <div className="pr-1 h5">Age :</div> <input placeholder="years" as="text" value={age} onChange={(e) => setAge(e.target.value)} />
+        <div className="pr-1 h5 age">Age :</div> <input placeholder="years" as="text" value={age} onChange={(e) => setAge(e.target.value)} />
       </Container>
       <Container fluid className="d-flex my-2">
-        <div className="pr-1 h5">Gender :</div>
+        <div className="pr-1 h5 gender">Gender :</div>
         <select onChange={(e) => setGender(e.target.value)}>
           <option value="">Male</option>
           <option value="female">Female</option>
         </select>
       </Container>
       <Container fluid className="d-flex my-2 ">
-        <div className="pr-1 h5">Exercise Level :</div>
+        <div className="pr-1 h5 level">Exercise Level :</div>
         <select onChange={(e) => setLevel(e.target.value)}>
           <option value="1">little or no exercise</option>
           <option value="2">light exercise/sports 1-3 days/week</option>
@@ -83,22 +83,19 @@ function HealthInfo() {
             <Spinner animation="border" />
           </div>
         ) : (
-          <Button block size="sm" onClick={handleCalculate}>
-            Calulate
+          <Button className="btn-calculate" block size="sm" onClick={handleCalculate}>
+            Calculate
           </Button>
         )}
       </Container>
 
       <Container fluid className="d-flex justify-content-center mt-1">
-        <div className="pr-1 h4">BMI:</div>
+        <div className="pr-1 h4 bmi-result">BMI:</div>
         <div className="h4">{BMI}</div>
       </Container>
       <Container fluid className="d-flex justify-content-center mt-1">
-        <div className="pr-1 h4">BMR:</div>
+        <div className="pr-1 h4 bmr-result">BMR:</div>
         <div className="h4">{BMR}</div>
-      </Container>
-      <Container fluid className="d-flex justify-content-center mt-1">
-        Food calorie calculator
       </Container>
     </Container>
   );

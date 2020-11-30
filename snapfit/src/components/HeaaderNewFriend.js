@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button, Image, Spinner } from "react-bootstrap";
 import { Dropdown } from "react-bootstrap";
 import stateContext from "../StateContext";

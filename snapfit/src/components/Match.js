@@ -52,7 +52,7 @@ function Match() {
               <Row className="justify-content-md-center mx-1">
                 <Form>
                   <Form.Group className="mb-3" controlId="Exercise">
-                    <Form.Label>Exercise</Form.Label>
+                    <Form.Label className="exercise">Exercise</Form.Label>
                     <select
                       value={exercise}
                       onChange={(e) => {
@@ -76,7 +76,7 @@ function Match() {
                   </Form.Group>
 
                   <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Location</Form.Label>
+                    <Form.Label className="location">Location</Form.Label>
                     <PlacesAutocomplete value={location} onChange={setLocation}>
                       {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                         <div>

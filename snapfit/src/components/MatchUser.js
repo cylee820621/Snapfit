@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Row, Col } from "react-bootstrap";
 import "../styles/matchuser.css";
 import FriendCard from "./FriendCard";
 
 function MatchUser(props) {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    setData(props.data);
+  }, [props.data]);
+
   return (
     <div className="matchuser-container">
       <Button variant="light" className="matched-close-btn" onClick={() => props.setMatch(false)}>
@@ -14,7 +20,7 @@ function MatchUser(props) {
       </div>
       <div className="overflow-auto">
         <Row xs={1} sm={2} md={3} lg={4} xl={4} className="justify-content-around">
-          {props.data.map((matchedUser, index) => {
+          {data.map((matchedUser, index) => {
             return (
               <Col key={index}>
                 <div className="d-flex justify-content-center align-items-center m-3 ">
