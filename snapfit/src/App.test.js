@@ -1,4 +1,5 @@
 import React from "react";
+import { Spinner } from "react-bootstrap";
 import App from "./App";
 import { configure, shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
@@ -40,13 +41,13 @@ describe("Rendering component", () => {
     expect(wrapper.contains(<Schedule />)).toBe(true);
   });
 
-  test("Rendering Schedule component without crashing", () => {
-    const wrapper = shallow(<Schedule />);
-    expect(wrapper.find("h3").text()).toBe("Schedule");
-  });
-
-  test("Rendering MiddleSection component without crashing", () => {
+  test("Rendering RightSection component without crashing", () => {
     const wrapper = shallow(<RightSection />);
     expect(wrapper.contains(<CovidNews />)).toBe(true);
+  });
+
+  test("Rendering CovidNews component without crashing", () => {
+    const wrapper = shallow(<CovidNews />);
+    expect(wrapper.find("h3").text()).toBe("Covid-19 News");
   });
 });

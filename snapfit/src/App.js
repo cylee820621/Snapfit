@@ -222,7 +222,7 @@ function App() {
               <div>
                 <Header />
                 <Route path="/match" exact>
-                  {state.loggedIn ? <Match /> : <LandingPage />}
+                  <Match />
                 </Route>
               </div>
             )}

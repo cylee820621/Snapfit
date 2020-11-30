@@ -36,7 +36,6 @@ function CovidNews() {
       <div style={style} className="shadow mt-1 px-1 overflow-auto">
         {loading ? (
           <div>
-            {" "}
             <Spinner animation="border" />
           </div>
         ) : (

@@ -29,7 +29,7 @@ function LandingPage() {
       }
     } catch (e) {
       console.log("The userid is not in the database, creating one now");
-      const response = postUserData(userData);
+      const response = await postUserData(userData);
       return response.data;
     }
   }

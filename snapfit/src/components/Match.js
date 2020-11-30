@@ -37,7 +37,7 @@ function Match() {
 
   return (
     <Container fluid id="match-box">
-      <video src={video} autoPlay="true" loop="true" muted className="match-bg"></video>
+      <video src={video} autoPlay={true} loop={true} muted className="match-bg"></video>
       <div className="match-form-box shadow-lg">
         {match ? (
           <MatchUser data={matchUser} matchdata={{ exercise: exercise, time: time, location: location }} setMatch={setMatch} />
