@@ -1,10 +1,10 @@
 #mainNav {
   width: 100%;
   height: 3.5rem;
-  background-color: white;
+  background-color: rgb(29, 29, 29);
 }
 #logo {
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   font-size: xx-large;
   font-weight: bolder;
 }
