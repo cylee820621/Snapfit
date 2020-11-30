@@ -4,10 +4,10 @@ import "../styles/matchuser.css";
 import FriendCard from "./FriendCard";
 
 function MatchUser(props) {
-  const [data, setData] = useState([]);
+  const [matchData, setMatchData] = useState([]);
 
   useEffect(() => {
-    setData(props.data);
+    setMatchData(props.data);
   }, [props.data]);
 
   return (
@@ -20,7 +20,7 @@ function MatchUser(props) {
       </div>
       <div className="overflow-auto">
         <Row xs={1} sm={2} md={3} lg={4} xl={4} className="justify-content-around">
-          {data.map((matchedUser, index) => {
+          {matchData.map((matchedUser, index) => {
             return (
               <Col key={index}>
                 <div className="d-flex justify-content-center align-items-center m-3 ">
