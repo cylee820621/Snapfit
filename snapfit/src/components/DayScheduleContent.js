@@ -10,10 +10,6 @@ function DayScheduleContent(props) {
   const exercises = props.data;
   const [addState, setAddState] = useState(false);
 
-  useEffect(() => {
-    console.log("AddButton " + addState);
-  }, [addState]);
-
   function handleClicked(e) {
     const index = e.target.getAttribute("index");
     appDispatch({ type: "deletSchedule", value: { day: props.day, index: index } });

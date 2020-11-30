@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import StateContext from "../StateContext";
+import React from "react";
 import Schedule from "./Schedule";
 
 function LeftSection() {
@@ -8,10 +7,9 @@ function LeftSection() {
     width: "25%"
   };
 
-  const appState = useContext(StateContext);
   return (
     <div style={style}>
-      <Schedule data={appState.schedule} />
+      <Schedule />
     </div>
   );
 }

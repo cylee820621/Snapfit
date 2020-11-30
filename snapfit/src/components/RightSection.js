@@ -11,9 +11,7 @@ function RightSection() {
   };
   return (
     <Container style={style} className="shadow" fluid>
-      <div>
-        <CovidNews />
-      </div>
+      <CovidNews />
     </Container>
   );
 }

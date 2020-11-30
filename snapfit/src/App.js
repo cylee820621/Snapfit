@@ -38,7 +38,6 @@ function App() {
     friend: getLocalStorateSchedule(localStorage.getItem("friend")),
     friendRequest: getLocalStorateSchedule(localStorage.getItem("friendRequest")),
     friendRequestData: [],
-    chatRoom: false,
     matchUser: [
       { name: "Sonic the Hedgehog", image: "src/assets/sonic.png" },
       { name: "Peter Parker", image: "src/assets/spiderman.jpg" },
@@ -104,12 +103,6 @@ function App() {
         return;
       case "flashMessage":
         draft.flashMassage.push(action.value);
-        return;
-      case "openChatRoom":
-        draft.chatRoom = true;
-        return;
-      case "closeChatRoom":
-        draft.chatRoom = false;
         return;
     }
   }

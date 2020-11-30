@@ -1,15 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import Header from "./Header";
 import LeftSection from "./LeftSection";
 import MiddleSection from "./MiddleSection";
 import RightSection from "./RightSection";
 import Footer from "./Footer";
-import ChatRoom from "./ChatRoom";
-import StateContext from "../StateContext";
 
 function Home() {
-  const appState = useContext(StateContext);
-
   return (
     <div>
       <Header />
@@ -19,7 +15,6 @@ function Home() {
         <RightSection />
       </div>
       <Footer />
-      {appState.chatRoom && <ChatRoom />}
     </div>
   );
 }

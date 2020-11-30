@@ -3,12 +3,19 @@ import { Container, Row, Button } from "react-bootstrap";
 import StateContext from "../StateContext";
 import DayScheduleContent from "./DayScheduleContent";
 import "../styles/weekschedule.css";
+import { useEffect } from "react";
 
 function Schedule() {
   const appState = useContext(StateContext);
   const [click, setClick] = useState("");
   const [display, setDisplay] = useState(false);
   const [dayData, setDayData] = useState("");
+  const [schedule, setSchedule] = useState(appState.schedule);
+
+  useEffect(() => {
+    setSchedule(appState.schedule);
+  }, [appState.schedule]);
+
   return (
     <Container className="shadow" fluid>
       {display ? (
@@ -16,7 +23,7 @@ function Schedule() {
           <div className="day">{dayData}</div>
           <div className="d-flex justify-content-center">
             <div className="schedule-box shadow-lg mb-3 rounded">
-              <DayScheduleContent day={dayData} data={appState.schedule[dayData]} />
+              <DayScheduleContent day={dayData} data={schedule[dayData]} />
             </div>
           </div>
         </div>
@@ -27,7 +34,7 @@ function Schedule() {
       )}
 
       <Row className="d-flex justify-content-center pb-2">
-        {Object.keys(appState.schedule).map((eachday, index) => {
+        {Object.keys(schedule).map((eachday, index) => {
           return (
             <div key={index} className="d-flex justify-content-center align-items-center m-1 shadow-sm">
               <Button

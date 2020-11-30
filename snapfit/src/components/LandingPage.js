@@ -74,7 +74,7 @@ function LandingPage() {
         ) : (
           <div>
             <div className="body">
-              <div className="body-content"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit alias iste impedit eligendi sunt quas voluptate, possimus explicabo numquam aliquam beatae dicta labore, id amet qui natus earum similique blanditiis. </div>
+              <div className="body-content">Strength does not come from winning. Your struggles develop your strengths. When you go through hardships and decide not to surrender, that is strength.</div>
             </div>
             <div className="learn-more-btn">
               <Button variant="info">Learn More</Button>

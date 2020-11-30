@@ -49,11 +49,6 @@ function AddScheduleForm(props) {
   function handleSubmit(e) {
     e.preventDefault();
     if (bodyPart.value !== "Select" && targetPart.value !== "Select" && targetPart.value !== "Select" && sets.value !== "Select") {
-      console.log("bodyPart=" + bodyPart.value);
-      console.log("targetPart=" + targetPart.value);
-      console.log("exercise=" + exercise.value);
-      console.log("sets=" + sets.value);
-      console.log("Sumbitted");
       console.log(`${sets.value}sets ${exercise.value} ${targetPart.value} ${bodyPart.value}`);
       appDispatch({
         type: "addSchedule",
