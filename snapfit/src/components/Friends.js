@@ -51,7 +51,7 @@ function Friends() {
         ) : (
           <Row xs={1} sm={1} md={2} lg={2} xl={2} className="justify-content-around">
             {friendList.length === 0 ? (
-              <div className="d-flex justify-content-center align-centent-center pt-5 mt-5">No Friends</div>
+              <div className="d-flex justify-content-center align-centent-center pt-5 mt-5">0</div>
             ) : (
               <>
                 {friendList.map((frienddata, index) => {
