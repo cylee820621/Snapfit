@@ -6,7 +6,9 @@ function CovidNews() {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(false);
   const style = {
-    height: "35rem"
+    height: "35rem",
+    backgroundColor: "whtie",
+    opacity: "1"
   };
 
   useEffect(() => {
