@@ -8,6 +8,10 @@
   font-size: xx-large;
   font-weight: bolder;
 }
+.logo-btm {
+  width: 3.5rem;
+  margin-right: 0.5rem;
+}
 
 .avatar {
   width: 2.5rem;
