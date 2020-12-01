@@ -9,10 +9,16 @@
   z-index: -1;
   width: 100%;
 }
+
+.match-img {
+  width: 3rem;
+  height: 3rem;
+}
 .match-form-box {
   position: relative;
   padding: 1rem;
-  background-color: white;
+  background-color: rgb(0, 0, 0);
+  color: white;
   transition: width 1.3s;
   border-radius: 15px;
 }
@@ -50,4 +56,7 @@
 .match-btn {
   position: absolute;
   bottom: 0rem;
+}
+.matchuser {
+  color: black;
 }

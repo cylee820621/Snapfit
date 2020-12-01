@@ -19,6 +19,7 @@ function MiddleSection() {
       const res = await Axios.put(`/api/aboutme/${about},${appState.user.userID}`);
       if (res) {
         console.log(res);
+        setAbout(res.data);
         appDispatch({ type: "flashMessage", value: "Successfully Updated!" });
         localStorage.setItem("snapfitAbout", about);
       }

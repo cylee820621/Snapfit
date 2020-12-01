@@ -77,10 +77,9 @@ describe("Rendering component", () => {
 
   test("Rendering Match component without crashing", () => {
     const wrapper = shallow(<Match />);
-    expect(wrapper.find("h3").text()).toBe("Match");
     expect(wrapper.find("FormLabel.exercise").text()).toBe("Exercise");
     expect(wrapper.find("FormLabel.location").text()).toBe("Location");
-    expect(wrapper.find("Button.match-btn").text()).toBe("Match");
+    expect(wrapper.find("Button.match-btn").text()).toBe("MATCH");
     expect(wrapper.contains(<video src="video1.mp4" autoPlay={true} loop={true} muted={true} className="match-bg" />)).toBe(true);
   });
 

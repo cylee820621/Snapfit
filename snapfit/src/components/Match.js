@@ -1,11 +1,11 @@
 import Axios from "axios";
 import React, { useState, useContext } from "react";
-import { Container, Row, Button, Form } from "react-bootstrap";
-import PlacesAutocomplete from "react-places-autocomplete";
+import { Container, Row, Button, Form, Image } from "react-bootstrap";
 import StateContext from "../StateContext";
 import MatchUser from "./MatchUser";
 import "../styles/match.css";
 import video from "../assets/video1.mp4";
+import heart from "../assets/heart.png";
 
 function Match() {
   const appState = useContext(StateContext);
@@ -40,11 +40,11 @@ function Match() {
       <video src={video} autoPlay={true} loop={true} muted className="match-bg"></video>
       <div className="match-form-box shadow-lg">
         {match ? (
-          <MatchUser data={matchUser} matchdata={{ exercise: exercise, time: time, location: location }} setMatch={setMatch} />
+          <MatchUser className="matchuser" data={matchUser} matchdata={{ exercise: exercise, time: time, location: location }} setMatch={setMatch} />
         ) : (
           <div className="match-form-container">
             <div className="d-flex justify-content-center mb-2">
-              <h3>Match</h3>
+              <Image className="match-img" src={heart} />
             </div>
             {loading ? (
               <div className="justify-content-center align-content-center">Loading...</div>
@@ -77,30 +77,12 @@ function Match() {
 
                   <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label className="location">Location</Form.Label>
-                    <PlacesAutocomplete value={location} onChange={setLocation}>
-                      {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-                        <div>
-                          <input className="location-input" {...getInputProps({ placeholder: "Enter Location" })} />
-                          {loading ? <div>...loading</div> : null}
-                          <div className="selection-box">
-                            <ul className="p-2">
-                              {suggestions.map((suggestion, index) => {
-                                return (
-                                  <li key={index} value={suggestion.description} className="listOfSuggestion">
-                                    {suggestion.description}
-                                  </li>
-                                );
-                              })}
-                            </ul>
-                          </div>
-                        </div>
-                      )}
-                    </PlacesAutocomplete>
+                    <Form.Control value={location} onChange={(e) => setLocation(e.target.value)} placeholder="Location" />
                   </Form.Group>
 
                   <div className="d-flex justify-content-center mt-2">
-                    <Button variant="primary" onClick={handelMatch} className="match-btn">
-                      Match
+                    <Button size="sm" variant="danger" onClick={handelMatch} className="match-btn">
+                      MATCH
                     </Button>
                   </div>
                 </Form>
