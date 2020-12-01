@@ -81,7 +81,7 @@ function Match() {
                   </Form.Group>
 
                   <div className="d-flex justify-content-center mt-2">
-                    <Button size="sm" variant="danger" onClick={handelMatch} className="match-btn">
+                    <Button size="md" variant="danger" onClick={handelMatch} className="match-btn">
                       MATCH
                     </Button>
                   </div>
