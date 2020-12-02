@@ -61,9 +61,10 @@ function FriendCard(props) {
   }
 
   async function handleSendMessage() {
-    const defaulMessage = `Nice to meet you, Contact me ${appState.user.email}`;
+    const defaulMessage = `Nice to meet you, Contact me ${appState.user.email} or add me ${appState.user.userID}`;
     const res = await Axios.put(`/api/message/${defaulMessage},${appState.user.name},${appState.user.userID},${userid}`);
     if (res) {
+      appDispatch({ type: "flashMessage", value: "Send!" });
       console.log(res);
     }
   }

@@ -3,6 +3,7 @@ import React, { useState, useContext } from "react";
 import { Container, Row, Button, Form, Image } from "react-bootstrap";
 import StateContext from "../StateContext";
 import MatchUser from "./MatchUser";
+import CovidForm from "./CovidForm";
 import "../styles/match.css";
 import video from "../assets/video1.mp4";
 import heart from "../assets/heart.png";
@@ -15,6 +16,8 @@ function Match() {
   const [location, setLocation] = useState("");
   const [time, setTime] = useState("");
   const [matchUser, setMatchUser] = useState([]);
+  const [form, setForm] = useState(true);
+  const [okForMatch, setOkForMatch] = useState(true);
   const exercises = ["Select", "Weight Training Full Body", "Weight Training Upper Body", "Weight Training Lower Body", "Cardio Jogging", "Cardio Cycling", "Montain Climbing", "Tennis", "Skating"];
 
   async function handelMatch() {
@@ -38,6 +41,7 @@ function Match() {
   return (
     <Container fluid id="match-box">
       <video src={video} autoPlay={true} loop={true} muted className="match-bg"></video>
+      {form && <CovidForm setForm={setForm} setOkForMatch={setOkForMatch} />}
       <div className="match-form-box shadow-lg">
         {match ? (
           <MatchUser className="matchuser" data={matchUser} matchdata={{ exercise: exercise, time: time, location: location }} setMatch={setMatch} />
@@ -81,7 +85,7 @@ function Match() {
                   </Form.Group>
 
                   <div className="d-flex justify-content-center mt-2">
-                    <Button size="md" variant="danger" onClick={handelMatch} className="match-btn">
+                    <Button size="md" variant="danger" onClick={handelMatch} className="match-btn" disabled={!okForMatch}>
                       MATCH
                     </Button>
                   </div>

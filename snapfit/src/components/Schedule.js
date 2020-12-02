@@ -8,8 +8,8 @@ import { useEffect } from "react";
 function Schedule() {
   const appState = useContext(StateContext);
   const [click, setClick] = useState("");
-  const [display, setDisplay] = useState(false);
-  const [dayData, setDayData] = useState("");
+  const [display, setDisplay] = useState(true);
+  const [dayData, setDayData] = useState("Monday");
   const [schedule, setSchedule] = useState(appState.schedule);
 
   useEffect(() => {
