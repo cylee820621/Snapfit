@@ -1,6 +1,6 @@
 #middleSection-box {
   position: relative;
-  width: 48%;
+  width: 50%;
   margin-left: 0rem;
   margin-right: 0rem;
   padding-top: 0.3rem;
@@ -23,8 +23,7 @@
   padding: 2rem;
   min-height: 20rem;
 }
-.AboutContainer {
-}
+
 .AboutBtn {
   position: relative;
   left: 85%;

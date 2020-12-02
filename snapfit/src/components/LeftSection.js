@@ -4,7 +4,7 @@ import Schedule from "./Schedule";
 function LeftSection() {
   const style = {
     position: "relative",
-    width: "25%"
+    width: "24%"
   };
 
   return (

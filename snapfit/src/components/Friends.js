@@ -43,13 +43,13 @@ function Friends() {
   return (
     <Container fluid>
       <AddFriend addFriend={addFriend} setAddFriend={setAddFriend} />
-      <div className="p-2 overflow-auto">
+      <div className="p-1 overflow-hidden">
         {loading ? (
           <div className="d-flex justify-content-center pt-5 mt-5">
             <Spinner animation="border" />
           </div>
         ) : (
-          <Row xs={1} sm={1} md={2} lg={2} xl={2} className="justify-content-around">
+          <Row xs={1} sm={2} md={2} lg={2} xl={2} className="justify-content-around">
             {friendList.length === 0 ? (
               <div className="d-flex justify-content-center align-centent-center pt-5 mt-5">0</div>
             ) : (

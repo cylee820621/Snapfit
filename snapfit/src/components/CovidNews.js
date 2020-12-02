@@ -59,11 +59,3 @@ function CovidNews() {
 }
 
 export default CovidNews;
-
-/*  {news.maps((aNews) => {
-            return (
-              <li>
-                <a src={aNews.webUrl}>{aNews.title}</a>
-              </li>
-            );
-          })} */

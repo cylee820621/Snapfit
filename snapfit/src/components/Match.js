@@ -47,10 +47,10 @@ function Match() {
               <Image className="match-img" src={heart} />
             </div>
             {loading ? (
-              <div className="justify-content-center align-content-center">Loading...</div>
+              <div className="d-flex justify-content-center align-content-center fm-box">Loading...</div>
             ) : (
-              <Row className="justify-content-md-center mx-1">
-                <Form>
+              <Row className="justify-content-md-center">
+                <Form className="fm-box">
                   <Form.Group className="mb-3" controlId="Exercise">
                     <Form.Label className="exercise">Exercise</Form.Label>
                     <select
@@ -96,17 +96,3 @@ function Match() {
 }
 
 export default Match;
-
-/*
-function handleLocation() {
-    if ("geolocation" in navigator) {
-      console.log("Available");
-      navigator.geolocation.getCurrentPosition(function (position) {
-        console.log("Latitude is :", position.coords.latitude);
-        console.log("Longitude is :", position.coords.longitude);
-      });
-    } else {
-      console.log("Not Available");
-    }
-  }
-*/
