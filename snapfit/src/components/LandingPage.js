@@ -74,9 +74,10 @@ function LandingPage() {
         ) : (
           <div>
             <div className="body">
-              <div className="body-content">Strength does not come from winning. Your struggles develop your strengths. When you go through hardships and decide not to surrender, that is strength.</div>
+              <div className="body-content mt-5 mb-3">Strength does not come from winning. Your struggles develop your strengths. When you go through hardships and decide not to surrender, that is strength. </div>
             </div>
-            <div className="learn-more-btn">
+            <div className="body-content mb-5">A Platform for dedicated and motivated individuals who strive to stay healthy and can find and match with other users with same fitness goals and schedule.</div>
+            <div className="learn-more-btn mt-2">
               <Button variant="info">Learn More</Button>
             </div>
           </div>
