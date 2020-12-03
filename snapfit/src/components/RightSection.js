@@ -1,5 +1,4 @@
 import React from "react";
-import { Container } from "react-bootstrap";
 import CovidNews from "./CovidNews";
 
 function RightSection() {
