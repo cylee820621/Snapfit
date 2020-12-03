@@ -40,6 +40,9 @@ function Friends() {
     allFriend();
   }, [appState.friend]);
 
+  useEffect(() => {
+    console.log(appState.friend);
+  }, [appState.friend]);
   return (
     <Container fluid>
       <AddFriend addFriend={addFriend} setAddFriend={setAddFriend} />
@@ -58,7 +61,7 @@ function Friends() {
                   return (
                     <Col key={index}>
                       <div className="d-flex justify-content-center align-items-center m-3 ">
-                        <FriendCard index={index} data={frienddata} />
+                        <FriendCard friendList={friendList} setFriendList={setFriendList} index={index} data={frienddata} />
                       </div>
                     </Col>
                   );

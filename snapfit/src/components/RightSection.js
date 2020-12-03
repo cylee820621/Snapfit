@@ -4,8 +4,8 @@ import CovidNews from "./CovidNews";
 function RightSection() {
   const style = {
     position: "relative",
-    width: "23.5%",
-    minWidth: "25rem"
+    width: "23%",
+    minWidth: "24rem"
   };
   return (
     <div style={style}>
