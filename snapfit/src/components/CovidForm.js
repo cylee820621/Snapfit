@@ -3,18 +3,22 @@ import { Button, Container, Form } from "react-bootstrap";
 import "../styles/covidform.css";
 
 function CovidForm(props) {
-  const [ans1, setAns1] = useState(false);
-  const [ans2, setAns2] = useState(false);
-  const [ans3, setAns3] = useState(false);
-  const [ans4, setAns4] = useState(false);
+  const [ans1, setAns1] = useState("");
+  const [ans2, setAns2] = useState("");
+  const [ans3, setAns3] = useState("");
+  const [ans4, setAns4] = useState("");
 
   function handleSubmit() {
-    if (ans1 && ans2 && ans3 && ans4) {
-      props.setForm(false);
-      props.setOkForMatch(true);
+    if (ans1 == "" || ans2 === "" || ans3 === "" || ans4 === "") {
+      alert("please fill out the form");
     } else {
-      props.setForm(false);
-      props.setOkForMatch(false);
+      if (ans1 && ans2 && ans3 && ans4) {
+        props.setForm(false);
+        props.setOkForMatch(true);
+      } else {
+        props.setForm(false);
+        props.setOkForMatch(false);
+      }
     }
   }
 

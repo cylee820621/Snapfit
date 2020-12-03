@@ -1,6 +1,14 @@
 .matchuser-container {
   position: relative;
-  width: auto;
+  transition: matchedbox 2s ease-in-out;
+}
+@keyframes matchedbox {
+  from {
+    width: 0;
+  }
+  to {
+    width: auto;
+  }
 }
 
 .matched-close-btn {

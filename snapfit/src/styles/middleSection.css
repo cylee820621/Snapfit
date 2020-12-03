@@ -1,8 +1,9 @@
 #middleSection-box {
   position: relative;
   width: 50%;
-  margin-left: 0rem;
-  margin-right: 0rem;
+  min-width: 40rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
   padding-top: 0.3rem;
   padding-left: 0rem;
   padding-right: 0rem;
