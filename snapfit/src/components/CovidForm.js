@@ -9,7 +9,7 @@ function CovidForm(props) {
   const [ans4, setAns4] = useState("");
 
   function handleSubmit() {
-    if (ans1 == "" || ans2 === "" || ans3 === "" || ans4 === "") {
+    if (ans1 == "" && ans2 === "" && ans3 === "" && ans4 === "") {
       alert("please fill out the form");
     } else {
       if (ans1 && ans2 && ans3 && ans4) {
@@ -35,7 +35,7 @@ function CovidForm(props) {
         <div className="covidform-box">
           <div>In the past 14 days, have you tested positive for COVID-19 using a test that tested saliva or used a nose or throat swab (not a blood test)?</div>
           <Form.Check type="radio" name="form2" label="Yes" onChange={() => setAns2(false)} />
-          <Form.Check type="radio" name="form3" label="No" onChange={() => setAns2(true)} />
+          <Form.Check type="radio" name="form2" label="No" onChange={() => setAns2(true)} />
         </div>
       </Form.Group>
       <Form.Group controlId="exampleForm.ControlSelect1">

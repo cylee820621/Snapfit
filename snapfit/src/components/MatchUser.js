@@ -4,6 +4,7 @@ import "../styles/matchuser.css";
 import FriendCard from "./FriendCard";
 
 function MatchUser(props) {
+  const style = props.styleData;
   const [matchData, setMatchData] = useState([]);
 
   useEffect(() => {
@@ -11,11 +12,11 @@ function MatchUser(props) {
   }, [props.data]);
 
   return (
-    <div className="matchuser-container">
+    <div className={style}>
       <Button variant="light" className="matched-close-btn" onClick={() => props.setMatch(false)}>
         x
       </Button>
-      <div className="d-flex justify-content-center mb-4">
+      <div className="d-flex justify-content-center mb-4 matched-wd">
         <h3>Matched!</h3>
       </div>
       <div className="overflow-auto">

@@ -1,14 +1,20 @@
 .matchuser-container {
   position: relative;
-  transition: matchedbox 2s ease-in-out;
+  width: auto;
+  transition: expandbox 4s;
 }
-@keyframes matchedbox {
-  from {
+
+@keyframes expandbox {
+  0% {
     width: 0;
   }
-  to {
+  100% {
     width: auto;
   }
+}
+
+.matched-wd {
+  color: white;
 }
 
 .matched-close-btn {
