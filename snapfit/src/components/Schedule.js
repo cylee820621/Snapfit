@@ -33,7 +33,7 @@ function Schedule() {
         </div>
       )}
 
-      <Row className="d-flex justify-content-center pb-2">
+      <Row xs={1} sm={2} md={3} lg={4} xl={4} className="d-flex justify-content-center pb-2">
         {Object.keys(schedule).map((eachday, index) => {
           return (
             <div key={index} className="d-flex justify-content-center align-items-center m-1 shadow-sm">

@@ -1,6 +1,5 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
-import DispatchContext from "../DispatchContext";
 import "../styles/covidform.css";
 
 function CovidForm(props) {
@@ -20,7 +19,7 @@ function CovidForm(props) {
   }
 
   return (
-    <div className="covidform shadow-xl">
+    <div className="covidform shadow-lg">
       <Form.Group controlId="exampleForm.ControlSelect1">
         <div className="covidform-box">
           <div>Have you experienced a fever of 100.4 degrees Fahrenheit or greater, a new cough, new loss of taste or smell, or shortness of breath within the past 14 days?</div>

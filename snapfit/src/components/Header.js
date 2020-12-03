@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button, Container, Image } from "react-bootstrap";
-import HeaderNewFriend from "./HeaaderNewFriend";
+import HeaderNewFriend from "./HeaderNewFriend";
 import Messenger from "./Messenger";
 import "../styles/header.css";
 import logo from "../assets/logo.png";

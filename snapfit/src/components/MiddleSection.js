@@ -92,7 +92,7 @@ function MiddleSection() {
           </>
         )}
       </div>
-      <div className="d-flex justify-content-center align-items-center mt-3 mb-3">
+      <div className="d-flex justify-content-center align-items-center mt-5 mb-3">
         <Container fluid className="p-0 shadow">
           <Button size="sm" className="rounded-0" onClick={() => setDisplay(false)} block variant="light">
             FRIEND

@@ -1,15 +1,16 @@
 .covidform {
   position: absolute;
   z-index: 999;
-  height: 50rem;
-  width: 33rem;
-  border-radius: 2.5rem;
+  height: 45rem;
+  width: 43rem;
+  border-radius: 2rem;
   border-width: 0rem;
   border-style: hidden;
   background-color: #f0ebf8;
   padding-top: 2rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
 }
 .covidform-box {
   background-color: white;
