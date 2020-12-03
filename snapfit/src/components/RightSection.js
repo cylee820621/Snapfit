@@ -5,15 +5,12 @@ import CovidNews from "./CovidNews";
 function RightSection() {
   const style = {
     position: "relative",
-    width: "24%",
-    marginLeft: "0rem",
-    marginRight: "0rem",
-    backgroundColor: "white"
+    width: "24%"
   };
   return (
-    <Container style={style} className="shadow" fluid>
+    <div style={style}>
       <CovidNews />
-    </Container>
+    </div>
   );
 }
 

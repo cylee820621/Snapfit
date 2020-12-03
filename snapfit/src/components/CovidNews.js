@@ -6,9 +6,10 @@ function CovidNews() {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(false);
   const style = {
-    height: "35rem",
-    backgroundColor: "whtie",
-    opacity: "1"
+    height: "40rem"
+  };
+  const style1 = {
+    height: "35rem"
   };
 
   useEffect(() => {
@@ -41,7 +42,7 @@ function CovidNews() {
             <Spinner animation="border" />
           </div>
         ) : (
-          <ul>
+          <ul style={style1}>
             {news.map((aNews, index) => {
               return (
                 <li key={index}>
