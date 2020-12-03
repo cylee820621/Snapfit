@@ -1,16 +1,6 @@
 .matchuser-container {
   position: relative;
   width: auto;
-  transition: expandbox 4s;
-}
-
-@keyframes expandbox {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: auto;
-  }
 }
 
 .matched-wd {

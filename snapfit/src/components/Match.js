@@ -44,7 +44,7 @@ function Match() {
       {form && <CovidForm setForm={setForm} setOkForMatch={setOkForMatch} />}
       <div className="match-form-box shadow-lg">
         {match ? (
-          <MatchUser styleData={match ? "matchuser-container" : ""} className="matchuser" data={matchUser} matchdata={{ exercise: exercise, time: time, location: location }} setMatch={setMatch} />
+          <MatchUser className="matchuser" data={matchUser} matchdata={{ exercise: exercise, time: time, location: location }} setMatch={setMatch} />
         ) : (
           <div className="match-form-container">
             <div className="d-flex justify-content-center mb-2">
