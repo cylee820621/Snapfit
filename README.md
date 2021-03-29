@@ -25,7 +25,7 @@ packages.
 
 Enter "npm start" in terminal to run the App.js file
 
-Go to Browser, enter http://localhost:3000/ to the URL
+Go to Browser, enter http://localhost:3000/
 
 Backend Server
 
